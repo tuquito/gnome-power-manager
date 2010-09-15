@@ -1,0 +1,22 @@
+debian/pixmaps/shares.xpm usr/share/gnome-system-tools/pixmaps/
+debian/pixmaps/time.xpm usr/share/gnome-system-tools/pixmaps/
+debian/pixmaps/users.xpm usr/share/gnome-system-tools/pixmaps/
+debian/tmp/usr/share/glib-2.0/schemas
+debian/tmp/etc/gnome-system-tools
+debian/tmp/usr/bin/shares-admin
+debian/tmp/usr/bin/time-admin
+debian/tmp/usr/bin/users-admin
+debian/tmp/usr/lib/pkgconfig
+debian/tmp/usr/share/locale
+debian/tmp/usr/share/icons/hicolor
+debian/tmp/usr/share/omf/services-admin
+debian/tmp/usr/share/omf/time-admin
+debian/tmp/usr/share/omf/users-admin
+debian/tmp/usr/share/omf/shares-admin
+debian/tmp/usr/share/gnome-system-tools
+debian/tmp/usr/share/applications/shares.desktop
+debian/tmp/usr/share/applications/time.desktop
+debian/tmp/usr/share/applications/users.desktop
+debian/tmp/usr/share/gnome/help/shares-admin
+debian/tmp/usr/share/gnome/help/time-admin
+debian/tmp/usr/share/gnome/help/users-admin

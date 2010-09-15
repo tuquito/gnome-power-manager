@@ -1,0 +1,24 @@
+Index: gnome-system-tools-2.31.91/doc/services/Makefile.am
+===================================================================
+--- gnome-system-tools-2.31.91.orig/doc/services/Makefile.am	2010-08-11 19:28:00.000000000 +1000
++++ gnome-system-tools-2.31.91/doc/services/Makefile.am	2010-09-01 18:35:56.502617001 +1000
+@@ -9,7 +9,4 @@
+ 
+ DOC_LINGUAS = ca cs de el en_GB es fr gl oc pl pt_BR sv it zh_CN
+ 
+-# this isn't still ported to gnome-doc-utils
+-SUBDIRS = nl 
+-
+ -include $(top_srcdir)/git.mk
+Index: gnome-system-tools-2.31.91/doc/time/Makefile.am
+===================================================================
+--- gnome-system-tools-2.31.91.orig/doc/time/Makefile.am	2010-08-11 19:28:00.000000000 +1000
++++ gnome-system-tools-2.31.91/doc/time/Makefile.am	2010-09-01 18:35:56.502617001 +1000
+@@ -12,7 +12,4 @@
+ 
+ DOC_LINGUAS = ca cs de el en_GB es fr gl it oc pt_BR ru sv zh_CN
+ 
+-# This isn't still ported to gnome-doc-utils
+-SUBDIRS = nl
+-
+ -include $(top_srcdir)/git.mk

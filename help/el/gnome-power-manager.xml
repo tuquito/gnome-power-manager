@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "GNOME Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.27.3">
+<!ENTITY manrevision "2.27.3">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+	  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="el">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Εγχειρίδιο της <application>Διαχείρισης ενέργειας του GNOME</application></title>
+    <abstract role="description">
+      <para>Η <application>Διαχείρισης ενέργειας του GNOME</application> είναι μια υπηρεσία συνεδρίας για την Επιφάνεια εργασίας GNOME που διαχειρίζεται τις ρυθμίσεις ενέργειας για τον φορητό ή σταθερό υπολογιστή σας.</para>
+    </abstract>
+    <copyright>
+      <year>2006-2009</year>
+      <holder>Richard Hughes (richard@hughsie.com)</holder>
+    </copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Χορηγείται άδεια αντιγραφής, διανομής και/ή τροποποίησης του παρόντος εγγράφου υπό τους όρους της έκδοσης 1.1 της Ελεύθερης Άδειας Τεκμηρίωσης GNU (GFDL), ή οποιασδήποτε μεταγενέστερης έκδοσής της από το Ίδρυμα Ελεύθερου Λογισμικού (FSF), χωρίς αμετάβλητα τμήματα, κείμενα εξώφυλλου και κείμενα οπισθόφυλλου. Αντίγραφο της άδειας GFDL είναι διαθέσιμο στον ακόλουθο <ulink type="help" url="ghelp:fdl">σύνδεσμο</ulink>, ή στο αρχείο COPYING-DOCS που διανέμεται μαζί με το παρόν εγχειρίδιο.</para>
+         <para>Αυτό το εγχειρίδιο αποτελεί μέρος της συλλογής εγχειριδίων του GNOME που διανέμονται υπό τους όρους της GFDL. Αν επιθυμείτε να διανείμετε το παρόν εγχειρίδιο ξεχωριστά από τη συλλογή, οφείλετε να προσθέσετε στο εγχειρίδιο αντίγραφο της άδειας χρήσης, όπως περιγράφεται στο άρθρο 6 της άδειας. </para>
+
+	<para>Πολλές από τις ονομασίες που χρησιμοποιούνται από εταιρείες για τη διαφοροποίηση των προϊόντων και υπηρεσιών τους έχουν καταχωρισθεί ως εμπορικά σήματα. Οπουδήποτε στην τεκμηρίωση του GNOME εμφανίζονται αυτές οι ονομασίες, και εφόσον τα μέλη του Έργου τεκμηρίωσης του GNOME έχουν λάβει γνώση αυτών των εμπορικών σημάτων, οι ονομασίες αυτές θα γράφονται με κεφαλαίους χαρακτήρες ή με κεφαλαίους τους αρχικούς χαρακτήρες.</para>
+
+	<para>ΤΟ ΠΑΡΟΝ ΕΓΓΡΑΦΟ ΚΑΙ ΟΙ ΤΡΟΠΟΠΟΙΗΜΕΝΕΣ ΕΚΔΟΣΕΙΣ ΑΥΤΟΥ ΠΑΡΕΧΟΝΤΑΙ ΥΠΟ ΤΟΥΣ ΟΡΟΥΣ ΤΗΣ ΕΛΕΥΘΕΡΗΣ ΑΔΕΙΑΣ ΤΕΚΜΗΡΙΩΣΗΣ GNU (GFDL) ΚΑΙ ΜΕ ΤΗΝ ΠΕΡΑΙΤΕΡΩ ΔΙΕΥΚΡΙΝΙΣΗ ΟΤΙ: <orderedlist>
+		<listitem>
+		  <para>ΤΟ ΠΑΡΟΝ ΕΓΓΡΑΦΟ ΠΑΡΕΧΕΤΑΙ "ΩΣ ΕΧΕΙ", ΧΩΡΙΣ ΟΠΟΙΑΔΗΠΟΤΕ ΑΛΛΗ ΕΓΓΥΗΣΗ, ΕΙΤΕ ΡΗΤΗ ΕΙΤΕ ΣΙΩΠΗΡΗ, ΣΥΜΠΕΡΙΛΑΜΒΑΝΟΜΕΝΗΣ, ΧΩΡΙΣ ΝΑ ΠΕΡΙΟΡΙΖΕΤΑΙ ΣΕ ΑΥΤΗ, ΤΗΣ ΕΓΓΥΗΣΗΣ ΟΤΙ ΤΟ ΕΓΓΡΑΦΟ, Η ΤΡΟΠΟΠΟΙΗΜΕΝΗ ΕΚΔΟΣΗ ΑΥΤΟΥ, ΕΙΝΑΙ ΜΗ ΕΛΑΤΤΩΜΑΤΙΚΟ, ΕΜΠΟΡΕΥΣΙΜΟ, ΚΑΤΑΛΛΗΛΟ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ, Η ΕΛΕΥΘΕΡΟ ΠΑΡΑΒΑΣΕΩΝ. Ο ΧΡΗΣΤΗΣ ΑΝΑΛΑΜΒΑΝΕΙ ΕΞ ΟΛΟΚΛΗΡΟΥ ΤΗΝ ΕΥΘΥΝΗ ΩΣ ΠΡΟΣ ΤΗΝ ΠΟΙΟΤΗΤΑ, ΤΗΝ ΑΚΡΙΒΕΙΑ ΚΑΙ ΤΗΝ ΑΠΟΤΕΛΕΣΜΑΤΙΚΟΤΗΤΑ ΤΟΥ ΕΓΓΡΑΦΟΥ, Η ΤΡΟΠΟΠΟΙΗΜΕΝΗΣ ΕΚΔΟΣΗΣ ΑΥΤΟΥ. ΣΕ ΠΕΡΙΠΤΩΣΗ ΠΟΥ ΕΝΑ ΕΓΓΡΑΦΟ, Η ΤΡΟΠΟΠΟΙΗΜΕΝΗ ΕΚΔΟΣΗ ΑΥΤΟΥ, ΑΠΟΔΕΙΧΘΟΥΝ ΕΛΑΤΤΩΜΑΤΙΚΑ ΚΑΘ' ΟΙΟΝΔΗΠΟΤΕ ΤΡΟΠΟ, Ο ΧΡΗΣΤΗΣ (ΚΑΙ ΟΧΙ Ο ΑΡΧΙΚΟΣ ΣΥΓΓΡΑΦΕΑΣ, Ο ΔΗΜΙΟΥΡΓΟΣ Η ΟΙ ΣΥΝΤΕΛΕΣΤΕΣ) ΑΝΑΛΑΜΒΑΝΕΙ ΤΟ ΚΟΣΤΟΣ ΟΠΟΙΑΣΔΗΠΟΤΕ ΑΝΑΓΚΑΙΑΣ ΣΥΝΤΗΡΗΣΗΣ, ΕΠΙΣΚΕΥΗΣ 'Η ΔΙΟΡΘΩΣΗΣ. Η ΠΑΡΟΥΣΑ ΑΠΟΠΟΙΗΣΗ ΕΓΓΥΗΣΗΣ ΑΠΟΤΕΛΕΙ ΑΝΑΠΟΣΠΑΣΤΟ ΜΕΡΟΣ ΤΗΣ ΑΔΕΙΑΣ. Η ΧΡΗΣΗ ΤΟΥ ΕΓΓΡΑΦΟΥ, Ή ΤΡΟΠΟΠΟΙΗΜΕΝΗΣ ΕΚΔΟΣΗΣ ΑΥΤΟΥ, ΕΠΙΤΡΕΠΕΤΑΙ ΜΟΝΟ ΥΠΟ ΤΟΥΣ ΟΡΟΥΣ ΤΗΣ ΠΑΡΟΥΣΑΣ ΑΠΟΠΟΙΗΣΗΣ ΕΓΓΥΗΣΗΣ. ΕΠΙΣΗΣ,</para>
+		</listitem>
+		<listitem>
+		  <para>Ο ΔΗΜΙΟΥΡΓΟΣ, Ο ΑΡΧΙΚΟΣ ΣΥΓΓΡΑΦΕΑΣ, ΟΙ ΣΥΝΤΕΛΕΣΤΕΣ ΚΑΙ ΟΙ ΔΙΑΝΟΜΕΙΣ ΤΟΥ ΕΓΓΡΑΦΟΥ Η ΤΡΟΠΟΠΟΙΗΜΕΝΗΣ ΕΚΔΟΣΗΣ ΑΥΤΟΥ, ΚΑΘΩΣ ΚΑΙ ΟΙ ΠΡΟΜΗΘΕΥΤΕΣ ΤΩΝ ΠΡΟΑΝΑΦΕΡΟΜΕΝΩΝ ΜΕΡΩΝ, ΣΕ ΚΑΜΙΑ ΠΕΡΙΠΤΩΣΗ ΚΑΙ ΥΠΟ ΚΑΜΙΑ ΝΟΜΙΚΗ ΕΡΜΗΝΕΙΑ ΤΟΥ ΑΣΤΙΚΟΥ (ΣΥΜΠΕΡΙΛΑΜΒΑΝΟΜΕΝΗΣ ΤΗΣ ΑΜΕΛΕΙΑΣ), ΤΟΥ ΕΝΟΧΙΚΟΥ Η ΑΛΛΟΥ ΔΙΚΑΙΟΥ, ΔΕΝ ΕΥΘΥΝΟΝΤΑΙ ΕΝΑΝΤΙ ΟΙΟΥΔΗΠΟΤΕ ΓΙΑ ΤΥΧΟΝ ΑΜΕΣΕΣ, ΕΜΜΕΣΕΣ, ΕΙΔΙΚΕΣ, ΤΥΧΑΙΕΣ Η ΣΥΝΕΠΑΚΟΛΟΥΘΕΣ ΖΗΜΙΕΣ ΟΠΟΙΑΣΔΗΠΟΤΕ ΜΟΡΦΗΣ, ΣΥΜΠΕΡΙΛΑΜΒΑΝΟΜΕΝΩΝ, ΧΩΡΙΣ ΝΑ ΠΕΡΙΟΡΙΖΟΝΤΑΙ ΣΕ ΑΥΤΕΣ, ΖΗΜΙΩΝ ΛΟΓΩ ΑΠΩΛΕΙΑΣ ΦΗΜΗΣ ΚΑΙ ΠΕΛΑΤΕΙΑΣ, ΔΙΑΚΟΠΗΣ ΕΡΓΑΣΙΩΝ, ΔΥΣΛΕΙΤΟΥΡΓΕΙΑΣ Η ΒΛΑΒΗΣ ΗΛΕΚΤΡΟΝΙΚΩΝ ΥΠΟΛΟΓΙΣΤΩΝ, Η ΚΑΘΕ ΑΛΛΗΣ ΖΗΜΙΑΣ Η ΑΠΩΛΕΙΑΣ ΠΟΥ ΟΦΕΙΛΕΤΑΙ ΣΕ Η ΣΧΕΤΙΖΕΤΑΙ ΜΕ ΤΗ ΧΡΗΣΗ ΤΟΥ ΕΓΓΡΑΦΟΥ ΚΑΙ ΤΩΝ ΤΡΟΠΟΠΟΙΗΜΕΝΩΝ ΕΚΔΟΣΕΩΝ ΑΥΤΟΥ, ΑΚΟΜΑ ΚΑΙ ΑΝ ΤΑ ΩΣ ΑΝΩ ΜΕΡΗ ΕΙΧΑΝ ΛΑΒΕΙ ΓΝΩΣΗ ΤΗΣ ΠΙΘΑΝΟΤΗΤΑΣ ΠΡΟΚΛΗΣΗΣ ΤΕΤΟΙΩΝ ΖΗΜΙΩΝ.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author role="maintainer">
+        <firstname>Richard</firstname>
+        <surname>Hughes</surname>
+	<email>richard@hughsie.com</email>
+      </author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision>
+        <revnumber>2.0</revnumber>
+        <date>2006-08-30</date>
+        <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Ανάδραση</title>
+      <para>Για να αναφέρετε ένα πρόβλημα ή να κάνετε μια πρόταση σχετικά με την εφαρμογή Διαχείρισης ενέργειας του GNOME ή αυτό το εγχειρίδιο, ακολουθήστε τις οδηγίες στο <ulink url="http://www.gnome.org/projects/gnome-power-manager/" type="http"><application>GNOME Power Manager</application> Contact Page</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Διαχείριση ενέργειας του GNOME</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>gnome-power-manager</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Εισαγωγή</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Διαχείριση ενέργειας του GNOME</application></primary>
+    <secondary>Εγχειρίδιο</secondary>
+    <tertiary>gnome-power-manager</tertiary>
+  </indexterm>
+
+  <para>Η υπηρεσία συνεδρίας Διαχείριση ενέργειας του GNOME είναι μια υπηρεσία διαχείρισης ενέργειας για την <systemitem>Επιφάνεια εργασίας του GNOME</systemitem></para>
+
+</section>
+
+<section id="using">
+  <title>Χρήση</title>
+  <para>Η <application>Διαχείριση ενέργειας του GNOME</application> ξεκινά συνήθως κατά την εκκίνηση του GNOME αλλά μπορείτε να την ξεκινήσετε χειροκίνητα:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Γραμμή εντολών</term>
+      <listitem>
+    	<para>Πληκτρολογήστε <command>gnome-power-manager --verbose --no-daemon</command> και πατήστε <keycap>Return</keycap>:</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>Ειδοποιήσεις</title>
+  <para>Όταν λειτουργεί η <application>Διαχείριση ενέργειας του GNOME</application>, μπορεί να εμφανισθούν οι ακόλουθες ειδοποιήσεις.</para>
+
+  <section id="notify-unplugged">
+    <title>Ο προσαρμογέας (adapter) ισχύος AC δεν είναι συνδεδεμένος</title>
+    <figure>
+      <title>Ειδοποίηση της Διαχείρισης ενέργειας του GNOME όταν αφαιρεθεί ο προσαρμογέας ισχύος AC</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Μπορείτε να απενεργοποιήσετε αυτή την ειδοποίηση αλλάζοντας την καταχώρηση του GConf <command>/apps/gnome-power-manager/notify/discharging</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>Πλήρως φορτισμένη</title>
+    <figure>
+      <title>Ειδοποίηση της Διαχείρισης ενέργειας του GNOME όταν η κύρια μπαταρία του φορητού είναι πλήρως φορτισμένη</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Μπορείτε να απενεργοποιήσετε αυτή την ειδοποίηση αλλάζοντας την καταχώρηση του GConf <command>/apps/gnome-power-manager/notify/fully_charged</command>.</para>
+    </note>
+    <note>
+      <para>Θα λάβετε μια επαναληπτική ειδοποίηση μόνο αν το ποσοστό φόρτισης της μπαταρίας σας πέσει κάτω από το 95% και μετά φορτιστεί πάλι πλήρως. Αυτό εμποδίζει ορισμένα συστήματα να επαναλαμβάνουν ανεπιθύμητες ειδοποιήσεις αν η μπαταρία αναφέρει εσφαλμένα την κατάσταση φόρτισης.</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>Χαμηλή μπαταρία</title>
+    <para>Όταν είναι χαμηλή η φόρτιση μπαταρίας, θα λάβετε την ακόλουθη ειδοποίηση. Θα πρέπει να συνδεθείτε στο ρεύμα γρήγορα.</para>
+    <figure>
+      <title>Ειδοποίηση της Διαχείρισης ενέργειας του GNOME όταν η ισχύς της μπαταρίας είναι χαμηλή</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Μπορείτε να απενεργοποιήσετε αυτή την ειδοποίηση αλλάζοντας την καταχώρηση του GConf <command>/apps/gnome-power-manager/notify/low_power</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>Ισχύς οριακή</title>
+    <para>Όταν ένας υπολογιστής δεν έχει πλέον ισχύ, θα εμφανίσει αυτή την ειδοποίηση εξηγώντας τι ενέργεια απαιτείται. Μπορείτε να αλλάξετε την ενέργεια οριακά χαμηλής ισχύος από τις προτιμήσεις.</para>
+    <figure>
+      <title>Ειδοποίηση της Διαχείρισης ενέργειας του GNOME όταν η ισχύς του συστήματος είναι οριακά χαμηλή</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>Αποτυχία αναστολής</title>
+    <para>Όταν συμβεί μια αποτυχία αναστολής μπορεί να πάρετε την ακόλουθη ειδοποίηση. Η πιο κοινή αιτία για αυτή την ειδοποίηση είναι ότι ο τρέχων χρήστης δεν έχει δικαιώματα να θέσει σε αναστολή ή αδρανοποίηση τον υπολογιστή.</para>
+    <figure>
+      <title>Ειδοποίηση της Διαχείρισης ενέργειας του GNOME όταν υπάρχει αποτυχία αναστολής</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Μπορείτε να απενεργοποιήσετε αυτή την ειδοποίηση αλλάζοντας την καταχώρηση του GConf <command>/apps/gnome-power-manager/notify/sleep_failed</command>.</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>Στατιστικά</title>
+  <para>Το πρόγραμμα στατιστικών σάς επιτρέπει να οπτικοποιήσετε την κατανάλωση ενέργειας του υλικού του φορητού σας.</para>
+  <note>
+    <para>Αυτό έχει αφαιρεθεί από το παράθυρο πληροφοριών προηγούμενων εκδόσεων της Διαχείρισης ενέργειας του GNOME καθώς η διεπαφή δεδομένων χρησιμοποιεί τώρα το DBUS αντί για το εσωτερικό IPC. Αυτό επιτρέπει σε άλλες εφαρμογές να ζητούν και να απεικονίζουν τα δεδομένα αν τα χρειάζονται.</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>Ιστορικό μετάπτωσης τροφοδοσίας από μπαταρία σε ρεύμα</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>Μπορεί να μην βλέπετε μερικές επιλογές ή γραφήματα αν ο υπολογιστής σας δεν έχει το απαιτούμενο υλικό. Μπορεί επίσης να βλέπετε και άλλο υλικό που δεν εμφανίζεται εδώ (πχ συστήματα UPS) αλλά αυτό αντιμετωπίζεται όπως και οι άλλες συσκευές.</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>Ιστορικό φόρτισης</title>
+    <para>Αυτό το γράφημα δείχνει το διαθέσιμο ποσοστό φόρτισης για τη σύνθετη πρωτεύουσα μπαταρία, έτσι αν έχετε μια κύρια μπαταρία στο φορητό σας και μια βοηθητική, τότε μόνο η μέση τιμή θα εμφανισθεί. Δεν υπάρχει υπόμνημα για αυτό το γράφημα.</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>Ιστορικό κατανάλωσης ενέργειας</title>
+    <para>Αυτό το γράφημα δείχνει το ιστορικό χρήσης της σύνθετης πρωτεύουσας μπαταρίας. Αυτή η γραμμή αναπαριστά το ποσό ενέργειας που είτε χρησιμοποιείται για να φορτίσει τις μπαταρίες του συστήματος είτε την ενέργεια που χρησιμοποιεί το σύστημα από τις μπαταρίες. Θα πρέπει να βλέπετε τη γραμμή να ανεβαίνει όταν εκτελούνται από τον επεξεργαστή εντατικές εργασίες και να κατεβαίνει όταν το σύστημα είναι αδρανές ή η οθόνη χαμηλωμένη. Εμφανίζεται υπόμνημα με αυτό το γράφημα όταν έχουν ληφθεί δεδομένα.</para>
+
+    <note>
+      <para>Δεν θα λάβετε δεδομένα χρήσης από τον υπολογιστή σας αν δεν φορτίζει ή εκφορτίζει ή αν είναι σε αναστολή. Αυτό οφείλεται σε περιορισμούς του υλικού όπου η κατανάλωση αποστέλλεται μόνο από το ολοκληρωμένο της μπαταρίας και όχι από το τσιπ διαχείρισης ενέργειας της μητρικής.</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>Ιστορικό εκτιμώμενου χρόνου</title>
+    <para>Αυτό το γράφημα δείχνει το εκτιμώμενο ιστορικό φόρτισης για τη σύνθετη πρωτεύουσα μπαταρία. Αυτή η γραμμή αναπαριστά τη χρονική διάρκεια που απαιτείται μέχρι τη φόρτιση ή το χρονικό διάστημα μέχρι την εκφόρτιση. Αυτή η γραμμή θα πρέπει να ανεβαίνει όταν ο ρυθμός χρήσης μειώνεται και να κατεβαίνει όταν αυξάνεται. Εμφανίζεται υπόμνημα με το γράφημα όταν έχουν ληφθεί δεδομένα.</para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>Προτιμήσεις</title>
+
+  <para>Το παράθυρο των προτιμήσεων σάς επιτρέπει να ελέγξετε:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>Τη φωτεινότητα της οθόνης LCD όταν η τροφοδοσία είναι από το ρεύμα ή τη μπαταρία</para>
+    </listitem>
+    <listitem>
+      <para>Χρόνος αδράνειας για το σβήσιμο της οθόνης και την αναστολή λειτουργίας</para>
+    </listitem>
+    <listitem>
+      <para>Ενέργειες όταν κλείνει το κάλυμμα του φορητού</para>
+    </listitem>
+    <listitem>
+      <para>Πολιτική εικονιδίων της περιοχής ειδοποιήσεων</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>Μερικά ρυθμιστικά ή κουτιά επιλογών μπορεί να απενεργοποιηθούν αν οι καταχωρήσεις πολιτικής του GConf. Αυτό επιτρέπει στους διαχειριστές να κλειδώσουν τις ενέργειες που μπορεί να κάνει ένας χρήστης.</para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>Προτιμήσεις τροφοδοσίας ρεύματος (AC)</title>
+    <figure id="prefs-ac">
+      <title>Καρτέλα Διαχείριση ενέργειας AC του GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>Προτιμήσεις μπαταρίας</title>
+    <figure id="prefs-processor">
+      <title>Καρτέλα Διαχείριση ενέργειας μπαταρίας του GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Αυτό επιτρέπει σε έναν ισχυρό υπολογιστή να μειώνει την κατανάλωση ενέργειας όταν είναι αδρανής ή όταν δεν χρειάζονται οι πλήρεις δυνατότητες.</para>
+  </section>
+
+  <section id="preferences-general">
+    <title>Γενικές προτιμήσεις</title>
+    <figure id="prefs-general">
+      <title>Καρτέλα Γενικά της Διαχείρισης ενέργειας του GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>Χρόνοι αδράνειας συνεδρίας και συστήματος</title>
+    <para>Το <command>gnome-screensaver</command> είναι μια υπηρεσία συνδερίας που παρακολουθεί τα εισερχόμενα του χρήστη και αν δεν έχει κινηθεί το ποντίκι ή δεν έχει πατηθεί πλήκτρο στο πληκτρολόγιο αρχίζει μια χρονομέτρηση. Όταν η τιμή αυτής της χρονομέτρησης φτάσει τη τιμή που ορίζεται στο <command>gnome-screensaver-preferences</command>, τότε η συνεδρία σημαίνεται ως 'αδρανής'. Τότε η <application>Διαχείριση ενέργειας του GNOME</application> κάνει όλες τις ενέργειες αδράνειας του συστήματος όπως την ενεργοποίηση κατάστασης χαμηλής ισχύος και τη μείωση της φωτεινότητας της οθόνης του φορητού.</para>
+
+    <figure>
+      <title>Αλλαγή του χρόνου αδράνειας στο <command>gnome-screensaver-preferences</command></title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Μόλις η συνεδρία σημανθεί ως αδρανής, η <application>Διαχείριση ενέργειας του GNOME</application> εκκινεί το δικό της χρονόμετρο 'συστήματος'. Όταν φτάσει ο χρόνος που ορίζεται στο <command>gnome-power-preferences</command> και δεν υπάρχει φόρτος στον επεξεργαστή, τότε γίνονται οι ενέργειες αδράνειας, συνήθως σβήσιμο της οθόνης ή αναστολή ή αδρανοποίηση.</para>
+    <para>Για να είναι αυτό πιο σαφές, τα συρόμενα ρυθμιστικά στο <command>gnome-power-preferences</command> είναι ρυθμισμένα να αρχίζουν στην τιμή αδράνεια-συνεδρίας + 1 λεπτό, καθώς δεν μπορούμε λογικά να εκκινήσουν πριν η συνεδρία σημανθεί ως αδρανής. Αν ρυθμίσετε την τιμή της 'αδρανούς συνεδρίας' στο <command>gnome-screensaver-preferences</command> τότε η έναρξη των ρυθμιστικών στο <command>gnome-power-preferences</command> θα αλλάξει αντίστοιχα.</para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>Προτιμήσεις για προχωρημένους</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>Μείωση φωτεινότητας οθόνης</title>
+    <note>
+      <para>Μπορείτε να αλλάξετε τη φωτεινότητα της οθόνης του αδρανούς φορητού αλλάζοντας την καταχώρηση <command>/apps/gnome-power-manager/backlight/idle_brightness</command> στο GConf.</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>Κλείδωμα οθόνης</title>
+    <para>Από προεπιλογή η <application>Διαχείριση ενέργειας του GNOME</application> υποστηρίζει ένα απλό σύστημα κλειδώματος. Αυτό σημαίνει ότι η οθόνη θα κλειδώσει αν ορισθεί το "Κλείδωμα οθόνης" όταν κλείνει το καπάκι ή το σύστημα εκτελεί μια λειτουργία αναστολής ή αδρανοποίησης.</para>
+    <para>Υπάρχει ένα σύνθετο σύστημα κλειδώματος διαθέσιμο για προχωρημένους χρήστες που επιτρέπει αλλαγή της πολιτικής κλειδώματος για το κάλυμμα, την αναστολή και την αδρανοποίηση. Για να ενεργοποιήσετε αυτή τη σύνθετη κατάσταση λειτουργίας πρέπει να απενεργοποιήσετε την καταχώρηση του GConf:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/use_screensaver_settings</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>Κατόπιν οι καταχωρήσεις πολιτικής μπορούν να ορισθούν ώστε να αναγκάζουν την προφύλαξη οθόνης να κλειδώνει και να ξεκλειδώνει όταν γίνεται η ενέργεια:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/blank_screen</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/suspend</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/hibernate</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Η πολιτική κλειδώματος για την προφύλαξη οθόνης αγνοείται μέχρι την επαναφορά της απλής κατάστασης λειτουργίας.</para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>Μικροεφαρμογές ενέργειας του GNOME</title>
+
+  <section id="applets-brightness">
+    <title>Μικροεφαρμογή φωτεινότητας</title>
+    <para>Η μικροεφαρμογή φωτεινότητας επιτρέπει στο χρήστη να αλλάξει προσωρινά τη φωτεινότητα της οθόνης χωρίς να αλλάξει την προεπιλεγμένη πολιτική. Αυτό μπορεί να είναι χρήσιμο αν έχετε ένα φορητό υπολογιστή χωρίς κουμπιά ρύθμισης φωτεινότητας καθώς τώρα μπορείτε να αλλάξετε εύκολα τη φωτεινότητα.</para>
+    <figure>
+      <title>Αναπτυσσόμενο μενού μικροεφαρμογής  φωτεινότητας.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Δεν θα δείτε το συρόμενο ρυθμιστικό αν δεν υποστηρίζεται το υλικό σας.</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>Μικροεφαρμογή παρεμπόδισης</title>
+    <para>Η μικροεφαρμογή παρεμπόδισης επιτρέπει στο χρήστη να εμποδίσει τον υπολογιστή να μπει αυτόματα σε αναστολή όταν είναι αδρανής. Αυτό μπορεί να είναι απαραίτητο για παλιά ή ιδιοταγή προγράμματα όπως το VMWare ή το Matlab. Απλώς κάντε κλικ στο εικονίδιο για να παρεμποδιστεί η αυτόματη αναστολή και κλικ ξανά για την κανονική λειτουργία.</para>
+    <figure>
+      <title>Η μικροεφαρμογή παρεμπόδισης σε λειτουργία παρεμπόδισης.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Μην χρησιμοποιείτε αυτή τη μικροεφαρμογή αν απλώς χρησιμοποιείτε λογισμικό του GNOME. Αντ' αυτού καταχωρήστε μια αναφορά προβλήματος για να κάνετε την εφαρμογή να χρησιμοποιεί τις μεθόδους Inhibit() και UnInhibit() καθώς θα έπρεπε να 'απλώς να δουλεύει'.</para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>Συχνές ερωτήσεις</title>
+  <para>Αυτές είναι ερωτήσεις που τίθενται συχνά στη λίστα ταχυδρομείου.</para>
+  <section id="faq-capacity">
+    <title>Τι είναι η χωρητικότητα της μπαταρίας;</title>
+    <para>Η χωρητικότητα είναι πόση ενέργεια μπορεί να αποθηκεύσει η μπαταρία σας συγκριτικά με τις οδηγίες του κατασκευαστή.</para>
+    <figure>
+      <title>Αυτό το γράφημα δείχνει την χωρητικότητα μια τυπικής μπαταρίας ιόντων λιθίου μετά από μερικές εκατοντάδες κύκλους φόρτισης-εκφόρτισης.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>Ποια η διαφορά μεταξύ αναστολής και αδρανοποίησης;</title>
+    <para>Η αναστολή λειτουργίας είναι ένα χαρακτηριστικό εξοικονόμησης ενέργειας το οποίο είναι στο χαμηλότερο επίπεδο κατανάλωσης ενέργειας που θα διατηρήσει τα δεδομένα των προγραμμάτων στη μνήμη. Όταν ο υπολογιστής βρίσκεται σε αναστολή δεν μπορούν να γίνουν υπολογισμοί μέχρι να αποκατασταθεί η κανονική λειτουργία. Ο υπολογιστής δεν θα επανέλθει μέχρι να λάβει σήμα από ένα εξωτερικό γεγονός όπως το πάτημα ενός πλήκτρου. Γενικά χρειάζονται μερικά δευτερόλεπτα για να μπει ο υπολογιστής σε αναστολή και να επανέλθει.</para>
+    <caution>
+      <para>Γίνεται χρήση ενός μικρού ποσού ενέργειας κατά την αναστολή, έτσι δεν συνίσταται για την ενέργεια χαμηλής μπαταρίας. Αν αφαιρέσετε την τροφοδοσία ρεύματος σε ένα σταθερό ή σας τελειώσει η μπαταρία σε ένα φορητό θα χάσετε τα δεδομένα σας.</para>
+    </caution>
+    <para>Η κατάσταση αδρανοποίησης αποθηκεύει ολόκληρη την κατάσταση του υπολογιστή στο σκληρό δίσκο και κλείνει την τροφοδοσία έτσι ώστε ο υπολογιστής να μοιάζει σβηστός. Δεν θα ενεργοποιηθεί μέχρι να να λάβει σήμα από ένα εξωτερικό γεγονός όπως ένα πάτημα πλήκτρου. Αυτή είναι η χαμηλότερη διαθέσιμη κατάσταση αδρανοποίησης. Αν αφαιρέσετε την τροφοδοσία από ένα σταθερό ή τελειώσει η μπαταρία ενός φορητού η εργασία σας δεν θα χαθεί. Μπορεί να πάρει ένα λεπτό ή και περισσότερο για να να μπει σε αδρανοποίηση και να ξυπνήσει ο υπολογιστής.</para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>Η οθόνη μου είναι χαλασμένη και αντιλαμβάνεται την αναμονή και το σβήσιμο ως 'απώλεια σήματος' έτσι παραμένει ανοιχτή.</title>
+    <para>Πρέπει να αλλάξετε την κατάσταση DPMS αναστολής που χρησιμοποιεί η <application>Διαχείριση ενέργειας του GNOME</application>. Ανοίξτε τον <command>gconf-editor</command> και αλλάξτε τις καταχωρήσεις <literal>/apps/gnome-power-manager/backlight/dpms_method_ac</literal> και <literal>/apps/gnome-power-manager/backlight/dpms_method_battery</literal> σε μία από τις καταστάσεις λειτουργίας που δουλεύουν, πχ αναμονή, αναστολή ή σβήσιμο.</para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>Η ένδειξη υπολειπόμενου χρόνου μπαταρίας είναι πάντα λανθασμένη λόγω ελαττωματικής μπαταρίας, τι μπορώ να κάνω?</title>
+    <para>Θα μπορούσατε να αλλάξετε τα ποσοστά που χρησιμοποιεί η διαχείριση ενέργειας. Ανοίξτε το <command>gconf-editor</command>, μετά αλλάξτε την καταχώρηση <command>/apps/gnome-power-manager/general/use_time_for_policy</command> σε false. Μπορείτε να το κάνετε εύκολα με <command> gconftool-2 --set --type bool /apps/gnome-power-manager/general/use_time_for_policy false </command></para>
+    <para>Έτσι οι ενέργειες θα γίνονται αλλά φυσικά ο υπολειπόμενος χρόνος θα είναι πάλι λανθασμένος.</para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>Πως μπορώ να κάνω την εφαρμογή μου να εμποδίζει τον υπολογιστή να μπει αυτόματα σε αναστολή;</title>
+    <para>Αν η εφαρμογή σας εκτελεί μια μακροσκελή λειτουργία, μπορεί να θέλετε να απενεργοποιήσετε τη δυνατότητα αναστολής για λίγο. Θα πρέπει να χρησιμοποιήσετε το gnome-session αν πραγματικά δε θέλετε ο χρήστης να μπορεί να θέσει σε αναστολή ή ο υπολογιστής να εξοικονομήσει ενέργεια με αδρανοποίηση ή αναστολή.</para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>Τρέχω ACPI. Γιατί συμβάντα (όπως η αποσύνδεση του προσαρμογέα ισχύος AC) παίρνουν τόσο χρόνο να γίνουν αντιληπτά;</title>
+    <para>Ένα από τα δύο μπορεί να είναι το πρόβλημα.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Το HAL μπορεί να μην τρέχει το πρόσθετο που συλλαμβάνει το συμβάν του ACPI.</para>
+      </listitem>
+      <listitem>
+        <para>Το BIOS μπορεί να είναι ελαττωματικό και μπορεί να χρειάζεται μια παράκαμψη. Παρακαλούμε στείλτε μια αναφορά προβλήματος.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Για την πρώτη περίπτωση δοκιμάστε να βρείτε τις διαδικασίες του HAL που τρέχουν: <command>ps -eaf | grep hal</command></para>
+    <para>Και ελέγξτε για τη διαδικασία <command>hald-addon-acpi</command>. Αν δεν τρέχει, τότε παρακαλούμε βεβαιωθείτε ότι το HAL εκτελείται με την επιλογή <command>--retain-privileges</command> στο <command>haldaemon</command> initscript. Μια εναλλακτική λύση σε αυτό είναι η χρήση του acpid αντί του αρχείου proc του πυρήνα.</para>
+  </section>
+
+</section>
+
+<section id="about">
+  <title>Περί</title>
+  <para>Η Διαχείριση ενέργειας του GNOME γράφτηκε από τον Richard Hughes <email>richard@hughsie.com</email>. Για περισσότερες πληροφορίες για τη Διαχείριση ενέργειας του GNOME, παρακαλούμε επισκεφθείτε το <ulink url="http://www.gnome.org/projects/gnome-power-manager" type="http"><application>GNOME Power Manager</application> web page</ulink>.</para>
+  <para>Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με αυτή την εφαρμογή ή το εγχειρίδιο, ακολουθήστε τις οδηγίες στο <ulink url="http://www.gnome.org/projects/gnome-power-manager/bugs.html" type="http"><application>GNOME Power Manager</application> Bug Page</ulink>.</para>
+  <para>Αυτό το πρόγραμμα διανέμετε υπό τους όρους της GNU General Public License όπως δημοσιεύεται από το Free Software Foundation. Είτε υπό την έκδοση 2 της άδειας είτε (κατ' επιλογήν σας) υπό οποιαδήποτε μεταγενέστερη. Αντίγραφο αυτής της άδειας μπορεί να βρεθεί στο <ulink url="gnome-power-manager:gpl" type="help">link</ulink> ή στο αρχείο COPYING το οποίο περιλαμβάνετε με τον πηγαίο κώδικα αυτού του προγράμματος.</para>
+</section>
+
+</article>

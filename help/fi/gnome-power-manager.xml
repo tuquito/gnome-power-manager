@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "GNOME Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.27.3">
+<!ENTITY manrevision "2.27.3">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+	  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="fi">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title><application>Gnomen virranhallinnan</application> käyttöohje</title>
+    <abstract role="description">
+      <para><application>Gnomen virranhallinta</application> on Gnome-työpöydän istuntotaustaprosessi, joka hallinnoi kannettavan tai pöytäkoneen virrankäyttöasetuksia.</para>
+    </abstract>
+    <copyright>
+      <year>2006-2009</year>
+      <holder>Richard Hughes (richard@hughsie.com)</holder>
+    </copyright><copyright><year>2009.</year><holder>Kaarina V. Sauna-aho (kaarina.v.sauna-aho@nomovok.com)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Tätä asiakirjaa saa kopioida, jakaa edelleen ja/tai muokata Free Software Foundationin julkaiseman GNU Free Documentation Licensen (GFDL) version 1.1 tai valinnaisesti myöhemmän version mukaisesti, ilman vaatimuksia muuttamattomista osioista ja etu- tai takakansiteksteistä. Kopion GFDL:stä voi nähdä napsauttamalla <ulink type="help" url="ghelp:fdl">tätä linkkiä</ulink>, tai lukemalla ohjeen mukana toimitetun COPYING-DOCS-nimisen tiedoston.</para>
+         <para>Tämä käyttöohje on osa Gnomen käyttöohjekokoelmaa ja levitetään GFDL-lisenssin alaisena. Jos haluat levittää tätä käyttöohjetta erillään kokoelmasta, voit tehdä sen liittämällä lisenssin kopion ohjeen mukaan, kuten lisenssin luku 6 sanelee.</para>
+
+	<para>Monet tuotteiden ja palveluiden nimet ovat tuotemerkkejä. Gnomen dokumentointiprojektissa nämä nimet pyritään kirjoittamaan suuraakkosin tai isolla alkukirjaimella, sikäli kun projektin jäsenet tietävät kyseisistä tuotemerkeistä.</para>
+
+	<para>ASIAKIRJA SEKÄ MUOKATUT VERSIOT ASIAKIRJASTA TARJOTAAN GNU FREE DOCUMENTATION LICENSEN EHDOIN SEKÄ YMMÄRTÄEN ETTÄ: <orderedlist>
+		<listitem>
+		  <para>ASIAKIRJA TARJOTAAN SELLAISENAAN, ILMAN MINKÄÄNLAISTA KIRJATTUA TAI KONKLUDENTTISTA RAJATONTA TAKUUTA ASIAKIRJAN TAI SEN MUOKATUN VERSION VIRHEETTÖMYYDESTÄ, SOPIVUUDESTA KAUPALLISEEN KÄYTTÖÖN TAI TIETTYYN KÄYTTÖTARKOITUKSEEN TAI LOUKKAAMATTOMUUDESTA. TÄYSI VASTUU ASIAKIRJAN TAI SEN MUOKATUN VERSION LAADUSTA, TARKKUUDESTA JA TOIMIVUUDESTA ON KÄYTTÄJÄLLÄ. JOS ASIAKIRJA TAI SEN MUOKATTU VERSIO OSOITTAUTUU JOLLAKIN TAVALLA VIRHEELLISEKSI, KÄYTTÄJÄ (EI ALKUPERÄINEN KIRJOITTAJA TAI MUU TEKIJÄ) VASTAA PALVELUJEN, KORJAUSTEN TAI OIKAISUJEN KUSTANNUKSISTA. TÄMÄ VASTUUVAPAUSLAUSEKE ON EROTTAMATON OSA LISENSSIÄ. ASIAKIRJAN TAI SEN MUOKATTUJEN VERSIOIDEN KÄYTTÖ ON SALLITTUA VAIN TÄMÄN VASTUUVAPAUSLAUSEKKEEN NOJALLA; SEKÄ</para>
+		</listitem>
+		<listitem>
+		  <para>MISSÄÄN OLOSUHTEISSA TAI MINKÄÄN OIKEUSLAITOKSEN ALAISUUDESSA, NIIN OIKEUSLOUKKAUKSISSA (MUKAAN LUKIEN HUOLIMATTOMUUS), SOPIMUS TAI MUUTOIN, ASIAKIRJAN TAI SEN MUOKATUN VERSION TEKIJÄ, ALKUPERÄINEN KIRJOITTAJA, KUKAAN AVUSTAJISTA, KUKAAN LEVITTÄJÄ TAIKKA KUKAAN TARJOAJA EI OLE VASTUUSSA KENELLEKÄÄN SUORASTA, EPÄSUORASTA, ERITYISESTÄ, TAPATURMAISESTA TAI VÄLILLISESTÄ VAHINGOSTA SISÄLTÄEN RAJOITUKSETTA VAHINGOT LIIKEARVON MENETYKSESTÄ, TYÖN KESKEYTYMISESTÄ, TIETOKONEVIRHEESTÄ TAI -HÄIRIÖSTÄ TAIKKA MISTÄÄN MUUSTA VAHINGOSTA TAI MENETYKSESTÄ, JOKA ILMENEE TAI LIITTYY ASIAKIRJAN TAI SEN MUOKATUN VERSION KÄYTTÖÖN EDES SILLOIN KUN OSAPUOLI ON OLLUT TIETOINEN TÄLLAISEN VAHINGON MAHDOLLISUUDESTA.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author role="maintainer">
+        <firstname>Richard</firstname>
+        <surname>Hughes</surname>
+	<email>richard@hughsie.com</email>
+      </author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision>
+        <revnumber>2.0</revnumber>
+        <date>2006-08-30</date>
+        <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Palaute</title>
+      <para>Jos haluat ilmoittaa ohjelmavirheestä tai sinulla on ehdotuksia Gnomen virranhallintasovelluksesta tai tästä käyttöohjeesta, seuraa ohjeita <ulink url="http://www.gnome.org/projects/gnome-power-manager/" type="http"><application>Gnomen virranhallinnan</application> yhteystietosivulta</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Gnomen virranhallinta</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>gnome-power-manager</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Johdanto</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Gnomen virranhallinta</application></primary>
+    <secondary>Käyttöohje</secondary>
+    <tertiary>gnome-power-manager</tertiary>
+  </indexterm>
+
+  <para>Gnomen virranhallinnan istuntotaustaprosessi on virranhallintataustaprosessi <systemitem>Gnome-työpöytää</systemitem> varten</para>
+
+</section>
+
+<section id="using">
+  <title>Käyttö</title>
+  <para><application>Gnomen virranhallinta</application> käynnistyy yleensä Gnomen käynnistyessä, mutta voit käynnistää <application>Gnomen virranhallinnan</application> itse seuraavasti:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Komentorivi</term>
+      <listitem>
+    	<para>Kirjoita <command>gnome-power-manager --verbose --no-daemon</command> ja paina <keycap>Enter</keycap>-näppäintä:</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>Huomautusviestit</title>
+  <para>Kun <application>Gnomen virranhallinta</application> on käynnistynyt, seuraavat huomautukset saattavat näkyä.</para>
+
+  <section id="notify-unplugged">
+    <title>Virtajohto irrotettu</title>
+    <figure>
+      <title>Gnomen virranhallinnan huomautus, kun virtajohto on irrotettu</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Voit estää tämän huomautuksen muokkaamalla GConfista avainta <command>/apps/gnome-power-manager/notify/discharging</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>Täysin ladattu</title>
+    <figure>
+      <title>Gnomen virranhallinnan huomautus, kun kannettavan pääakku on täysin ladattu</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Voit estää tämän huomautuksen muokkaamalla GConfista avainta <command>/apps/gnome-power-manager/notify/fully_charged</command>.</para>
+    </note>
+    <note>
+      <para>Uusi huomautus tulee vasta, jos akun latausaste putoaa alle 95 prosentin, ja sen jälkeen nousee täysille. Tämä estää joitakin koneita näyttämästä turhia huomautuksia, jos akku ilmoittaa lataustilansa virheellisesti.</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>Virta matalalla</title>
+    <para>Kun akku on vähissä, saat seuraavan huomautuksen. Sinun kannattaa kytkeä verkkojohto pikaisesti.</para>
+    <figure>
+      <title>Gnomen virranhallinnan ilmoitus, kun akku on vähissä</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Voit estää tämän huomautuksen muokkaamalla GConfista avainta <command>/apps/gnome-power-manager/notify/low_power</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>Virta kriittinen</title>
+    <para>Kun virta on vähissä, tietokone näyttää tämän ilmoituksen ja kertoo, mitä on tehtävä. Voit vaihtaa kriittisen virtatilan toimintoja asetuksista. </para>
+    <figure>
+      <title>Gnomen virranhallinnan huomautus, kun virta on kriittisen alhainen</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>Keskeytyksen epäonnistuminen</title>
+    <para>Kun keskeytys epäonnistuu, voit saada seuraavanlaisen ilmoituksen. Yleisin syy ilmoitukselle on se, että senhetkisellä käyttäjällä ei ole oikeuksia asettaa konetta keskeytys- tai lepotilaan.</para>
+    <figure>
+      <title>Gnomen virranhallinnan huomautus, kun keskeytys epäonnistuu</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Voit estää tämän huomautuksen muokkaamalla GConfista avainta <command>/apps/gnome-power-manager/notify/sleep_failed</command>.</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>Tilastot</title>
+  <para>Tilasto-ohjelma luo kuvaajan kannettavan tietokoneen komponenttien virrankulutuksesta.</para>
+  <note>
+    <para>Tämä on poistettu Gnomen virranhallinnan informaatioikkunasta, koska tietorajapinta käyttää nyt DBUSia sisäisen IPC:n asemesta. Tämän ansiosta toiset sovellukset voivat kysellä ja näyttää dataa tarvittaessa.</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>Virrankäytön historia siirryttäessä akkuvirrasta verkkovirtaan</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>Joitakin vaihtoehtoja tai diagrammeja ei välttämättä näy, jos tietokoneessasi ei ole tarvittavaa laitteistoa. Saatat myös nähdä laitteita, joita ei näy tässä (esimerkiksi UPS-laitteita), mutta niitä kohdellaan samalla tavoin kuin muitakin laitteita.</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>Lataushistoria</title>
+    <para>Tämä diagrammi näyttää pääkomposiittiakun jäljellä olevan latauksen prosentteina. Jos sinulla on kannettavassa pääakun ohella lisäakku, tämä näyttää keskiarvon. Tämän diagrammin mukana ei ole selostetta.</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>Virtahistoria</title>
+    <para>Tämä diagrammi näyttää pääkomposiittiakun latausvirtahistorian. Tämä viiva edustaa joko virtaa, jota käytetään järjestelmän akkujen lataamiseen, tai virtaa, jota järjestelmä käyttää akuista. Käyrän tulisi kulkea ylöspäin, kun suoritetaan paljon prosessoritehoa vaativia tehtäviä, ja alaspäin, kun järjestelmä on hiljaisena tai näyttö on himmennetty. Tämän diagrammin mukana on selsote, kun on otettu vastaan tapahtumia.</para>
+
+    <note>
+      <para>Et saa tietokoneesi nopeustietoja, jos se ei ole latautumassa tai kertynyttä latausta ei käytetä, tai jos tietokone on keskeytystilassa. Tämä johtuu laitteiston rajoituksista, koska nopeustiedot tulevat vain akun hallintasirusta, eivätkä emolevyn virranhallintasirusta.</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>Arvioidun ajan historia</title>
+    <para>Tämä diagrammi näyttää pääkomposiittiakun lataushistoria-arvion. Tämä käyrä näyttää täyteen lataukseen vaadittavan ajan, tai ajan siihen, että lataus on käytetty. Tämän käyrän kuuluisi kulkea ylöspäin suhteessa nopeuden laskuun ja alaspäin suhteessa nopeuden nousuun.</para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>Asetukset</title>
+
+  <para>Asetusikkunasta voi säätää:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>Näytön kirkkautta verkkovirtaa ja akkua käytettäessä</para>
+    </listitem>
+    <listitem>
+      <para>Joutenoloaika ennen näytön sammuttamista ja keskeytystilaa.</para>
+    </listitem>
+    <listitem>
+      <para>Toiminnot, jotka suoritetaan kun kannettavan kansi on suljettu.</para>
+    </listitem>
+    <listitem>
+      <para>Ilmoitusalueen kuvakekäytäntö</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>Jotkin liukusäätimet tai vaihtoehdot voivat olla estettyinä, jos GConfin toimintoavaimia ei voida kirjoittaa. Tämän avulla ylläpitäjät voivat lukita käyttäjien valittavissa olevia toimintoja.</para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>Verkkovirta-asetukset</title>
+    <figure id="prefs-ac">
+      <title>Gnomen virrankäytön hallinnan verkkovirtavälilehti</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>Akkuasetukset</title>
+    <figure id="prefs-processor">
+      <title>Gnomen virranhallinnan akkuvälilehti</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Tämän avulla voi vähentää tehokkaan tietokoneen virrankäyttöä kun kone on toimettomana tai kun täyttä kapasiteettia ei tarvita.</para>
+  </section>
+
+  <section id="preferences-general">
+    <title>Yleisasetukset</title>
+    <figure id="prefs-general">
+      <title>Gnomen virranhallinnan yleisvälilehti</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>Istunnon ja järjestelmän toimettomuusajat</title>
+    <para><command>gnome-screensaver</command> on istunnon taustaprosessi joka valvoo käyttäjän syötteitä, ja jos hiirtä ei ole liikutettu tai näppäimistöä painettu, aloittaa aikakatkaisun. Kun aikakatkaisun arvo saavuttaa <command>gnome-screensaver-preferences</command>-valinnoissa annetun arvon, sisäänkirjautuminen merkitään toimettomaksi istunnoksi. Tässä vaiheessa <application>Gnomen virranhallinta</application> suorittaa toimettomuusajalle määritetyt toiminnot, kuten vähävirtaisen tilan mahdollistamisen ja kannettavan näytön himmentämisen.</para>
+
+    <figure>
+      <title>Istunnon toimettomuusajan aikakatkaisun muuttaminen  <command>gnome-screensaver-preferences</command>-valinnoissa.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Heti kun istunto on merkitty toimettomaksi, <application>Gnomen virranhallinta</application> aloittaa oman järjestelmäaikalaskurinsa. Kun <command>gnome-power-preferences</command>-valinnoissa määritetty aikakatkaisun raja saavutetaan ja prosessorilla ei ole työkuormaa, toimettomuudelle määritetyt tehtävät suoritetaan. Yleensä nämä tehtävät ovat näytön sammuttaminen tai keskeytys- tai lepotila.</para>
+    <para>Asian selventämiseksi: <command>gnome-power-preferences</command>-valinnoissa olevien liukusäädinten arvot alkavat arvosta 1 minuutti istunnon aikakatkaisun jälkeen, koska on loogista että toimettomuustilalle määritettyjä tehtäviä ei voi suorittaa ennen kuin istunto on merkitty toimettomaksi. Jos muutat istunnon toimettomuuden aikakatkaisun rajaa <command>gnome-screensaver-preferences</command>-valinnoissa, liukusäädinten aloitusarvo <command>gnome-power-preferences</command>-valinnoissa muuttuu vastaavasti.</para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>Lisäasetukset</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>Näytön kirkkaus himmennettynä</title>
+    <note>
+      <para>Voit muuttaa toimettoman kannettavan näytön kirkkautta muuttamalla GConf-arvoa <command>/apps/gnome-power-manager/backlight/idle_brightness</command>-valinnoissa.</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>Näytön lukitseminen</title>
+    <para>Oletusarvoisesti <application>Gnomen virranhallinta</application> tukee yksinkertaista lukitusta. Tämä tarkoittaa, että näyttö menee lukituksi, kun kansi suljetaan tai järjestelmä siirtyy keskeytys- tai lepotilaan, mikäli gnome-screensaver-valinnoissa on valittu  "Lock screen".</para>
+    <para>Tehokäyttäjiä varten on monimutkainen lukitusjärjestelmä, joka sallii lukitustavan muuttamisen erikseen kantta suljettaessa tai keskeytys- tai lepotilaan siirryttäessä. Tämän sallimiseksi on poistettava käytöstä seuraava GConf-avain: </para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/use_screensaver_settings</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>Silloin avaimista voidaan pakottaa näytönsäästäjän lukitustapa, kun suoritetaan toiminto:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/blank_screen</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/suspend</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/hibernate</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Näytönsäästäjän lukitusmäärityksiä ei käytetä, ennen kuin yksinkertainen lukitusjärjestelmä palautetaan.</para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>Gnomen virranhallintasovelmat</title>
+
+  <section id="applets-brightness">
+    <title>Kirkkaudensäätösovelma</title>
+    <para>Kirkkaudensäätösovelmalla käyttäjä voi vaihtaa kirkkautta väliaikaisesti muuttamatta perusasetuksia. Tämä voi olla hyödyllistä, jos kannettavassa ei ole kirkkaudensäätönäppäimiä, koska se helpottaa kirkkaudensäätöä.</para>
+    <figure>
+      <title>Kirkkaudensäätösovelman pudotusvalikko.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Jos laitteistoasi ei tueta, liukusäädin ei ole käytettävissä.</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>Estosovelma</title>
+    <para>Estosovelma antaa käyttäjän estää automaattisen keskeytystilan tietokoneen ollessa käyttämättömänä. Vanhat tai suljetut ohjelmat voivat vaatia tätä, esimerkiksi VMWare tai Matlab. Napsauta kuvaketta automaattisen keskeytystilan estämiseksi, ja napsauta sitä uudestaan normaalitilaan palataksesi.</para>
+    <figure>
+      <title>Estosovelma estetyssä tilassa.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Älä käytä tätä sovelmaa jos käytät vain Gnomen ohjelmistoa. Ilmoita sen sijaan ohjelmavirheestä, jotta sovellus käyttäisi menetelmiä Inhibit() ja UnInhibit(), koska tämän pitäisi toimia.</para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>Usein kysyttyjä kysymyksiä</title>
+  <para>Nämä ovat kysymyksiä, joita kysytään usein sähköpostilistalla.</para>
+  <section id="faq-capacity">
+    <title>Mikä on akun lataus?</title>
+    <para>Lataus tarkoittaa, kuinka paljon virtaa akku voi varastoida verrattuna valmistajan ilmoitukseen.</para>
+    <figure>
+      <title>Tämä käyrä näyttää tyypillisen litiumioniakun latauksen muutaman sadan latauksen ja purun jälkeen.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>Mikä on keskeytystilan ja lepotilan ero?</title>
+    <para>Keskeytystila on virransäästöominaisuus, joka käyttää mahdollisimman vähän virtaa säilyttääkseen ohjelmatiedot tietokoneen muistissa. Kun kone on keskeytystilassa, laskentatoimintoja ei suoriteta, ennen kuin palataan normaalitilaan. Normaalitilaan palataan vasta, kun jokin ulkoinen merkki antaa käskyn, esimerkiksi jotain näppäintä painetaan. Keskeytystilaan siirtymiseen ja siitä palaamiseen menee yleensä muutama sekunti.</para>
+    <caution>
+      <para>Keskeytystilassa käytetään yhä hieman akkuvirtaa, joten sitä ei suositella matalan latauksen toiminnaksi. Jos pöytäkoneesta katkaistaan verkkovirta tai akku tyhjenee, kesken olevat työt menetetään.</para>
+    </caution>
+    <para>Lepotila tallentaa tietokoneen tilanteen täydellisenä kiintolevylle ja sammuttaa virran, jolloin tietokone näyttää sammutetulta. Tilasta palataan vasta, kun jokin ulkoinen merkki antaa käskyn, esimerkiksi jotain näppäintä painetaan. Lepotilaan siirtyminen ja siitä palaaminen voi viedä jopa minuutin.</para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>Näyttöni on rikki. Se käsittelee DPMS-tiloja standby ja off tilana 'no-signal', ja näyttö jää päälle.</title>
+    <para>On määriteltävä DPMS-keskeytystila, jota <application>Gnomen virranhallinta</application> käyttää. Käynnistä <command>gconf-editor</command>, ja muuta avaimet <literal>/apps/gnome-power-manager/backlight/dpms_method_ac</literal> ja <literal>/apps/gnome-power-manager/backlight/dpms_method_battery</literal> sellaiseen tilaan joka toimii, esimerkiksi standby, suspend tai off.</para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>Purkautumisaikani on aina virheellinen viallisen akun vuoksi. Mitä voin tehdä?</title>
+    <para>Saatat onnistua käyttämään latausprosenttia Gnomen virranhallinnan käytäntötietoina. Avaa <command>gconf-editor</command>, ja muuta avaimen <command>/apps/gnome-power-manager/general/use_time_for_policy</command> arvoksi false. Tämä on helppoa tehdä seuraavasti: <command> gconftool-2 --set --type bool /apps/gnome-power-manager/general/use_time_for_policy false </command></para>
+    <para>Tämän pitäisi saada käytännöt toimimaan, mutta tietenkin jäljellä oleva aika on yhä virheellinen.</para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>Miten saan sovellukseni estämään tietokoneen automaattisen siirtymisen keskeytystilaan?</title>
+    <para>
+      If your application is doing a long operation, you might want to
+      disable the ability to suspend for a little while.
+      You should use gnome-session if you really don't want the user to be
+      able to suspend, or for the computer to save power by hibernating
+      or suspending.
+    </para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>Käytän ACPI:tä. Miksi tapahtumien rekisteröintiin (esimerkiksi verkkovirtajohtoa irrottaessa) menee niin pitkä aika?</title>
+    <para>Mahdollisia ongelmia on kaksi.</para>
+    <itemizedlist>
+      <listitem>
+        <para>HAL ei ehkä käytä lisäosaa, joka kaappaa ACPI-tapahtuman.</para>
+      </listitem>
+      <listitem>
+        <para>BIOSissa voi olla vikaa, joka täytyy kiertää. Ole hyvä ja lähetä ilmoitus ohjelmavirheestä.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Ensimmäisessä tilanteessa yritä löytää pyörivät HAL-prosessit: <command>ps -eaf | grep hal</command></para>
+    <para>Varmista, että prosessi <command>hald-addon-acpi</command> pyörii. Jos se ei pyöri, varmista että HAL on käynnistetty asetuksalla <command>--retain-privileges</command> <command>haldaemon</command>-komennon initscriptissä. Vaihtoehto on käyttää acpidiä käyttöjärjestelmän ytimen proc-tiedoston asemesta.</para>
+  </section>
+
+</section>
+
+<section id="about">
+  <title>Tietoja</title>
+  <para>Gnomen virranhallinnan on tehnyt Richard Hughes, <email>richard@hughsie.com</email>. Lisää tietoja Gnomen virranhallinnasta on <ulink url="http://www.gnome.org/projects/gnome-power-manager" type="http"><application>Gnomen virranhallinnan</application> web-sivuilla</ulink>.</para>
+  <para>Jos haluat ilmoittaa ohjelmavirheestä tai tehdä ehdotuksia liittyen sovellukseen tai käyttöoppaaseen, noudata ohjeita <ulink url="http://www.gnome.org/projects/gnome-power-manager/bugs.html" type="http"><application>Gnomen virranhallinnan</application> ohjelmavirhesivulta</ulink>.</para>
+  <para>Tätä ohjelmaa jaetaan GNU yleisen lisenssin (GPL-lisenssin) ehtojen mukaan sellaisina kuin Free Software Foundation on ne julkaissut; joko Lisenssin version 2, tai (valinnan mukaan) minkä tahansa myöhemmän version mukaisesti. Lisenssin kopio löytyy tästä <ulink url="gnome-power-manager:gpl" type="help">linkistä</ulink>, tai tiedostosta COPYING, joka on tämän ohjelman lähdekoodin mukana.</para>
+</section>
+
+</article>

@@ -1,0 +1,84 @@
+Description: Install nfs-kernel-server and samba packages on demand
+Author: ?
+
+Index: gnome-system-tools-2.29.90/src/shares/shares-tool.c
+===================================================================
+--- gnome-system-tools-2.29.90.orig/src/shares/shares-tool.c	2010-02-08 18:05:51.000000000 +0000
++++ gnome-system-tools-2.29.90/src/shares/shares-tool.c	2010-02-14 18:22:49.943247673 +0000
+@@ -138,9 +138,36 @@
+ }
+ 
+ static gboolean
++install_packages (GstTool *tool, gboolean install_nfs, gboolean install_smb)
++{
++	gchar **packages;
++	gboolean retval;
++	gint i = 0;
++
++	if (!install_nfs && !install_smb)
++		return FALSE;
++
++	packages = g_new0 (gchar*, 3);
++
++	if (install_nfs)
++		packages[i++] = g_strdup ("nfs-kernel-server");
++
++	if (install_smb)
++		packages[i++] = g_strdup ("samba");
++
++	retval = gst_packages_install (GTK_WINDOW (tool->main_dialog), packages);
++	g_strfreev (packages);
++
++	return retval;
++}
++
++static gboolean
+ check_servers (GstSharesTool *tool)
+ {
+ 	GtkWidget *dialog;
++	GtkWidget *nfs_check, *smb_check;
++	gint response;
++	gboolean retval = FALSE;
+ 
+ 	if (tool->smb_available || tool->nfs_available)
+ 		return TRUE;
+@@ -153,10 +180,36 @@
+ 	gtk_message_dialog_format_secondary_markup (GTK_MESSAGE_DIALOG (dialog),
+ 						    _("You need to install at least either Samba or NFS "
+ 						      "in order to share your folders."));
+-	gtk_dialog_run (GTK_DIALOG (dialog));
+-	gtk_widget_destroy (dialog);
++	gtk_dialog_add_button (GTK_DIALOG (dialog), _("Install services"), GTK_RESPONSE_OK);
++
++	/* add NFS checkbutton */
++	nfs_check = gtk_check_button_new_with_mnemonic (_("Install Unix networks support (_NFS)"));
++	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (nfs_check), TRUE);
++	gtk_widget_show (nfs_check);
++	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (dialog)->vbox), nfs_check);
++
++	/* add SMB checkbutton */
++	smb_check = gtk_check_button_new_with_mnemonic (_("Install Windows networks support (_SMB)"));
++	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (smb_check), TRUE);
++	gtk_widget_show (smb_check);
++	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (dialog)->vbox), smb_check);
++
++	response = gtk_dialog_run (GTK_DIALOG (dialog));
++	gtk_widget_hide (dialog);
++
++	if (response == GTK_RESPONSE_OK) {
++		if (install_packages (GST_TOOL (tool),
++				      gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (nfs_check)),
++				      gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (smb_check)))) {
++			gst_tool_update_config (GST_TOOL (tool));
++			gst_tool_update_gui (GST_TOOL (tool));
+ 
+-	return FALSE;
++			retval = TRUE;
++		}
++	}
++
++	gtk_widget_destroy (dialog);
++	return retval;
+ }
+ 
+ static void

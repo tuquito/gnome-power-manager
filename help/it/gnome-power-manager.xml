@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "GNOME Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.27.3">
+<!ENTITY manrevision "2.27.3">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+	  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="it">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Manuale di <application>Gestore alimentazione GNOME</application></title>
+    <abstract role="description">
+      <para><application>Gestore alimentazione GNOME</application> è un demone di sessione per lo GNOME Desktop che gestisce le impostazioni energetiche del proprio computer portatile o desktop.</para>
+    </abstract>
+    <copyright>
+      <year>2006-2009</year>
+      <holder>Richard Hughes (richard@hughsie.com)</holder>
+    </copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Questo documento può essere copiato, distribuito o modificato in base ai termini della GNU Free Documentation License (GFDL), versione 1.1 o di versioni successive pubblicate dalla Free Software Foundation che siano prive di sezioni invariabili, frontespizi e retrocopertine. La GFDL è disponibile accedendo a questo <ulink url="ghelp:fdl" type="help">link</ulink> o nel file COPYING-DOCS distribuito con questo manuale.</para>
+         <para>Questo manuale fa parte di una raccolta di documenti su GNOME distribuita secondo i termini della GFDL. Per distribuire questo manuale separatamente, è necessario aggiungere al documento una copia della licenza, come descritto nella sezione 6 di quest'ultima.</para>
+
+	<para>Molti dei nomi utilizzati dalle aziende per distinguere i propri prodotti e servizi sono rivendicati come marchi. Ove tali nomi sono citati nella documentazione di GNOME e i membri del GNOME Documentation Project sono a conoscenza della loro natura di marchi, tali nomi vengono riportati a lettere maiuscole o con iniziale maiuscola.</para>
+
+	<para>QUESTO DOCUMENTO E LE SUE VERSIONI MODIFICATE SONO DISTRIBUITI SECONDO I TERMINI DELLA GNU FREE DOCUMENTATION LICENSE, CON L'ULTERIORE INTESA CHE: <orderedlist>
+		<listitem>
+		  <para>IL DOCUMENTO VIENE DISTRIBUITO SENZA ALCUNA GARANZIA ESPLICITA O IMPLICITA DI ALCUN TIPO, INCLUSE, SENZA LIMITAZIONE, LA GARANZIA DI ASSENZA DI DIFETTI DEL DOCUMENTO O DELLE SUE VERSIONI MODIFICATE O LA GARANZIA CHE IL DOCUMENTO SIA COMMERCIABILE, SIA ADATTO A UN DETERMINATO SCOPO O NON VIOLI DIRITTI DI TERZI. TUTTI I RISCHI RIGUARDO ALLA QUALITÀ;, L'ACCURATEZZA E LE PRESTAZIONI DEL DOCUMENTO O DELLE SUE VERSIONI MODIFICATE SONO A CARICO DELL'UTENTE. QUALORA UN DOCUMENTO O UNA SUA VERSIONE MODIFICATA SI RIVELINO DIFETTOSI, I COSTI DEGLI EVENTUALI INTERVENTI DI ASSISTENZA, RIPARAZIONE O CORREZIONE SARANNO A CARICO DELL'UTENTE (NON DEL REDATTORE INIZIALE, DELL'AUTORE O DI ALTRI COLLABORATORI). LA PRESENTE ESCLUSIONE DI GARANZIA COSTITUISCE PARTE ESSENZIALE DELLA LICENZA. SONO AUTORIZZATI SOLO GLI USI DEL DOCUMENTO O DELLE SUE VERSIONI MODIFICATE PREVISTI DALLA PRESENTE ESCLUSIONE DI GARANZIA; INOLTRE IN NESSUNA CIRCOSTANZA E</para>
+		</listitem>
+		<listitem>
+		  <para>IN NESSUNA INTERPRETAZIONE GIURIDICA, INCLUSI I CASI DI ILLECITO (ANCHE PER NEGLIGENZA), VIOLAZIONE CONTRATTUALE O ALTRO, L'AUTORE, IL REDATTORE INIZIALE, ALTRI COLLABORATORI, QUALUNQUE DISTRIBUTORE DEL DOCUMENTO O DI UNA SUA VERSIONE MODIFICATA O QUALUNQUE FORNITORE DELLE PARTI CITATE POTRÀ; ESSERE RITENUTO RESPONSABILE NEI CONFRONTI DI QUALUNQUE PERSONA PER DANNI DIRETTI, INDIRETTI, SPECIALI, INCIDENTALI O CONSEQUENZIALI DI QUALUNQUE NATURA, INCLUSI, SENZA LIMITAZIONE, I DANNI DOVUTI A PERDITA DI AVVIAMENTO, INTERRUZIONE DEL LAVORO, GUASTO O MALFUNZIONAMENTO DEL COMPUTER O QUALUNQUE ALTRO DANNO O PERDITA DERIVANTE DA O CORRELATO ALL'USO DEL DOCUMENTO O DI UNA SUA VERSIONE MODIFICATA, ANCHE NEL CASO IN CUI TALI PARTI FOSSERO STATE INFORMATE DELLA POSSIBILITÀ; DI TALI DANNI.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author role="maintainer">
+        <firstname>Richard</firstname>
+        <surname>Hughes</surname>
+	<email>richard@hughsie.com</email>
+      </author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision>
+        <revnumber>2.0</revnumber>
+        <date>30/08/2006</date>
+        <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Commenti</title>
+      <para>Per segnalare un problema o inviare suggerimenti riguardo Gestore alimentazione GNOME o su questo manuale, seguire le istruzioni presenti nel sito web di <ulink url="http://www.gnome.org/projects/gnome-power-manager/" type="http"><application>Gestore alimentazione GNOME</application></ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Gestore alimentazione GNOME</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>gnome-power-manager</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Introduzione</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Gestore alimentazione GNOME</application></primary>
+    <secondary>Manuale</secondary>
+    <tertiary>gnome-power-manager</tertiary>
+  </indexterm>
+
+  <para>Il demone di sessione Gestore alimentazione GNOME è un demone per la gestione dell'alimentazione elettrica per lo <systemitem>GNOME Desktop</systemitem>.</para>
+
+</section>
+
+<section id="using">
+  <title>Uso</title>
+  <para><application>Gestore alimentazione GNOME</application> viene solitamente eseguito all'avvio di GNOME, ma è possibile avviare <application>Gestore alimentazione GNOME</application> nel seguente modo:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Riga di comando</term>
+      <listitem>
+    	<para>Digitare <command>gnome-power-manager --verbose --no-daemon</command> e premere <keycap>Invio</keycap>.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>Messaggi di notifica</title>
+  <para>All'avvio di <application>Gestore alimentazione GNOME</application>, possono essere visualizzati i seguenti messaggi di notifica.</para>
+
+  <section id="notify-unplugged">
+    <title>Alimentatore elettrico rimosso</title>
+    <figure>
+      <title>Notifica di Gestore alimentazione GNOME quando l'alimentatore elettrico è rimosso</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>È possibile disabilitare questa notifica modificando la chiave GConf <command>/apps/gnome-power-manager/notify/discharging</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>Batteria completamente carica</title>
+    <figure>
+      <title>Notifica di Gestore alimentazione GNOME quando la batteria primaria del portatile è completamente carica</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>È possibile disabilitare questa notifica modificando la chiave GConf <command>/apps/gnome-power-manager/notify/fully_charged</command>.</para>
+    </note>
+    <note>
+      <para>Verrà mostrata un'altra notifica se la percentuale di carica della batteria scende al di sotto del 95% e viene in seguito caricata completamente. Questo fa in modo che alcuni computer non ripetano delle notifiche se la batteria segnala erroneamente lo stato di carica completa.</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>Carica della batteria bassa</title>
+    <para>Quando la carica della batteria è bassa, viene mostrata la seguente notifica. È consigliato collegare l'alimentatore elettrico in breve tempo.</para>
+    <figure>
+      <title>Notifica di Gestore alimentazione GNOME quando la carica della batteria è bassa</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>È possibile disabilitare questa notifica modificando la chiave GConf <command>/apps/gnome-power-manager/notify/low_power</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>Carica della batteria critica</title>
+    <para>Quando la batteria è scarica, viene mostrata la seguente notifica indicante cosa è necessario fare. È possibile modificare, all'interno delle preferenze, l'azione da svolgere in questi casi.</para>
+    <figure>
+      <title>Notifica di Gestore alimentazione GNOME quando la carica della batteria è critica</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>Sospensione fallita</title>
+    <para>Quando fallisce un'azione di sospensione, viene mostrata questa notifica. La causa più comune per questa notifica, è dovuta al fatto che l'utente attuale non ha i permessi per sospendere o ibernare il computer.</para>
+    <figure>
+      <title>Notifica di Gestore alimentazione GNOME quando fallisce la sospensione</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>È possibile disabilitare questa notifica modificando la chiave GConf <command>/apps/gnome-power-manager/notify/sleep_failed</command>.</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>Statistiche</title>
+  <para>Il programma delle statistiche consente di visualizzare il consumo elettrico del proprio computer portatile.</para>
+  <note>
+    <para>Questa caratteristica è stata rimossa dalla finestra di informazioni delle precedenti versioni di Gestore alimentazione GNOME, dato che ora viene usato DBUS al posto del sistema IPC interno per le comunicazioni. Questo consente ad altre applicazioni, se necessario, di recuperare e mostrare i dati.</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>Cronologia carica nella transizione da alimentazione dalla batteria alla rete elettrica</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>Potrebbe essere possibile non visualizzare alcuni grafici se il proprio computer non dispone dell'hardware necessario. Potrebbe essere possibile anche visualizzare dell'altro hardware (come dispositivi UPS) non elencato, ma questi dispositivi sono simili agli altri.</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>Cronologia ricarica</title>
+    <para>Questo grafico mostra la percentuale di ricarica disponibile per la batteria primaria. Se si possiede una batteria principale e una ausiliaria, viene mostrata solamente una media. La legenda non è mostrata con questo grafico.</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>Cronologia carica</title>
+    <para>Questo grafico mostra la cronologia della carica usata dalla batteria primaria. Questa linea rappresenta la potenza utilizzata per caricare le batterie del sistema o la potenza usata dal sistema attraverso le batterie. La linea dovrebbe salire durante un intenso utilizzo del processore e scendere quando il sistema è inattivo o quando lo schermo è oscurato. È mostrata una legenda quando vengono ricevuti dei dati.</para>
+
+    <note>
+      <para>Non si ricevono dati dal computer se non è in fase di carica, di scarica o in sospensione. Questo è dovuto a limitazioni hardware in cui la percentuale è inviata dal chip di gestione della batteria e non da quello di gestione dell'alimentazione della scheda madre.</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>Cronologia durata stimata</title>
+    <para>Questo grafico mostra la cronologia di durata stimata della batteria primaria. Questa linea rappresenta la quantità di tempo prima che la batteria sia carica o completamente scarica. Questa linea dovrebbe salire proporzionalmente quando la potenza diminuisce e scendere quando aumenta. È mostrata una legenda quando vengono ricevuti dei dati.</para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>Preferenze</title>
+
+  <para>La finestra delle preferenze consente di controllare:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>La luminosità del pannello LCD con l'alimentazione dalla rete elettrica e dalla batteria</para>
+    </listitem>
+    <listitem>
+      <para>Il tempo di inattività per lo spegnimento dello schermo e per l'azione di sospensione</para>
+    </listitem>
+    <listitem>
+      <para>Le azioni da compiere quando il coperchio del portatile è chiuso</para>
+    </listitem>
+    <listitem>
+      <para>La politica dell'icona dell'area di notifica</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>Alcuni controlli od opzioni potrebbero essere disabilitati se le chavi di GConf non sono scrivibili. Questo consente agli amministratori di sistema di bloccare le azioni che un utente può selezionare.</para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>Preferenze con alimentazione dalla rete elettrica</title>
+    <figure id="prefs-ac">
+      <title>Scheda Alimentazione dalla rete elettrica del Gestore alimentazione GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>Preferenze con alimentazione dalla batteria</title>
+    <figure id="prefs-processor">
+      <title>Scheda Alimentazione dalla batteria del Gestore alimentazione GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Questo consente a un computer potente di ridurre l'utilizzo elettrico quando inattivo o quando non sono richieste le piene potenzialità.</para>
+  </section>
+
+  <section id="preferences-general">
+    <title>Preferenze generali</title>
+    <figure id="prefs-general">
+      <title>Scheda Generale di Gestore alimentazione GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>Tempi di inattività di sistema e di sessione</title>
+    <para><command>gnome-screensaver</command> è un demone di sessione che controlla l'input dell'utente e se il mouse non è stato mosso e non è stata usata la tastiera, allora avvia un timeout. Quando il valore del timeout raggiunge il valore impostato in <command>gnome-screensaver-preferences</command>, la sessione è impostata come inattiva. A questo punto <application>Gestore alimentazione GNOME</application> esegue le azioni per la sessione inattiva come abilitare la modalità a risparmio energetico e abbassare la luminosità dello schermo.</para>
+
+    <figure>
+      <title>Modificare il timeout per la sessione inattiva in <command>gnome-screensaver-preferences</command></title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Quando la sessione è identificata come inattiva, <application>Gestore alimentazione GNOME</application> avvia il proprio contatore di sistema. Quando viene raggiunto il timeout impostato in <command>gnome-screensaver-preferences</command> e il carico della CPU è inattivo, viene eseguita l'azione relativa: solitamente spegnere lo schermo o mettere in sospensione o in ibernazione.</para>
+    <para>I controlli scorrevoli in <command>gnome-power-preferences</command> sono impostati al valore del timeout di sessione più un minuto, dato che non è possibile avviare le azioni prima che la sessione sia identificata come inattiva. Modificando il valore in <command>gnome-screensaver-preferences</command>, viene modificato di conseguenza anche il controllo scorrevole in <command>gnome-power-preferences</command>.</para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>Preferenze avanzate</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>Luminosità dello schermo</title>
+    <note>
+      <para>È possibile modificare la luminosità dello schermo quando inattivo, modificando la chiave GConf <command>/apps/gnome-power-manager/backlight/idle_brightness</command>.</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>Blocco dello schermo</title>
+    <para>In modo predefinito, <application>Gestore alimentazione GNOME</application> supporta un semplice metodo per il blocco dello schermo. Questo significa che lo schermo si blocca se impostato a «Blocca schermo» in gnome-screensaver quando il coperchio è chiuso o il sistema va in ibernazione o in sospensione.</para>
+    <para>Esiste uno schema per il blocco che consente agli utenti avanzati la modifica delle politiche di blocco per le azioni sul coperchio, sulla sospensione e sull'ibernazione. Per abilitare questa modalità complessa, è necessario disabilitare la seguente chiave GConf:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/use_screensaver_settings</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>Le chiavi della politica possono quindi essere impostate per forzare il blocco e lo sblocco di gnome-screensaver quando viene eseguita un'azione:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/blank_screen</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/suspend</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/hibernate</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>La politica per il blocco di gnome-screensaver è ignorata fino a quando non viene ripristinata la modalità semplice.</para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>Applet di Gestore alimentazione</title>
+
+  <section id="applets-brightness">
+    <title>Applet luminosità</title>
+    <para>L'applet per la luminosità consente a un utente di modificare la luminosità momentaneamente senza modificare la politica predefinita. Può risultare utile con portatile non dotati dei tasti per la luminosità dato che ora è possibile modificare la luminosità facilmente.</para>
+    <figure>
+      <title>Controllo scorrevole dell'applet luminosità</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Il controllo scorrevole non è disponibile se l'hardware non è supportato.</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>Applet di inibizione</title>
+    <para>L'applet di inibizione consente a un utente di impedire il risparmio energetico automatico. Può risultare utile con vecchi computer portatili o con programmi proprietari come VMware o Matlab. Basta fare clic sull'icona per impedire il risparmio energetico automatico e per ripristinare lo stato iniziale.</para>
+    <figure>
+      <title>Applet inibizione nella modalità inibita.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Qualora si utilizzi solo software progettato per GNOME, è consigliato non usare quest'applet. Se una delle applicazioni GNOME non fa uso dei metodi Inhibit() e UnInhibit(), segnalare un bug.</para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>Domande frequenti</title>
+  <para>Queste sono alcune delle domande che vengono poste frequentemente.</para>
+  <section id="faq-capacity">
+    <title>Cos'è la capacità della batteria?</title>
+    <para>La capacità della batteria è la quantità di carica che una batteria può contenere in rapporto a quanto stabilito dal costruttore.</para>
+    <figure>
+      <title>Questo grafico mostra la capacità di una tipica batteria agli ioni di litio dopo un ciclo di un centinaio di cariche e scariche.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>Qual è la differenza tra sospensione e ibernazione?</title>
+    <para>Lo stato di sospensione è lo stato di risparmio energetico con il minor consumo elettrico che conserva i dati dei programmi nella memoria del computer. Quando il computer è nello stato di sospensione, non viene svolta alcun tipo di computazione fino a che la normale attività è ripristinata. Non verrà ripristinata fino a che non verrà segnalato da un evento esterno come la pressione di un tasto. Impiega di solito qualche secondo per sospendere e ripristinare il computer.</para>
+    <caution>
+      <para>Durante la sospensione viene usata ancora una piccola quantità di corrente dalla batteria, rendendo la sospensione non utilizzabile in fase di carica critica. Scollegando l'alimentazione elettrica su un computer desktop o terminando la carica della batteria su un portatile, tutto il lavoro andrà perso.</para>
+    </caution>
+    <para>Lo stato di ibernazione salva lo stato attuale del computer sul disco fisso e spegne il computer. Non verrà ripristinato fino a che non verrà segnalato da un evento esterno come la pressione di un tasto. Questo è lo stato con il minor consumo elettrico disponibile. Rimuovendo l'alimentatore elettrico su un desktop o terminando la carica di una batteria su un portatile, il lavoro non andrà perso. Può impiegare anche un minuto o più per ibernare e ripristinare il computer.</para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>Il mio monitor è difettoso e considera gli stati «standby» e «off» di DPMS come "no-signal" lasciando lo schermo acceso.</title>
+    <para>È necessario modificare la modalità «suspend» di DPMS usata da <application>Gestore alimentazione GNOME</application>. Aprire <command>gconf-editor</command> e modificare le chiavi <literal>/apps/gnome-power-manager/backlight/dpms_method_ac</literal> e <literal>/apps/gnome-power-manager/backlight/dpms_method_battery</literal> con una delle modalità funzionanti come «standby», «suspend» od «off».</para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>Il mio tempo di scarica è sempre sbagliato a causa di una batteria difettosa, cosa posso fare?</title>
+    <para>È possibile utilizzare la carica percentuale di g-p-m come dati per la politica. Aprire <command>gconf-editor</command> e impostare la chiave <command>/apps/gnome-power-manager/use_time_for_policy</command> a falso. Per fare più velocemente: <command> gconftool-2 --set --type bool /apps/gnome-power-manager/use_time_for_policy false</command></para>
+    <para>Questo renderà utilizzabili le azioni, ma il tempo rimanente sarà sempre sbagliato.</para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>Come posso fare in modo che le applicazioni fermino la sospensione automatica?</title>
+    <para>
+      If your application is doing a long operation, you might want to
+      disable the ability to suspend for a little while.
+      You should use gnome-session if you really don't want the user to be
+      able to suspend, or for the computer to save power by hibernating
+      or suspending.
+    </para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>Sto eseguendo ACPI. Perché gli eventi (come rimuovere l'alimentatore) richiedono così tanto per essere registrati?</title>
+    <para>Il problema potrebbe essere:</para>
+    <itemizedlist>
+      <listitem>
+        <para>HAL potrebbe non avere in esecuzione l'addon per la cattura degli eventi ACPI.</para>
+      </listitem>
+      <listitem>
+        <para>Il BIOS potrebbe essere danneggiato e potrebbe essere necessario un raggiro. Inviare una segnalazione bug.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Nel primo caso, provare a cercare i processi HAL in esecuzione: <command>ps -eaf | grep hal</command></para>
+    <para>Verificare la presenza del processo <command>hald-addon-acpi</command>. Se non è in esecuzione, assicurarsi che HAL sia in esecuzione con l'opzione <command>--retain-privileges</command> nell'initscript <command>haldaemon</command>. Un'alternativa a questo è quello di usare acpid piuttosto che il file proc del kernel.</para>
+  </section>
+
+</section>
+
+<section id="about">
+  <title>Informazioni</title>
+  <para>Gestore alimentazione GNOME è stato scritto da Richard Hughes <email>richard@hughsie.com</email>. Per maggiori informazioni riguardo Gestore alimentazione GNOME, consultare il <ulink url="http://www.gnome.org/projects/gnome-power-manager" type="http">sito web di <application>Gestore alimentazione GNOME</application></ulink>.</para>
+  <para>Per segnalare un problema o inviare suggerimenti riguardo questa applicazione o questo manuale, seguire le istruzioni presenti nel sito web di <ulink url="http://www.gnome.org/projects/gnome-power-manager/bugs.html" type="http"><application>Gestore alimentazione GNOME</application></ulink>.</para>
+  <para>Questo programma è distribuito nei termini della GNU General Public License come pubblicata dalla Free Software Foundation, sia la versione 2 della licenza o (a piacimento) qualsiasi successiva versione. Una copia della licenza può essere trovata a questo <ulink url="gnome-power-manager:gpl" type="help">collegamento</ulink> o nel file COPYING presente nel codice sorgente di questo programma.</para>
+</section>
+
+</article>

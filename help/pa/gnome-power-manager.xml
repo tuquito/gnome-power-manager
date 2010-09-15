@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "GNOME Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.27.3">
+<!ENTITY manrevision "2.27.3">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+	  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="pa">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title><application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application> ਦਸਤਾਵੇਜ਼</title>
+    <abstract role="description">
+      <para><application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application> ਗਨੋਮ ਵੇਹੜ ਲਈ ਇੱਕ ਡੈਮਨ ਹੈ, ਜੋ ਕਿ ਤੁਹਾਡੇ ਲੈਪਟਾਪ ਜਾਂ ਡਿਸਕਟਾਪ ਕੰਪਿਊਟਰ ਲਈ ਊਰਜਾ ਸੈਟਿੰਗ ਦਾ ਪਰਬੰਧ ਕਰਦੀ ਹੈ।</para>
+    </abstract>
+    <copyright>
+      <year>2006-2009</year>
+      <holder>Richard Hughes (richard@hughsie.com)</holder>
+    </copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>ਇਹ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਗਨੂ ਮੁਕਤ ਦਸਤਾਵੇਜ਼ ਲਾਈਸੈਂਸ (GFDL), ਵਰਜਨ 1.1 ਜਾਂ ਨਵੇਂ, ਜੋ ਕਿ ਫਰੀ ਸਾਫਟਵੇਅਰ ਫਾਊਡੇਸ਼ਨ ਵਲੋਂ ਬਦਲਵੇਂ ਭਾਗ, ਨਾ ਮੁੱਢਲੇ-ਢੱਕਣ ਪਾਠ ਅਤੇ ਨਾ ਹੀ ਪਿੱਛੇ-ਢੱਕਣ ਪਾਠ ਨਾਲ ਜਾਰੀ ਹੈ, ਦੀਆਂ ਸ਼ਰਤਾਂ ਅਧੀਨ ਨਕਲ ਕਰਨ, ਵੰਡਣ ਅਤੇ/ਜਾਂ ਸੋਧਣ ਦਾ ਅਧਿਕਾਰ ਦਿੱਤਾ ਗਿਆ ਹੈ। ਤੁਸੀਂ GFDL ਦੀ ਨਕਲ <ulink type="help" url="ghelp:fdl"> ਸਬੰਧ</ulink> ਉੱਤੇ ਜਾਂ ਇਹ ਦਸਤਾਵੇਜ਼ 'ਚ COPYING-DOCS ਫਾਇਲ ਵਿੱਚੋਂ ਲੈ ਸਕਦੇ ਹੋ।</para>
+         <para>ਇਹ ਦਸਤਾਵੇਜ਼ ਗਨੋਮ ਦਸਤਾਵੇਜ਼ ਭੰਡਾਰ ਦਾ ਭਾਗ ਹੈ, ਜੋ ਕਿ GFDL ਦੇ ਅਧੀਨ ਜਾਰੀ ਕੀਤਾ ਗਿਆ ਹੈ। ਜੇ ਤੁਸੀਂ ਇਹ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਭੰਡਾਰ ਤੋਂ ਬਿਨਾਂ ਵੰਡਣਾ ਚਾਹੁੰਦੇ ਹੋ ਤਾਂ ਤੁਸੀਂ ਇਹ ਲਾਈਸੈਂਸ ਦੇ ਭਾਗ 6 ਵਿੱਚ ਦੱਸੇ ਮੁਤਾਬਕ ਦਸਤਾਵੇਜ਼ ਨਾਲ ਲਾਈਸੈਂਸ ਦੀ ਇੱਕ ਨਕਲ ਜੋੜ ਕੇ ਕਰ ਸਕਦੇ ਹੋ।</para>
+
+	<para>ਕੰਪਨੀਆਂ ਵਲੋਂ ਆਪਣੇ ਉਤਪਾਦਾਂ ਅਤੇ ਸੇਵਾਵਾਂ ਲਈ ਵਰਤੇ ਗਏ ਕਈ ਨਾਂ ਮਾਰਕੇ ਹਨ। ਜਦੋਂ ਵੀ ਉਹ ਨਾਂ ਕਿਸੇ ਗਨੋਮ ਦਸਤਾਵੇਜ਼ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਆਉਦੇ ਹਨ ਅਤੇ ਗਨੋਮ ਦਸਤਾਵੇਜ਼ ਪ੍ਰੋਜੈਕਟ ਦੇ ਮੈਂਬਰ ਹਨ ਤਾਂ ਉਨ੍ਹਾਂ ਮਾਰਕਿਆਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਦੇਣ ਲਈ, ਉਹਨਾਂ ਨੇ ਦੇ ਨਾਂ ਵੱਡੇ ਅੱਖਰਾਂ ਵਿੱਚ ਜਾਂ ਪਹਿਲੇਂ ਅੱਖਰ ਵੱਡੇ ਰੱਖੇ ਗਏ ਹਨ।</para>
+
+	<para>DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT<orderedlist>
+		<listitem>
+		  <para>DOCUMENT IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL WRITER, AUTHOR OR ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND</para>
+		</listitem>
+		<listitem>
+		  <para>UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES OR LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author role="maintainer">
+        <firstname>Richard</firstname>
+        <surname>Hughes</surname>
+	<email>richard@hughsie.com</email>
+      </author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision>
+        <revnumber>2.0</revnumber>
+        <date>2006-08-30</date>
+        <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>ਸੁਝਾਅ</title>
+      <para>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਕਾਰਜ ਜਾਂ ਇਹ ਦਸਤਾਵੇਜ਼ ਬਾਰੇ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸੁਝਾਅਵਾਂ ਲਈ <ulink url="http://www.gnome.org/projects/gnome-power-manager/" type="http"><application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application> ਸੰਪਰਕ ਸਫ਼ਾ</ulink> ਵਿੱਚ ਦਿੱਤੀਆਂ ਹਦਾਇਤਾਂ ਵਰਤੋਂ।</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>ਗਨੋਮ-ਊਰਜਾ-ਮੈਨੇਜਰ</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>ਜਾਣ ਪਛਾਣ</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application></primary>
+    <secondary>ਦਸਤੀ</secondary>
+    <tertiary>ਗਨੋਮ-ਊਰਜਾ-ਮੈਨੇਜਰ</tertiary>
+  </indexterm>
+
+  <para>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਸ਼ੈਸ਼ਨ ਡੈਮਨ ਹੈ, ਜੋ ਕਿ <systemitem>ਗਨੋਮ ਵੇਹੜੇ</systemitem> ਵਾਸਤੇ ਊਰਜਾ ਪਰਬੰਧ ਕਰਦੀ ਹੈ।</para>
+
+</section>
+
+<section id="using">
+  <title>ਵਰਤੋਂ</title>
+  <para><application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application> ਨੂੰ ਗਨੋਮ ਸ਼ੁਰੂ ਹੋਣ ਸਮੇਂ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਪਰ ਤੁਸੀਂ <application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application> ਨੂੰ ਅੱਗੇ ਦਿੱਤੇ ਢੰਗ ਨਾਲ ਖੁਦ ਵੀ ਚਲਾ ਸਕਦੇ ਹੋ:</para>
+  <variablelist>
+    <varlistentry>
+      <term>ਕਮਾਂਡ ਲਾਇਨ</term>
+      <listitem>
+    	<para><command>gnome-power-manager --verbose --no-daemon</command> ਲਿਖਣ ਬਾਅਦ <keycap>Return</keycap> ਲਿਖੋ:</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>ਨੋਟੀਫਿਕੇਸ਼ਨ ਸੁਨੇਹੇ</title>
+  <para>ਜਦੋਂ <application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application> ਚਾਲੂ ਹੁੰਦਾ ਹੈ ਤਾਂ ਹੇਠ ਦਿੱਤੀਆਂ ਸੂਚਨਾ ਨਹੀਂ ਵੇਖਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।</para>
+
+  <section id="notify-unplugged">
+    <title>AC ਐਡਪੇਟਰ ਪਲੱਗ ਹਟਾਉਣਾ</title>
+    <figure>
+      <title>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਸੂਚਨਾ, ਜਦੋਂ AC ਐਡਪੇਟਰ ਹਟਾਇਆ ਜਾਵੇ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>ਤੁਸੀਂ ਇਹ ਸੂਚਨਾ ਨੂੰ GConf ਕੁੰਜੀ <command>/apps/gnome-power-manager/notify/discharging</command> ਰਾਹੀਂ ਬੰਦ ਕਰ ਸਕਦੇ ਹੋ।</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>ਪੂਰੀ ਚਾਰਜ</title>
+    <figure>
+      <title>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਸੂਚਨਾ ਦਿੰਦਾ ਹੈ, ਜਦੋਂ ਲੈਪਟਾਪ ਪ੍ਰਾਇਮਰੀ ਬੈਟਰੀ ਪੂਰੀ ਤਰ੍ਹਾਂ ਚਾਰਜ ਹੋ ਜਾਂਦੀ ਹੈ।</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>ਤੁਸੀਂ ਇਹ ਸੂਚਨਾ ਨੂੰ GConf ਕੁੰਜੀ <command>/apps/gnome-power-manager/notify/fully_charged</command> ਰਾਹੀਂ ਬੰਦ ਕਰ ਸਕਦੇ ਹੋ।</para>
+    </note>
+    <note>
+      <para>ਤੁਹਾਨੂੰ ਲਗਾਤਾਰ ਨੋਟੀਫਿਕੇਸ਼ਨ ਤਾਂ ਹੀ ਵੇਖਾਇਆ ਜਾਵੇਗਾ, ਜੇ ਤੁਹਾਡੀ ਬੈਟਰੀ ਦਾ ਚਾਰਜ 95% ਤੋਂ ਘੱਟ ਜਾਵੇ ਅਤੇ ਤਦ ਇਹ ਪੂਰੀ ਤਰ੍ਹਾਂ ਫੇਰ ਚਾਰਜ ਹੋ ਜਾਵੇ। ਇਹ ਕੁਝ ਮਸ਼ੀਨਾਂ ਨੂੰ ਬੇਲੋੜੀਦੇ ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਉਣ ਤੋਂ ਰੋਕਦੀ ਹੈ, ਜੋ ਕਿ ਬੈਟਰੀ ਦੇ ਗਲਤ ਚਾਰਜ ਹਾਲਤ ਨੂੰ ਵੇਖਾਉਣ ਕਰਕੇ ਹੁੰਦਾ ਹੈ।</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>ਘੱਟ ਊਰਜਾ</title>
+    <para>ਜਦੋਂ ਬੈਟਰੀ ਘੱਟ ਹੋਵੇ ਤਾਂ ਤੁਸੀਂ ਹੇਠ ਦਿੱਤੀ ਸੂਚਨਾ ਪ੍ਰਾਪਤ ਕਰੋਗੇ। ਤੁਹਾਨੂੰ ਤੁਰੰਤ ਹੀ AC ਊਰਜਾ ਚਾਲੂ ਕਰਨ ਬਾਰੇ ਸੋਚਣਾ ਚਾਹੀਦਾ ਹੈ।</para>
+    <figure>
+      <title>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਸੂਚਨਾ ਦੇਵੇਗਾ, ਜਦੋਂ ਊਰਜਾ ਘੱਟ ਹੋਵੇਗੀ।</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>ਤੁਸੀਂ ਇਹ ਸੂਚਨਾ ਨੂੰ GConf ਕੁੰਜੀ <command>/apps/gnome-power-manager/notify/low_power</command> ਨੂੰ ਬਦਲ ਕੇ ਬਦਲ ਸਕਦੇ ਹੋ।</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>ਊਰਜਾ ਨਾਜ਼ੁਕ</title>
+    <para>ਜਦੋਂ ਕੰਪਿਊਟਰ ਦੀ ਊਰਜਾ ਖਤਮ ਹੋ ਰਹੀ ਹੋਵੇ ਤਾਂ ਇਹ ਨੋਟਿਸ ਵਿੱਚ ਦੱਸੇਗਾ ਕਿ ਕਿਹੜੀ ਕਾਰਵਾਈ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਤੁਸੀਂ ਬਹੁਤ ਹੀ ਨਾਜ਼ੁਕ ਹਾਲਤ ਕਾਰਵਾਈ ਨੂੰ ਪਸੰਦ ਸੰਦ ਰਾਹੀਂ ਬਦਲ ਸਕਦੇ ਹੋ।</para>
+    <figure>
+      <title>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਸੂਚਨਾ ਦੇਵੇਗਾ, ਜਦੋਂ ਸਿਸਟਮ ਊਰਜਾ ਨਾਜ਼ੁਕ ਰੂਪ 'ਚ ਘੱਟ ਜਾਵੇਗੀ।</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>ਮੁਅੱਤਲ ਫੇਲ੍ਹ ਹੋਇਆ</title>
+    <para>ਜਦੋਂ ਇੱਕ ਮੁਅੱਤਲ (ਸਸਪੈਂਡ) ਫੇਲ੍ਹ ਹੋ ਜਾਵੇ ਤਾਂ ਤੁਸੀਂ ਅੱਗੇ ਦਿੱਤੀ ਚੇਤਾਵਨੀ ਪ੍ਰਾਪਤ ਕਰੋਗੇ। ਇਹ ਸੂਚਨਾ ਲਈ ਆਮ ਕਾਰਨ ਹੈ ਕਿ ਮੌਜੂਦਾ ਉਪਭੋਗੀ ਨੂੰ ਕੰਪਿਊਟਰ ਨੂੰ ਸਸਪੈਂਡ ਜਾਂ ਹਾਈਬਰਨੇਟ ਕਰਨ ਦਾ ਅਧਿਕਾਰ ਨਹੀਂ ਹੈ।</para>
+    <figure>
+      <title>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਸੂਚਨਾ ਦੇਵੇਗਾ, ਜਦੋਂ ਮੁਅੱਤਲ ਕਾਰਵਾਈ ਫੇਲ੍ਹ ਹੋਵੇਗੀ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>ਤੁਸੀਂ ਇਹ ਸੂਚਨਾ ਨੂੰ GConf ਕੁੰਜੀ <command>/apps/gnome-power-manager/notify/sleep_failed</command> ਰਾਹੀਂ ਬੰਦ ਕਰ ਸਕਦੇ ਹੋ।</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>ਅੰਕੜੇ</title>
+  <para>ਅੰਕੜੇ ਪ੍ਰੋਗਰਾਮ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਲੈਪਟਾਪ ਜੰਤਰ (ਹਾਰਡਵੇਅਰ) ਵਲੋਂ ਊਰਜਾ ਵਰਤੋਂ ਬਾਰੇ ਗਰਾਫ਼ ਵੇਖਾਉਦਾ ਹੈ।</para>
+  <note>
+    <para>ਇਸ ਨੂੰ ਜਾਣਕਾਰੀ ਵਿੰਡੋ ਤੋਂ ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਦੇ ਪੁਰਾਣੇ ਵਰਜਨ ਵਿੱਚ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਸੀ, ਕਿਉਂਕਿ ਡਾਟਾ ਇੰਟਰਫੇਸ ਹੁਣ ਅੰਦਰੂਨੀ IPC ਦੀ ਬਜਾਏ DBUS ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ। ਇਹ ਹੋਰ ਕਾਰਜਾਂ ਨੂੰ ਕਿਊਰੀ ਕਰਨ ਅਤੇ ਲੋੜ ਮੁਤਾਬਕ ਡਾਟਾ ਵੇਖਾਉਣ ਲਈ ਸਹਾਇਕ ਹੈ।</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>ਬੈਟਰੀ ਊਰਜਾ ਤੋਂ AC ਉੱਤੇ ਜਾਣ ਦੀ ਊਰਜਾ ਅਤੀਤ</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>ਤੁਸੀਂ ਕੁਝ ਚੋਣਾਂ ਜਾਂ ਗਰਾਫ਼ ਨਹੀਂ ਵੇਖੋਗੇ, ਜੇ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਉੱਤੇ ਲੋੜੀਦਾ ਹਾਰਡਵੇਅਰ ਨਹੀਂ ਹੋਵੇਗਾ। ਤੁਸੀਂ ਹੋਰ ਹਾਰਡਵੇਅਰ ਵੀ ਵੇਖ ਸਕਦੇ ਹੋ ਜੋ ਕਿ ਇੱਥੇ ਨਹੀਂ ਵੇਖਾਇਆ ਗਿਆ ਹੈ, (ਜਿਵੇਂ ਕਿ UPS ਜੰਤਰ), ਪਰ ਇਨ੍ਹਾਂ ਨੂੰ ਵੀ ਹੋਰ ਜੰਤਰਾਂ ਵਾਂਗ ਹੀ ਮੰਨਿਆ ਜਾਂਦਾ ਹੈ।</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>ਚਾਰਜ ਅਤੀਤ</title>
+    <para>ਇਹ ਗਰਾਫ਼ ਸੰਯੁਕਤ ਪ੍ਰਾਇਮਰੀ ਬੈਟਰੀ ਲਈ ਫੀ-ਸਦੀ ਚਾਰਜ ਵੇਖਾਉਦਾ ਹੈ, ਇਸਕਰਕੇ ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਇੱਕ ਮੁੱਖ ਬੈਟਰੀ ਅਤੇ ਇੱਕ ਐਕਸਜਿਲਰੀ ਬੈਟਰੀ ਹੈ ਤਾਂ ਔਸਤ ਚਾਰਜ ਹੀ ਵੇਖਾਇਆ ਜਾਵੇਗਾ। ਇਹ ਗਰਾਫ਼ 'ਚ ਸੰਕੇਤ ਨਹੀਂ ਵੇਖਾਏ ਜਾਂਦੇ ਹਨ।</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>ਊਰਜਾ ਅਤੀਤ</title>
+    <para>
+      This graph shows the power history charge used by the composite
+      primary battery.
+      This line represents the amount of power that is either being used to
+      charge the batteries in the system, or the power being used by the system
+      from the batteries.
+      You should see the line go up when processor intensive tasks are
+      performed, and down when the system is at idle, or when the screen is
+      dimmed.
+      A legend is shown with this graph when data events have been received.
+    </para>
+
+    <note>
+      <para>ਤੁਸੀਂ ਆਪਣੇ ਕੰਪਿਊਟਰ ਤੋਂ ਰੇਟ ਡਾਟਾ ਨਹੀਂ ਲੈ ਸਕਦੇ ਜੇ ਇਹ ਚਾਰਜ ਜਾਂ ਡਿਸਚਾਰਜ ਨਹੀਂ ਹੋ ਰਿਹਾ ਜਾਂ ਕੰਪਿਊਟਰ ਸਸਪੈਂਡ ਕੀਤਾ ਹੈ। ਇਹ ਹਾਰਡਵੇਅਰ ਕਮੀ ਕਰਕੇ ਹੈ, ਜਿਸ ਕਰਕੇ ਰੇਟ ਸਿਰਫ਼ ਬੈਟਰੀ ਪਰਬੰਧ ਚਿੱਪ ਤੋਂ ਹੀ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ ਨਾ ਕਿ ਮੇਨ-ਬੋਰਡ ਉੱਤੇ ਊਰਜਾ ਪਰਬੰਧ ਚਿੱਪ ਤੋਂ ਨਹੀਂ।</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>ਅੰਦਾਜ਼ਨ ਸਮਾਂ ਅਤੀਤ</title>
+    <para>
+      This graph shows the estimated charge history for the composite primary
+      battery.
+      This line represents the amount of time required until charged, or the
+      amount of time until discharge.
+      This line should go proportionally up when the rate decreases and down
+      when the rate increases.
+      A legend is shown with this graph when data events have been received.
+    </para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>ਮੇਰੀ ਪਸੰਦ</title>
+
+  <para>ਮੇਰੀ ਪਸੰਦ ਝਰੋਖਾ ਤੁਹਾਨੂੰ ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਸਹਾਇਕ ਹੈ:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>AC ਅਤੇ ਬੈਟਰੀ ਊਰਜਾ ਸਮੇਂ LCD ਚਮਕ</para>
+    </listitem>
+    <listitem>
+      <para>ਸਕਰੀਨ-ਊਰਜਾ ਅਤੇ ਮੁਅੱਤਲ ਕਾਰਵਾਈ ਲਈ ਵੇਹਲਾ ਸਮਾਂ</para>
+    </listitem>
+    <listitem>
+      <para>ਜਦੋਂ ਲੈਪਟਾਪ lid ਬੰਦ ਕੀਤਾ ਜਾਵੇ ਤਾਂ ਕੀਤੀ ਜਾਣ ਵਾਲੀ ਕਾਰਵਾਈ</para>
+    </listitem>
+    <listitem>
+      <para>ਸੂਚਨਾ ਖੇਤਰ ਆਈਕਾਨ ਨੀਤੀ</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>
+      Some sliders or option boxes may be disabled if the GConf policy keys are
+      not writable.
+      This allows administrators to lock-down the actions that a user can select.
+    </para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>AC ਪਸੰਦ</title>
+    <figure id="prefs-ac">
+      <title>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ AC ਟੈਬ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>ਬੈਟਰੀ ਪਸੰਦ</title>
+    <figure id="prefs-processor">
+      <title>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਬੈਟਰੀ ਟੈਬ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>
+      This allows a powerful computer to reduce the power usage when
+      idle, or when the full capabilities are not required.
+    </para>
+  </section>
+
+  <section id="preferences-general">
+    <title>ਸਧਾਰਨ ਪਸੰਦ</title>
+    <figure id="prefs-general">
+      <title>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਸਧਾਰਨ ਟੈਬ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>ਸ਼ੈਸ਼ਨ ਅਤੇ ਸਿਸਟਮ ਵੇਹਲਾ ਸਮਾਂ</title>
+    <para>
+      <command>gnome-screensaver</command> is a session daemon that monitors user
+      input, and if the mouse has not been moved, or the keyboard been pressed then
+      it starts a timeout.
+      When the value of this timeout reaches the value set in
+      <command>gnome-screensaver-preferences</command>, then the login is marked
+      as 'session idle'.
+      This is when <application>GNOME Power Manager</application> performs all the session idle actions such as
+      enabling low-power mode and lowering the laptop panel brightness.
+    </para>
+
+    <figure>
+      <title><command>gnome-screensaver-preferences</command> ਵਿੱਚ ਸ਼ੈਸ਼ਨ ਵੇਹਲਾ ਅੰਤਰਾਲ ਬਦਲੋ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>
+      As soon as the session is marked at idle, <application>GNOME Power Manager</application> starts its own
+      'system' timer.
+      When the timeout set in <command>gnome-power-preferences</command> is reached,
+      and the CPU load is idle, then the idle action is
+      performed, which is usually to turn off the screen, or to suspend or hibernate.
+    </para>
+    <para>
+      To make this clearer, the sliders in <command>gnome-power-preferences</command>
+      are set to start at the value of the session-timeout + 1 minute, as we cannot
+      logically trigger before the session is marked as idle.
+      If you adjust the value of the 'session idle' timeout in
+      <command>gnome-screensaver-preferences</command> then the start of the sliders
+      in <command>gnome-power-preferences</command> will change accordingly.
+    </para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>ਤਕਨੀਕੀ ਪਸੰਦ</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>ਸਕਰੀਨ ਚਮਕ ਡਿਮ ਕਰਨੀ</title>
+    <note>
+      <para>ਤੁਸੀਂ ਵੇਹਲੇ ਲੈਪਟਾਪ ਪੈਨਲ ਚਮਕ ਨੂੰ GConf ਕੁੰਜੀ <command>/apps/gnome-power-manager/backlight/idle_brightness</command> ਰਾਹੀਂ ਬਦਲ ਸਕਦੇ ਹੋ।</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>ਸਕਰੀਨ ਤਾਲਾ ਲਗਾਉਣਾ</title>
+    <para>
+      By default, <application>GNOME Power Manager</application> supports a simple locking scheme.
+      This means that the screen will lock if set to "Lock screen" in
+      gnome-screensaver when the lid is closed, or the system performs a suspend or
+      hibernate action.
+    </para>
+    <para>
+      There is a complex locking scheme available for power users that allows
+      locking policy to change for the lid, suspend and hibernate actions.
+      To enable this complex mode, you will have to disable the GConf key:
+    </para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/use_screensaver_settings</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Then the policy keys can be set to force a gnome-screensaver lock and unlock
+      when the action is performed:
+    </para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/blank_screen</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/suspend</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/hibernate</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>
+        The lock policy for gnome-screensaver is ignored until the simple mode
+        is re-enabled.
+      </para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>ਗਨੋਮ ਊਰਜਾ ਐਪਲਿਟ</title>
+
+  <section id="applets-brightness">
+    <title>ਚਮਕ ਐਪਲਿਟ</title>
+    <para>
+      The brightness applet allows the user to change the brightness
+      temporarily without changing the default policy.
+      This may be useful if you have got a laptop without brightness
+      buttons, as you can now change the brightness easily.
+    </para>
+    <figure>
+      <title>ਲਟਕਦਾ ਚਮਕ ਐਪਲਿਟ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>ਜੇ ਤੁਹਾਡੇ ਜੰਤਰ ਸਹਾਇਕ ਨਾ ਹੋਏ ਤਾਂ ਤੁਸੀਂ ਸਲਾਇਡਰ ਨਹੀਂ ਪ੍ਰਾਪਤ ਕਰੋਗੇ।</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>ਇਹਿਬਿਟ ਐਪਲਿਟ</title>
+    <para>
+      The inhibit applet allows the user to prevent the computer
+      auto-sleeping when inactive. This may be required with old or
+      proprietary programs such as VMWare or Matlab.
+      Just click the icon for the auto-suspend to be inhibited,
+      and click it again for normal operation.
+    </para>
+    <figure>
+      <title>ਇੰਨਹੇਬਿਟ ਹਾਲਤ 'ਚ ਇੰਨਹੇਬਿਟ ਐਪਲਿਟ ਹੈ।</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>
+        Don't use this applet if you just use GNOME software, instead
+        file a bug to make the application use the Inhibit() and
+        UnInhibit() methods as this should 'just work'.
+      </para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>ਅਕਸਰ ਪੁੱਛੇ ਜਾਂਦੇ ਸਵਾਲ</title>
+  <para>ਇਹ ਸਵਾਲ ਹਨ, ਜੋ ਕਿ ਮੇਲਿੰਗ ਲਿਸਟ ਉੱਤੇ ਅਕਰਸ ਪੁੱਛੇ ਜਾਂਦੇ ਹਨ।</para>
+  <section id="faq-capacity">
+    <title>ਬੈਟਰੀ ਕਪੈਸਟੀ (ਸਮੱਰਥਾ) ਕੀ ਹੈ?</title>
+    <para>ਕਪੈਸਟੀ (ਸਮਰੱਥਾ) ਨਿਰਮਾਤਾ ਦੀਆਂ ਹਦਾਇਤਾਂ ਮੁਤਾਬਕ ਤੁਹਾਡੀ ਬੈਟਰੀ ਕਿੰਨਾ ਚਾਰਜ ਸੰਭਾਲ ਸਕਦੀ ਹੈ।</para>
+    <figure>
+      <title>ਇਹ ਗਰਾਫ਼ ਵਿੱਚ ਇੱਕ ਆਮ ਲੀਥੀਅਮ ਆਈਨ ਬੈਟਰੀ ਦੀ ਕਪੈਸਟੀ ਕੁਝ ਸੈਂਕੜੇ ਚਾਰਜ-ਡਿਸਚਾਰਜ ਚੱਕਰਾਂ ਵਿੱਚ ਵੇਖਾਇਆ ਗਈ ਹੈ।</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>ਸਸਪੈਂਡ (ਮੁਅੱਤਲ) ਅਤੇ ਹਾਈਬਰਨੇਟ 'ਚ ਕੀ ਫ਼ਰਕ ਹੈ?</title>
+    <para>
+      The Suspend state is a power saving feature which is the lowest level of
+      power consumption that preserves program data in the computer's memory.
+      When your computer is in the Suspended state, computation will not be
+      performed until normal activity is resumed.
+      It will not resume until signaled by an external event such as a keyboard
+      button press.
+      It generally takes a few seconds to suspend and then resume your computer.
+    </para>
+    <caution>
+      <para>
+        You still use a small amount of battery power while suspended, so is
+        not recommended for the low power action.
+        If you remove AC power on a desktop, or run out of battery power on a
+        laptop then you will lose your work.
+      </para>
+    </caution>
+    <para>
+      The Hibernation state saves the complete state of the computer to hard
+      disk and turns off the power, so that the computer appears to be off.
+      It will not resume until signaled by an external event such as a
+      keyboard button press.
+      This is the lowest power sleeping state available.
+      If you remove AC power on a desktop, or run out of battery power on a
+      laptop then work will not be lost.
+      It can take up to a minute or more to hibernate and wake your computer.
+    </para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>ਮੇਰਾ ਮਾਨੀਟਰ ਕੰਮ ਨਹੀਂ ਕਰਦਾ ਅਤੇ DPMS ਸਟੈਂਡਬਾਏ ਅਤੇ ਬੰਦ ਹਾਲਤ ਨੂੰ 'no-signal' ਮੰਨਦਾ ਹੈ, ਜਿਸ ਨਾਲ ਮਾਨੀਟਰ ਨੂੰ ਚੱਲਦਾ ਹੀ ਰਹਿੰਦਾ ਹੈ।</title>
+    <para>
+      You have to change the DPMS suspend mode <application>GNOME Power Manager</application> uses.
+      Open <command>gconf-editor</command>, and then change the keys 
+      <literal>/apps/gnome-power-manager/backlight/dpms_method_ac</literal> and
+      <literal>/apps/gnome-power-manager/backlight/dpms_method_battery</literal>
+      to one of the modes that work, e.g. standby, suspend or off.
+    </para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>ਮੇਰਾ ਡਿਸਚਾਰਜ ਸਮਾਂ ਗਲਤ ਬੈਟਰੀ ਵਜ੍ਹਾ ਕਰਕੇ ਹਮੇਸ਼ਾਂ ਗਲਤ ਹੁੰਦਾ ਹੈ, ਮੈਂ ਕੀ ਕਰਾਂ?</title>
+    <para>
+      You might be able to use the percentage charge for g-p-m to use as the
+      policy data.
+      Open <command>gconf-editor</command>, and then change the key 
+      <command>/apps/gnome-power-manager/general/use_time_for_policy</command> to false.
+      You can do this easily by doing:
+      <command>
+        gconftool-2 --set --type bool
+        /apps/gnome-power-manager/general/use_time_for_policy false
+      </command>
+    </para>
+    <para>
+      This should get the policy actions working for you, but of course the
+      time remaining will still be incorrect.
+    </para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>ਮੈਂ ਆਪਣੇ ਕਾਰਜ ਨੂੰ ਕੰਪਿਊਟਰ ਨੂੰ ਆਟੋ-ਸਸਪੈਂਡ ਕਰਨ ਤੋਂ ਰੋਕਣ ਲਈ ਕੀ ਕਰ ਸਕਦਾ ਹਾਂ?</title>
+    <para>
+      If your application is doing a long operation, you might want to
+      disable the ability to suspend for a little while.
+      You should use gnome-session if you really don't want the user to be
+      able to suspend, or for the computer to save power by hibernating
+      or suspending.
+    </para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>ਮੈਂ ACPI ਚਲਾ ਰਿਹਾ ਹਾਂ। ਘਟਨਾਵਾਂ (ਜਿਵੇਂ ਕਿ AC ਐਡਪੇਟਰ ਹਟਾਉਣਾ) ਰਜਿਸਟਰ ਹੋਣ ਵਾਸਤੇ ਇੰਨਾ ਸਮਾਂ ਕਿਓ ਲੈਂਦੀਆਂ ਹਨ?</title>
+    <para>ਦੋਵੇਂ 'ਚੋਂ ਇੱਕ ਚੀਜ਼ 'ਚ ਸਮੱਸਿਆ ਹੈ।</para>
+    <itemizedlist>
+      <listitem>
+        <para>HAL addon ਉੱਤੇ ਚੱਲਦੀ ਨਹੀਂ ਹੋ ਸਕਦੀ, ਜੋ ਕਿ ACPI ਘਟਨਾ ਵੇਖਦੀ ਹੈ।</para>
+      </listitem>
+      <listitem>
+        <para>ਤੁਹਾਡਾ BIOS ਨੁਕਸਦਾਰ ਹੋ ਸਕਦਾ ਹੈ ਅਤੇ ਕੁਝ ਸੁਧਾਰਨ ਕਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ। ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਦਿਓ ਜੀ।</para>
+      </listitem>
+    </itemizedlist>
+    <para>ਪਹਿਲੇਂ ਹਾਲਤ 'ਚ, ਚੱਲ ਰਹੀ HAL ਕਾਰਵਾਈ ਨੂੰ ਲੱਭਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ: <command>ps -eaf | grep hal</command></para>
+    <para>
+      And check for the process <command>hald-addon-acpi</command>.
+      If it is not being run, then please make sure that HAL is being run
+      with the  <command>--retain-privileges</command> option in the
+       <command>haldaemon</command> initscript.
+      An alternative to this is to use acpid, rather than the kernel proc file.
+    </para>
+  </section>
+
+</section>
+
+<section id="about">
+  <title>ਇਸ ਬਾਰੇ</title>
+  <para>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਨੂੰ ਰਿਡਰਡ ਹਿਊਜਸ <email>richard@hughsie.com</email> ਨੇ ਲਿਖਿਆ ਹੈ। ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਵੇਖਣ ਵਾਸਤੇ <ulink url="http://www.gnome.org/projects/gnome-power-manager" type="http"><application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application> ਵੈੱਬ ਸਫ਼ਾ</ulink> ਵੇਖੋ।</para>
+  <para>ਇਹ ਕਾਰਜ ਜਾਂ ਦਸਤਾਵੇਜ਼ ਬਾਰੇ ਸੁਝਾਅ ਜਾਂ ਬੱਗ ਦੀ ਜਾਣਕਾਰੀ ਦੇਣ ਵਾਸਤੇ <ulink url="http://www.gnome.org/projects/gnome-power-manager/bugs.html" type="http"><application>ਗਨੋਮ ਊਰਜਾ ਮੈਨੇਜਰ</application> ਬੱਗ ਸਫ਼ਾ</ulink> ਉੱਤੇ ਹਦਾਇਤਾਂ ਵੇਖੋ।</para>
+  <para>ਇਹ ਪ੍ਰੋਗਰਾਮ ਇੱਕ ਮੁਫਤ ਸਾਫਟਵੇਅਰ ਹੈ, ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਗਨੂ ਜਰਨਲ ਪਬਲਿਕ ਲਾਈਸੈਂਸ,ਜਿਸ ਨੂੰ ਫਰੀ ਸਾਫਟਵੇਅਰ ਫਾਊਨਡੇਸ਼ਨ ਨੇ ਤਿਆਰ ਕੀਤਾ ਹੈ, ਦੇ ਵਰਜਨ 2 ਜਾਂ ਨਵੇਂ ਦੀਆਂਸ਼ਰਤਾਂ (ਉਹ ਤੁਹਾਡੀ ਆਪਣੀ ਮਰਜ਼ੀ ਹੈ) ਅਧੀਨ ਵੰਡ ਅਤੇ/ਜਾਂ ਸੋਧ ਸਕਦੇ ਹੋ। ਇਸ ਲਾਇਸੈਂਸ ਦੀ ਨਕਲ <ulink url="gnome-power-manager:gpl" type="help">ਲਿੰਕ</ulink> ਤੋਂ , ਜਾਂ ਇਹ ਪ੍ਰੋਗਰਾਮ ਦਾ ਸਰੋਤ ਕੋਡ ਨਾਲ COPYING ਵਿੱਚ ਮੌਜੂਦ ਹੈ।</para>
+</section>
+
+</article>

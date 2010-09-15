@@ -1,0 +1,15 @@
+[Desktop Entry]
+_Name=Power Statistics
+_Comment=Observe power management
+Icon=gnome-power-statistics
+Exec=gnome-power-statistics
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;System;Monitor;
+NoDisplay=true
+StartupNotify=true
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-power-manager
+X-GNOME-Bugzilla-Component=gnome-power-statistics
+X-GNOME-Bugzilla-Version=2.31.91
+X-Desktop-File-Install-Version=0.10

@@ -1,0 +1,10 @@
+01_wait_for_backends.patch
+10_disable_interfaces.patch
+11_dont_show_shares.patch
+25_sambashare_group_definition.patch
+26_user_profiles_conf.patch
+61_outdated_docs.patch
+80_gst-packages-common.patch
+81_gst-packages-shares-admin.patch
+82_gst-packages-time-admin.patch
+

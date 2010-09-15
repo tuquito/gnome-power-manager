@@ -1,0 +1,19 @@
+Description: Don't add new users to the audio and scanner groups
+Author: ?
+
+Index: gnome-system-tools-2.29.91/src/users/user-profiles.conf.in
+===================================================================
+--- gnome-system-tools-2.29.91.orig/src/users/user-profiles.conf.in	2010-01-11 19:26:31.000000000 +0000
++++ gnome-system-tools-2.29.91/src/users/user-profiles.conf.in	2010-03-07 11:56:43.290685321 +0000
+@@ -2,9 +2,9 @@
+ _Name=Desktop user
+ _Description=Can perform common tasks. Can't install software or change settings affecting all users.
+ Default=1
+-Groups=cdrom,floppy,dialout,tape,dip,adm,plugdev,fax,audio,scanner,fuse,video
++Groups=cdrom,floppy,dialout,tape,dip,adm,plugdev,fax,fuse,video
+ 
+ [Administrator]
+ _Name=Administrator
+ _Description=Can change anything on the system, including installing and upgrading software.
+-Groups=cdrom,floppy,dialout,tape,dip,adm,plugdev,fax,audio,scanner,fuse,admin,sambashare,lpadmin,video
++Groups=cdrom,floppy,dialout,tape,dip,adm,plugdev,fax,fuse,admin,sambashare,lpadmin,video

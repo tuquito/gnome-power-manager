@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "GNOME Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.27.3">
+<!ENTITY manrevision "2.27.3">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+	  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="es">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Manual de <application>Gestión de energía</application></title>
+    <abstract role="description">
+      <para><application>Gestión de energía</application> es un demonio de sesión para escritorio GNOME que administra la configuración de la energía para su portátil o equipo sobremesa.</para>
+    </abstract>
+    <copyright>
+      <year>2006-2009</year>
+      <holder>Richard Hughes (richard@hughsie.com)</holder>
+    </copyright><copyright><year>2006-2009</year><holder>Jorge González (jorgegonz@svn.gnome.org)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Se concede permiso para copiar, distribuir o modificar este documento según las condiciones de la GNU Free Documentation License (GFDL), versión 1.1 o cualquier versión posterior publicada por la Free Software Foundation, sin Secciones invariantes, Textos de portada y Textos de contraportada. Encontrará una copia de la GFDL en este <ulink type="help" url="ghelp:fdl">enlace</ulink> o en el archivo COPYING-DOCS distribuido con este manual.</para>
+         <para>Este manual forma parte de una colección de documentos de GNOME distribuidos según la GFDL. Si desea distribuir este manual de forma independiente de la colección, puede hacerlo agregando una copia de la licencia al documento, según se describe en la sección 6 de la misma.</para>
+
+	<para>Muchos de los nombres utilizados por las empresas para distinguir sus productos y servicios se consideran marcas comerciales. Cuando estos nombres aparezcan en la documentación de GNOME, y siempre que se haya informado a los miembros del Proyecto de documentación de GNOME de dichas marcas comerciales, los nombres aparecerán en mayúsculas o con las iniciales en mayúsculas.</para>
+
+	<para>ESTE DOCUMENTO Y LAS VERSIONES MODIFICADAS DEL MISMO SE OFRECEN SEGÚN LAS CONDICIONES ESTABLECIDAS EN LA LICENCIA DE DOCUMENTACIÓN LIBRE DE GNU (GFDL) Y TENIENDO EN CUENTA QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENTO SE OFRECE «TAL CUAL», SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO, PERO SIN LIMITARSE A ELLA, LA GARANTÍA DE QUE EL DOCUMENTO O LA VERSIÓN MODIFICADA DEL MISMO ESTÉ LIBRE DE DEFECTOS, GARANTÍA DE COMERCIALIZACIÓN, APTITUD PARA UN USO EN PARTICULAR O INCUMPLIMIENTO. TODOS LOS RIESGOS RELATIVOS A LA CALIDAD, EXACTITUD O RENDIMIENTO DEL DOCUMENTO O LA VERSIÓN MODIFICADA DEL MISMO SON ASUMIDOS POR VD. EN CASO DE QUE EL DOCUMENTO O LA VERSIÓN MODIFICADA SEAN DEFECTUOSOS, VD. (NO EL ESCRITOR ORIGINAL NI EL AUTOR NI NINGUNO DE LOS COLABORADORES) ASUMIRÁ EL COSTE DE CUALQUIER MANTENIMIENTO, REPARACIÓN O CORRECCIÓN QUE SEAN NECESARIOS. ESTA RENUNCIA DE GARANTÍA CONSTITUYE UNA PARTE ESENCIAL DE ESTA LICENCIA NO SE AUTORIZA EL USO DE NINGÚN DOCUMENTO NI VERSIÓN MODIFICADA DEL MISMO, SALVO EN LAS CONDICIONES ESPECIFICADAS EN ESTA RENUNCIA; Y </para>
+		</listitem>
+		<listitem>
+		  <para>BAJO NINGUNA CIRCUNSTANCIA NI SUPUESTO LEGAL, YA SEA POR AGRAVIO (INCLUIDA LA NEGLIGENCIA), CONTRATO U OTROS CASOS, SERÁN RESPONSABLES EL AUTOR, EL ESCRITOR ORIGINAL, CUALQUIERA DE LOS COLABORADORES O DISTRIBUIDORES DEL DOCUMENTO O UNA VERSIÓN MODIFICADA DEL MISMO NI CUALQUIER PROVEEDOR DE TALES PARTES ANTE UN TERCERO, POR CUALQUIER PERJUICIO DIRECTO, INDIRECTO, ESPECIAL, ACCIDENTAL O CONSECUTIVO DE CUALQUIER TIPO, INCLUYENDO SIN LIMITACIÓN LOS DAÑOS POR PÉRDIDA DE CLIENTES, INTERRUPCIONES DEL TRABAJO, FALLO DE SISTEMAS O AL FUNCIONAMIENTO, O CUALQUIER OTRO DAÑO O PÉRDIDA CAUSADA O RELACIONADA CON EL USO DEL DOCUMENTO Y LAS VERSIONES MODIFICADAS DEL MISMO, AUN CUANDO SE HAYA INFORMADO DE LA POSIBILIDAD DE DICHOS DAÑOS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author role="maintainer">
+        <firstname>Richard</firstname>
+        <surname>Hughes</surname>
+	<email>richard@hughsie.com</email>
+      </author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision>
+        <revnumber>2.0</revnumber>
+        <date>2006-08-30</date>
+        <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Comentarios</title>
+      <para>Para informar de un fallo, o hacer alguna sugerencia concerniente a la aplicación Gestión de Energía o a este manual, siga las indicaciones en la <ulink url="http://www.gnome.org/projects/gnome-power-manager/" type="http">página de contacto de <application>Gestión de energía</application></ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Gestión de energía</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>gnome-power-manager</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Introducción</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Gestión de energía</application></primary>
+    <secondary>Manual</secondary>
+    <tertiary>gnome-power-manager</tertiary>
+  </indexterm>
+
+  <para>El demonio de sesión Gestión de energía es un demonio de gestión de la energía para el <systemitem>escritorio GNOME</systemitem></para>
+
+</section>
+
+<section id="using">
+  <title>Uso</title>
+  <para><application>Gestión de energía</application> generalmente se inicia al iniciarse GNOME, pero puede iniciar <application>Gestión de energía</application> manualmente ejecutando:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Línea de comandos</term>
+      <listitem>
+    	<para>Escriba <command>gnome-power-manager --verbose --no-daemon</command>, después pulse la tecla <keycap>Intro</keycap>:</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>Mensajes de notificación</title>
+  <para>Cuando <application>Gestión de energía</application> se haya iniciado, se mostrarán las siguientes notificaciones.</para>
+
+  <section id="notify-unplugged">
+    <title>El adaptador de corriente está desconectado</title>
+    <figure>
+      <title>Notificación de Gestión de energía cuando se desconecta el adaptador de corriente</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Puede deshabilitar esta notificación cambiado la clave de GConf <command>/apps/gnome-power-manager/notify/discharging</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>Totalmente cargada</title>
+    <figure>
+      <title>Notificación de Gestión de energía cuando la batería del portátil está totalmente cargada</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Puede deshabilitar esta notificación cambiado la clave de GConf <command>/apps/gnome-power-manager/notify/fully_charged</command>.</para>
+    </note>
+    <note>
+      <para>Sólo recibirá una notificación repetida si el porcentaje de carga de su batería cae por debajo del 95% y después se recarga completamente de nuevo. Esto previene a algunos equipos que informen notificaciones repetidas no deseadas si la batería informa incorrectamente del estado de su carga.</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>Energía baja</title>
+    <para>Recibirá la siguiente notificación cuando la carga de la batería esté baja. Debería considerar cambiar la alimentación a corriente alterna muy pronto.</para>
+    <figure>
+      <title>Notificación de Gestión de energía cuando la batería del portátil está baja</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Puede deshabilitar esta notificación cambiado la clave de GConf <command>/apps/gnome-power-manager/notify/low_power</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>Energía críticamente baja</title>
+    <para>Cuando el equipo se ha quedado sin energía, se le mostrará esta notificación explicando qué acción se requiere. Puede cambiar la acción críticamente baja usando las herramientas de preferencias.</para>
+    <figure>
+      <title>Notificación de Gestión de energía cuando la batería del portátil está críticamente baja</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>Fallo en la suspensión</title>
+    <para>Cuando ocurra un fallo al suspender debería obtener la siguiente advertencia. La razón más común para esta notificación es que el usuario actual no tiene permisos para suspender o hibernar el equipo.</para>
+    <figure>
+      <title>Notificación de Gestión de energía cuando falla la suspensión</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Puede deshabilitar esta notificación cambiado la clave de GConf <command>/apps/gnome-power-manager/notify/sleep_failed</command>.</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>Estadísticas</title>
+  <para>El programa de estadísticas le permite visualizar el consumo de energía del hardware de su portátil.</para>
+  <note>
+    <para>Esto ha sido eliminado de las ventanas de información en las versiones anteriores de Gestión de energía ya que ahora el interfaz de datos usa DBUS en lugar de IPC interno. Esto permite a otras aplicaciones preguntar y mostrar los datos si es requerido.</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>Histórico de energía desde la batería hasta la corriente alterna</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>Si su equipo no tiene el hardware necesario puede que no vea algunas opciones o gráficas. También puede que vea otro hardware no mostrado aquí (dispositivos SAI (UPS) por ejemplo) pero estos se tratan de igual manera que el resto de dispositivos.</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>Histórico de carga</title>
+    <para>Esta gráfica muestra el porcentaje de carga disponible para la batería compuesta primaria, de tal forma que si tiene en su portátil una batería primaria y una auxiliar sólo se mostrará el valor medio.  No se muestra leyenda en éste gráfica.</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>Histórico de energía</title>
+    <para>Esta gráfica muestra el historial de energía de carga usado por la batería compuesta primaria. Esta línea representa la cantidad de energía que el sistema está usando para cargar las baterías, o bien la energía de las baterías que está usando el sistema. Debería poder ver cómo la línea crece cuando el procesador lleva a cabo tareas intensivas, y cómo decrece cuando el sistema está inactivo, o cuando la pantalla está en modo ahorro de energía. Se mostrará una leyenda junto a esta gráfica cuando se reciban datos de eventos.</para>
+
+    <note>
+      <para>No recibirá ninguna información de su equipo si no está cargando o descargando las baterías, o si el equipo está suspendido. Esto es debido a limitaciones hardware donde la información sólo se manda desde el chip de administración de la batería, en lugar de hacerlo desde el chip de administración de energía de la placa base.</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>Histórico del tiempo estimado</title>
+    <para>Esta gráfica muestra el historial estimado de carga para la batería compuesta primaria. Esta línea representa la cantidad de tiempo requerida hasta la carga, o bien la cantidad de tiempo hasta la descarga. Esta línea debería crecer proporcionalmente cuando la energía disminuye y decrecer cuando la frecuencia de trabajo aumenta. Se mostrará una leyenda junto a esta gráfica cuando se reciban datos de eventos.</para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>Preferencias</title>
+
+  <para>La ventana de preferencias le permite controlar:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>La intensidad del monitor LCD cuando trabaje con batería o corriente</para>
+    </listitem>
+    <listitem>
+      <para>El tiempo de espera para las acciones apagar la pantalla y suspender el equipo</para>
+    </listitem>
+    <listitem>
+      <para>Las acciones a realizar cuando la pantalla del portátil está cerrada</para>
+    </listitem>
+    <listitem>
+      <para>La política del icono del área de notificación</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>Algunos deslizadores o grupos de opciones pueden estar desactivados si las claves de GConf tienen una política de no escritura. Esto permite a los administradores bloquear las acciones que los usuarios pueden seleccionar.</para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>Preferencias de corriente alterna</title>
+    <figure id="prefs-ac">
+      <title>Solapa de corriente alterna de Gestión de energía</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>Preferencias de la batería</title>
+    <figure id="prefs-processor">
+      <title>Solapa de batería de Gestión de energía</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Esto permite que un ordenador potente reduzca su uso de energía cuando esté ocioso o cuando no se requieran completamente sus capacidades.</para>
+  </section>
+
+  <section id="preferences-general">
+    <title>Preferencias generales</title>
+    <figure id="prefs-general">
+      <title>Solapa de opciones generales de Gestión de energía</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>Tiempos de inactividad del sistema y sesión</title>
+    <para><command>gnome-screensaver</command> es un demonio de sesión que monitoriza las entradas del usuario, y si el ratón no se ha movido, o no se ha pulsado ninguna tecla, comienza una cuenta atrás. Cuando el valor de esta cuenta atrás alcanza el valor establecido en <command>gnome-screensaver-preferences</command>, entonces la sesión se marca como «inactiva». Es entonces cuando <application>Gestión de energía</application> realiza todas las acciones de sesión inactiva tales como activar el modo ahorro de energía y disminuir la intensidad del panel del portátil.</para>
+
+    <figure>
+      <title>Cambiar el tiempo de espera para la inactividad en <command>gnome-screensaver-preferences</command></title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Tan pronto como la sesión se marque como inactiva, <application>Gestión de energía</application> comienza su propio temporizador del «sistema». Cuando se alcanza el tiempo establecido en <command>gnome-power-preferences</command>, y la carga de la CPU está inactiva, entonces se realiza la acción de sesión inactiva, que generalmente apaga la pantalla, o suspende o hiberna el equipo.</para>
+    <para>Para dejar esto más claro, los deslizadores de <command>gnome-power-preferences</command> están configurados para comenzar un minuto después del valor establecido para cambiar la sesión a inactiva, ya que el disparador lógico no puede actuar antes de que la sesión se marque como inactiva. Si ajusta el valor del temporizador de «sesión inactiva» en <command>gnome-screensaver-preferences</command> entonces el comienzo de los deslizadores de <command>gnome-power-preferences</command> cambiará de acuerdo con ellos.</para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>Preferencias avanzadas</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>Atenuación del brillo de la pantalla</title>
+    <note>
+      <para>Puede cambiar la inactividad de la intensidad del panel del portátil cambiando la clave de GConf <command>/apps/gnome-power-manager/backlight/idle_brightness</command>.</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>Bloqueo de la pantalla</title>
+    <para>Por omisión, <application>Gestión de energía</application> soporta un esquema simple de bloqueo. Esto significa que la pantalla se bloqueará cuando se cierra la tapa, o el sistema realiza una acción de suspensión o hibernación, si «Bloquear pantalla» está establecido en gnome-screensaver.</para>
+    <para>Existe un complejo esquema de bloqueo, disponible para usuarios avanzados, que permite cambiar las políticas de bloqueo para la tapa del portátil, con acciones de suspensión e hibernación. Para activar este modo complejo, deberá desactivar la siguiente clave de GConf:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/use_screensaver_settings</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>Después se puede configurar la política de las llaves para forzar el bloqueo y desbloqueo de gnome-screensaver cuando se realiza una acción:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/blank_screen</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/suspend</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/hibernate</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Se ignora la política de bloqueo para gnome-screensaver hasta que se reactive el modo simple.</para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>Miniaplicaciones de Gestión de energía</title>
+
+  <section id="applets-brightness">
+    <title>Miniaplicación de brillo</title>
+    <para>La miniaplicación de brillo permite al usuario cambiar el brillo temporalmente sin cambiar la política predeterminada. Esto puede ser útil si tiene un portátil sin botones de control de brillo, ya que ahora podrá cambiar el brillo fácilmente.</para>
+    <figure>
+      <title>Lista desplegable de la miniaplicación de brillo.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>No dispondrá de deslizador si su hardware no está soportado.</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>Inhibir la miniaplicación</title>
+    <para>Inhibir la miniaplicación permite al usuario prevenir que el equipo entre en reposo automáticamente cuando esté inactivo. Esto puede requerirse para programas viejos o propietarios tales como VMWare o Matlab. Pulse sobre el icono para inhibir el auto reposo y pulse de nuevo para una operación normal.</para>
+    <figure>
+      <title>Inhibir la miniaplicación en estado inhibido.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>No use esta miniaplicación si sólo usa software GNOME, en su lugar rellene un informe de error para que la aplicación use los métodos Inhibit() tal y como «deberían funcionar».</para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>Preguntas más frecuentes</title>
+  <para>Estas son preguntas que se repiten frecuentemente en la lista de correo.</para>
+  <section id="faq-capacity">
+    <title>¿Cuál es la capacidad de la batería?</title>
+    <para>La capacidad es cuánta carga puede almacenar su batería comparado con las guías de uso del fabricante.</para>
+    <figure>
+      <title>Esta gráfica muestra la capacidad de una batería de ion litio típica después de unos cientos de ciclos de carga y descarga.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>¿Cuál es la diferencia entre suspender e hibernar?</title>
+    <para>El estado de suspensión es una característica para ahorrar energía que usa el nivel más bajo de consumo que preserva los datos de programa en la memoria de los equipos. Cuando su equipo se encuentra en un estado de suspensión, no se llevarán a cabo tareas computacionales hasta que se vuelva a la actividad normal. No se volverá a la actividad normal hasta que llegue una señal proveniente de un evento externo tal como la pulsación de una tecla. Generalmente lleva unos pocos segundos suspender el equipo y después volver a la actividad normal.</para>
+    <caution>
+      <para>Aún así se utilizará una pequeña cantidad de energía de la batería mientras el equipo está suspendido, de tal forma que no se recomienda como acción cuando la batería esté baja. Si quita el cable de corriente alterna en un equipo de sobremesa, o se queda sin batería en un portátil, perderá el trabajo realizado.</para>
+    </caution>
+    <para>El estado de hibernación guarda completamente el estado del equipo al disco duro y lo apaga, de tal forma que el equipo parece estar apagado. No se volverá a la actividad normal hasta que llegue una señal proveniente de un evento externo tal como la pulsación de una tecla. Este es el estado de reposo que menos energía necesita. Si quita el cable de corriente alterna en un equipo de sobremesa, o se queda sin batería en un portátil, no se perderá el trabajo realizado. Puede llevar un minuto o más hibernar y despertar un equipo.</para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>Mi pantalla está rota y trata los estados en espera (standby) y apagado como «sin señal» lo que hace que el monitor esté siempre encendido.</title>
+    <para>Tiene que cambiar el modo de suspensión DPMS que usa <application>Gestión de energía</application>. Abra <command>gconf-editor</command> y cambie las claves <literal>/apps/gnome-power-manager/backlight/dpms_method_ac</literal> y <literal>/apps/gnome-power-manager/backlight/dpms_method_battery</literal> a uno de los modelos que funcionan, por ejemplo "standby", "suspend" u "off".</para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>Mi tiempo para la descarga es siempre incorrecto debido a un fallo en la batería, ¿qué puedo hacer?</title>
+    <para>Puede que quiera usar el porcentaje de carga como política de datos para <application>Gestión de energía</application>. Abra <command>gconf-editor</command> y después cambie la clave <command>/apps/gnome-power-manager/general/use_time_for_policy</command> a «false». Puede hacerlo fácilmente ejecutando: <command>gconftool-2 --set --type bool /apps/gnome-power-manager/general/use_time_for_policy false </command></para>
+    <para>Esto debería hacer que las acciones de las políticas funcionen, pero por supuesto que el tiempo restante seguirá siendo incorrecto.</para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>¿Cómo hago para que mi aplicación detenga el auto suspendido del equipo?</title>
+    <para>Si su aplicación está realizando una operación, quizá quiera desactivar el suspendido por un rato. Debería usar la sesión de GNOME (gnome-session) si no quiere que el usuario pueda suspender la sesión o si quiere que el equipo ahorre energía entrando en hibernación o suspendido.</para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>Estoy ejecutando ACPI. ¿Por qué los eventos (tales como quitar el adaptador de corriente alterna) tardan tanto en registrarse?</title>
+    <para>Una de estas dos cosas debe ser el problema.</para>
+    <itemizedlist>
+      <listitem>
+        <para>HAL no debe estar ejecutando el complemento que captura los eventos ACPI.</para>
+      </listitem>
+      <listitem>
+        <para>Puede que falte su BIOS y quizá necesite un arreglo. Por favor rellene un informe de error.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Para el primer caso, intente buscar los procesos de HAL que se están ejecutando: <command>ps -eaf | grep hal</command></para>
+    <para>Y compruebe que el proceso <command>hald-addon-acpi</command> se está ejecutando. Si no lo esa, entonces asegúrese de que HAL se está ejecutando con la opción <command>--retain-privileges</command> en el script de inicio <command>haldaemon</command>. Una alternativa a esto es usar «acpid», en lugar del archivo «proc» del núcleo.</para>
+  </section>
+
+</section>
+
+<section id="about">
+  <title>Acerca de</title>
+  <para>Richard Hughes <email>richard@hughsie.com</email> escribió Gestión de energía. Para obtener más información acerca de Gestión de energía, visite <ulink url="http://www.gnome.org/projects/gnome-power-manager" type="http">la página web de <application>Gestión de energía</application></ulink>.</para>
+  <para>Para informar de un fallo, o hacer alguna sugerencia concerniente a esta aplicación o a este manual, siga las indicaciones en la <ulink url="http://www.gnome.org/projects/gnome-power-manager/bugs.html" type="http">página de errores de <application>Gestión de energía</application></ulink>.</para>
+  <para>Este programa se distribuye bajo los términos de la Licencia Pública General GNU tal como la publica la Free Software Foundation; tanto en la versión 2 de la Licencia, o (a su opción) cualquier otra versión posterior. Puede encontrarse una copia de esta licencia en este <ulink url="ghelp:gpl" type="help">enlace</ulink>, o en el archivo COPYING incluido con el código fuente de este programa.</para>
+</section>
+
+</article>

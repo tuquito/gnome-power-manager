@@ -1,0 +1,5 @@
+debian/pixmaps/network.xpm usr/share/gnome-system-tools/pixmaps/
+debian/tmp/usr/bin/network-admin
+debian/tmp/usr/share/applications/network.desktop
+debian/tmp/usr/share/gnome/help/network-admin
+debian/tmp/usr/share/omf/network-admin

@@ -1,0 +1,4 @@
+?package(gnome-network-admin):needs="X11" section="Applications/System/Administration"\
+  hints="Network"\
+  title="Network Admin" command="/usr/bin/network-admin"\
+  icon="/usr/share/gnome-system-tools/pixmaps/network.xpm"

@@ -1,0 +1,15 @@
+Description: Add sambashare to known groups
+Author: ?
+
+Index: gnome-system-tools-2.29.3/src/users/privileges-table.c
+===================================================================
+--- gnome-system-tools-2.29.3.orig/src/users/privileges-table.c	2010-01-11 18:53:30.000000000 +0000
++++ gnome-system-tools-2.29.3/src/users/privileges-table.c	2010-02-05 15:50:16.090834805 +0000
+@@ -65,6 +65,7 @@
+ 	{ "plugdev", N_("Access external storage devices automatically") },
+ 	{ "powerdev", N_("Suspend and hibernate the computer") },
+ 	{ "proc", N_("Access /proc filesystem") },
++	{ "sambashare", N_("Share files with the local network") },
+ 	{ "scanner", N_("Use scanners") },
+ 	{ "tape", N_("Use tape drives") },
+ 	{ "usb", N_("Use USB devices") },

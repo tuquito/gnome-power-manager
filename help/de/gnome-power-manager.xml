@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "GNOME Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.27.3">
+<!ENTITY manrevision "2.27.3">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+	  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="de">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title><application>Energieverwaltung</application>-Handbuch</title>
+    <abstract role="description">
+      <para>Die <application>GNOME-Energieverwaltung</application> ist ein Sitzungsdämon für den GNOME-Desktop, der die Energieeinstellungen Ihres Laptops oder Desktoprechners verwaltet.</para>
+    </abstract>
+    <copyright>
+      <year>2006-2009</year>
+      <holder>Richard Hughes (richard@hughsie.com)</holder>
+    </copyright><copyright><year>2009</year><holder>Mario Blättermann (mariobl@gnome.org)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Das vorliegende Dokument kann gemäß den Bedingungen der GNU Free Documentation License (GFDL), Version 1.1 oder jeder späteren, von der Free Software Foundation veröffentlichten Version ohne unveränderbare Abschnitte sowie ohne Texte auf dem vorderen und hinteren Buchdeckel kopiert, verteilt und/oder modifiziert werden. Eine Kopie der GFDL finden Sie unter diesem <ulink type="help" url="ghelp:fdl">Link</ulink> oder in der mit diesem Handbuch gelieferten Datei COPYING-DOCS.</para>
+         <para>Dieses Handbuch ist Teil einer Sammlung von GNOME-Handbüchern, die unter der GFDL veröffentlicht werden. Wenn Sie dieses Handbuch getrennt von der Sammlung weiterverbreiten möchten, können Sie das tun, indem Sie eine Kopie der Lizenz zum Handbuch hinzufügen, wie es in Abschnitt 6 der Lizenz beschrieben ist.</para>
+
+	<para>Viele der Namen, die von Unternehmen verwendet werden, um ihre Produkte und Dienstleistungen von anderen zu unterscheiden, sind eingetragene Warenzeichen. An den Stellen, an denen diese Namen in einer GNOME-Dokumentation erscheinen, werden die Namen in Großbuchstaben oder mit einem großen Anfangsbuchstaben geschrieben, wenn das GNOME-Dokumentationsprojekt auf diese Warenzeichen hingewiesen wird.</para>
+
+	<para>DAS DOKUMENT UND VERÄNDERTE FASSUNGEN DES DOKUMENTS WERDEN UNTER DEN BEDINGUNGEN DER GNU FREE DOCUMENTATION LICENSE ZUR VERFÜGUNG GESTELLT MIT DEM WEITERGEHENDEN VERSTÄNDNIS, DASS: <orderedlist>
+		<listitem>
+		  <para>DIESES DOKUMENT WIRD »WIE VORLIEGEND« GELIEFERT, OHNE GARANTIEN IRGENDEINER ART, SOWOHL AUSDRÜCKLICH GENANNTE ALS AUCH ANGEDEUTETE. DIES BEZIEHT SICH AUCH OHNE EINSCHRÄNKUNG AUF GARANTIEN, DASS DIESES DOKUMENT ODER VERÄNDERTE FASSUNGEN DIESES DOKUMENTS FREI VON HANDELSDEFEKTEN, FÜR EINEN BESTIMMTEN ZWECK GEEIGNET IST ODER DASS ES KEINE RECHTE DRITTER VERLETZT. DAS VOLLE RISIKO WAS QUALITÄT, GENAUIGKEIT UND LEISTUNG DES DOKUMENTS ODER VERÄNDERTE FASSUNGEN DES DOKUMENTS LIEGT BEI IHNEN. SOLLTE EIN DOKUMENT ODER EINE VERÄNDERTE FASSUNG DAVON FEHLER IRGENDEINER ART BEINHALTEN, TRAGEN SIE (NICHT DER URSPRUNGSAUTOR, DER AUTOR ODER EIN MITWIRKENDER) DIE KOSTEN FÜR NOTWENDIGE DIENSTLEISTUNGEN, REPARATUREN ODER FEHLERKORREKTUREN. DIESER HAFTUNGSAUSSCHLUSS IST EIN ESSENZIELLER TEIL DIESER LIZENZ. DIE VERWENDUNG EINES DOKUMENTS ODER EINER VERÄNDERTEN VERSION DES DOKUMENTS IST NICHT GESTATTET AUßER UNTER BEACHTUNG DIESES HAFTUNGSAUSSCHLUSSES UND</para>
+		</listitem>
+		<listitem>
+		  <para>UNTER KEINEN UMSTÄNDEN UND AUF BASIS KEINER RECHTSGRUNDLAGE, EGAL OB DURCH UNERLAUBTEN HANDLUNGEN (EINSCHLIEßLICH FAHRLÄSSIGKEIT), VERTRAG ODER ANDERWEITIG KANN DER AUTOR, URSPRUNGSAUTOR, EIN MITWIRKENDER ODER EIN VERTRIEBSPARTNER DIESES DOKUMENTS ODER EINER VERÄNDERTEN FASSUNG DES DOKUMENTS ODER EIN ZULIEFERER EINER DIESER PARTEIEN, HAFTBAR GEMACHT WERDEN FÜR DIREKTE, INDIREKTE, SPEZIELLE, VERSEHENTLICHE ODER FOLGESCHÄDEN JEGLICHER ART, EINSCHLIEßLICH UND OHNE EINSCHRÄNKUNGEN SCHÄDEN DURCH VERLUST VON KULANZ, ARBEITSAUSFALL, COMPUTERVERSAGEN ODER COMPUTERFEHLFUNKTIONEN ODER ALLE ANDEREN SCHÄDEN ODER VERLUSTE, DIE SICH AUS ODER IN VERBINDUNG MIT DER VERWENDUNG DES DOKUMENTS UND VERÄNDERTER FASSUNGEN DES DOKUMENTS ERGEBEN, AUCH WENN DIE OBEN GENANNTEN PARTEIEN ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT WAREN.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author role="maintainer">
+        <firstname>Richard</firstname>
+        <surname>Hughes</surname>
+	<email>richard@hughsie.com</email>
+      </author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision>
+        <revnumber>2.0</revnumber>
+        <date>30. August 2006</date>
+        <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Rückmeldungen</title>
+      <para>Um einen Fehler zu melden oder eine Vorschlag zur GNOME-Energieverwaltung oder zu diesem Handbuch zu machen, folgen Sie den Anweisungen auf der <ulink url="http://www.gnome.org/projects/gnome-power-manager/" type="http">Kontakt-Webseite der <application>GNOME-Energieverwaltung</application></ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>GNOME-Energieverwaltung</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>gnome-power-manager</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Einführung</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>GNOME-Energieverwaltung</application></primary>
+    <secondary>Handbuch</secondary>
+    <tertiary>gnome-power-manager</tertiary>
+  </indexterm>
+
+  <para>Der Sitzungsdämon der GNOME-Energieverwaltung ist ein Energieverwaltungsdienst für den GNOME-Desktop.</para>
+
+</section>
+
+<section id="using">
+  <title>Benutzung</title>
+  <para>Die <application>GNOME-Energieverwaltung</application> wird üblicherweise bereits beim Start von GNOME mitgestartet, aber Sie können die <application>GNOME-Energieverwaltung</application> auch manuell auf die folgende Weise starten:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Befehlszeile</term>
+      <listitem>
+    	<para>Geben Sie <command>gnome-power-manager --verbose --no-daemon</command> ein, und drücken Sie anschließend die <keycap>Eingabetaste</keycap>.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>Benachrichtigungen</title>
+  <para>Beim Start der <application>GNOME-Energieverwaltung</application> werden möglicherweise die folgenden Benachrichtigungen angezeigt:</para>
+
+  <section id="notify-unplugged">
+    <title>Netzadapter wurde getrennt</title>
+    <figure>
+      <title>Benachrichtigung der GNOME-Energieverwaltung, wenn der Netzadapter entfernt wurde</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Sie können diese Benachrichtigung durch Ändern des GConf-Schlüssels <command>/apps/gnome-power-manager/notify/discharging</command> deaktivieren.</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>Voll aufgeladen</title>
+    <figure>
+      <title>Benachrichtigung der GNOME-Energieverwaltung, wenn der primäre Laptop-Akku voll geladen ist</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Sie können diese Benachrichtigung durch Ändern des GConf-Schlüssels <command>/apps/gnome-power-manager/notify/fully_charged</command> deaktivieren.</para>
+    </note>
+    <note>
+      <para>Sie erhalten nur dann eine wiederholte Benachrichtigung, wenn der Ladezustand des Akkus unter 95% fällt beziehungsweise wieder voll geladen ist. Dies verhindert auf manchen Rechnern unerwünschte wiederholte Benachrichtigungen, falls der Ladezustand des Akkus vom System nicht korrekt gemeldet wird.</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>Akkuladezustand niedrig</title>
+    <para>Wenn der Akkuladezustand kritisch ist, erhalten Sie eine weitere Benachrichtigung. Sie sollten in Betracht ziehen, sobald wie möglich auf Netzbetrieb umzuschalten.</para>
+    <figure>
+      <title>Benachrichtigung der GNOME-Energieverwaltung, wenn der Akkuladezustand kritisch ist</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Sie können diese Benachrichtigung durch Ändern des GConf-Schlüssels <command>/apps/gnome-power-manager/notify/low_power</command> deaktivieren.</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>Akkuladezustand kritisch</title>
+    <para>Wenn der Rechner die Energie völlig verbraucht hat, zeigt diese Benachrichtigung, welche Aktion erforderlich ist. Sie können die bei kritischem Akkuladezustand ausgeführte Aktion mit Hilfe des Einstellungswerkzeugs ändern.</para>
+    <figure>
+      <title>Benachrichtigung der GNOME-Energieverwaltung, wenn die Systemspannung kritisch niedrig ist</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>Fehler beim Wechsel in den Bereitschaftsmodus</title>
+    <para>Wenn ein Fehler beim Wechsel in den Ruhezustand auftrat, könnten Sie folgende Warnmeldung erhalten. Der häufigste Grund für diese Meldung ist, dass der gegenwärtige Benutzer nicht über die nötigen Rechte verfügt, um den Rechner in den Ruhezustand oder in den Bereitschaftsmodus zu versetzen.</para>
+    <figure>
+      <title>Benachrichtigung der GNOME-Energieverwaltung, wenn ein Fehler beim Wechsel in den Ruhezustand auftrat</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Sie können diese Benachrichtigung abschalten, indem Sie den GConf-Schlüssel <command>/apps/gnome-power-manager/notify/sleep_failed</command> ändern.</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>Statistiken</title>
+  <para>Das Statistikprogramm ermöglicht Ihnen die grafische  Darstellung des Energieverbrauchs Ihrer Laptop-Hardware.</para>
+  <note>
+    <para>Dies wurde aus dem Informationsfenster früherer Versionen der GNOME-Energieverwaltung entfernt, weil die Datenschnittstelle nun DBUS anstelle des internen IPC verwendet. Dadurch wird anderen Anwendungen ermöglicht, falls nötig diese Daten abzufragen und anzuzeigen.</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>Ladechronik beim Übergang vom Akku- zum Netzbetrieb</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>Falls Ihr Rechner nicht über die nötige Hardware verfügt, könnten manche Optionen oder Graphen nicht sichtbar sein. Auch andere Hardware wird möglicherweise nicht angezeigt, zum Beispiel unterbrechungsfreie Stromversorgungen (USV), allerdings werden diese auf die gleiche Weise behandelt wie andere Geräte.</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>Ladechronik</title>
+    <para>Dieser Graph zeigt die verfügbare Kapazität für den gesamten primären Akku in Prozent an. Falls Sie neben dem Hauptakku des Laptops noch einen externen Akku verwenden, wird nur die Gesamtkapazität angezeigt. Über eine Legende verfügt dieser Graph nicht.</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>Energiechronik</title>
+    <para>Dieser Graph zeigt die Ladechronik der Kapazität des gesamten Primärakkus an. Die Kurve stellt die Energiemenge dar, welche entweder zum Laden der Akkus im System verwendet wird oder die Energiemenge, welche vom System aus den Akkus entnommen wurde. Die Kurve steigt an, wenn der Prozessor rechenintensive Aufgaben ausführt. Ebenso fällt sie wieder ab, wenn das System untätig wird oder der Bildschirm abgedunkelt wird. Zusammen mit diesem Graphen wird eine Legende angezeigt, wann Datenereignisse empfangen worden sind.</para>
+
+    <note>
+      <para>Wenn keine Lade- oder Entladevorgänge stattfinden oder der Rechner sich in einem Energiesparmodus befindet, empfangen Sie keine Daten über den Status. Dies liegt in den Einschränkungen einiger Hardware-Geräte begründet, wenn der Status nur vom Akkuverwaltungs-Chip und nicht vom Energieverwaltungs-Chip auf der Hauptplatine gesendet wird.</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>Chronik der geschätzen Zeit</title>
+    <para>Dieser Graph zeigt die Chronik der verbleibenden Kapazität des gesamten Primärakkus an. Die Kurve stellt die nötige Zeitspanne bis zur völligen Ladung beziehungsweise völligen Entladung dar. Die Kurve steigt proportional an, wenn die Kapazität steigt und sie fällt ebenso proportional wieder ab, wenn die Kapazität fällt. Zusammen mit diesem Graphen wird eine Legende angezeigt, wann Datenereignisse empfangen worden sind.</para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>Einstellungen</title>
+
+  <para>Im Einstellungsfenster können Sie Folgendes anpassen:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>Die LCD-Helligkeit im Netz- und Akkubetrieb</para>
+    </listitem>
+    <listitem>
+      <para>Wartezeit für die Abschaltung des Bildschirms und die Aktionen zum Wechsel in Bereitschaftsmodus und Ruhezustand</para>
+    </listitem>
+    <listitem>
+      <para>Beim Schließen des Laptop-Deckels auszuführende Aktionen</para>
+    </listitem>
+    <listitem>
+      <para>Anzeigeregeln des Benachrichtigungsfelds</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>Einige Schieberegler oder andere Einstellmöglichkeiten könnten deaktiviert sein, falls der entsprechende GConf-Schlüssel nicht schreibbar ist. Dies ermöglicht Systemverwaltern, die Zahl der durch den Benutzer änderbaren Einstellungen einzuschränken.</para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>Einstellungen für den Netzbetrieb</title>
+    <figure id="prefs-ac">
+      <title>Reiter »Im Netzbetrieb« der GNOME-Energieverwaltung</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>Einstellungen für den Akkubetrieb</title>
+    <figure id="prefs-processor">
+      <title>Reiter »Im Akkubetrieb« der GNOME-Energieverwaltung</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Dies ermöglicht auf einem leistungsfähigen Rechner die Reduzierung des Energieverbrauchs bei Untätigkeit, oder wenn die volle Leistung nicht benötigt wird.</para>
+  </section>
+
+  <section id="preferences-general">
+    <title>Allgemeine Einstellungen</title>
+    <figure id="prefs-general">
+      <title>Reiter »Allgemein« der GNOME-Energieverwaltung</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>Sitzungs- und Systemwartezeiten</title>
+    <para><command>gnome-screensaver</command> ist ein Sitzungsdämon, der die Eingaben des Benutzers überwacht. Falls die Maus oder die Tastatur nicht bedient wird, startet eine Wartezeit. Wenn der Wert dieser Zeitspanne den in <command>gnome-screensaver-preferences</command> festgelegten Wert erreicht, dann wird die Anmeldung als »Sitzung untätig« markiert. Dann führt die <application>GNOME-Energieverwaltung</application> alle Aktionen aus, die für den Zustand »Sitzung untätig« vorgesehen sind, wie die Aktivierung des Energiesparmodus oder die Verminderung der Anzeigehelligkeit des Laptop-Bildschirms.</para>
+
+    <figure>
+      <title>Ändern der Untätig-Wartezeit in den <command>gnome-screensaver-preferences</command></title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Sobald die Sitzung als »untätig« markiert ist, startet die <application>GNOME-Energieverwaltung</application> ihre eigene »Systemuhr«. Wenn die in den <command>gnome-power-preferences</command> eingestellte Wartezeit verstrichen und die CPU-Last untätig ist, dann wird die Untätigkeitsaktion ausgeführt. Üblicherweise ist das die Abschaltung des Bildschirms oder der Wechsel in den Bereitschaftsmodus oder Ruhezustand.</para>
+    <para>Um dies zu verdeutlichen, werden die Schieberegler in <command>gnome-power-preferences</command> auf den Startwert der Sitzungs-Wartezeit plus 1 Minute gesetzt, weil logischerweise nicht in einen Energiesparmodus gewechselt werden kann, bevor die Sitzung nicht als untätig markiert wurde. Wenn Sie den Wert der Wartezeit in den Bildschirmschonereinstellungen anpassen, dann wird der Startwert der Schieberegler in den <command>gnome-power-preferences</command> ebenfalls entsprechend verändert.</para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>Erweiterte Einstellungen</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>Abdunklung des Bildschirms</title>
+    <note>
+      <para>Sie können die Abdunklung des Laptop-Bildschirms bei Untätigkeit ändern, indem Sie den GConf-Schlüssel <command>/apps/gnome-power-manager/backlight/idle_brightness</command> anpassen.</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>Sperren des Bildschirms</title>
+    <para>Per Vorgabe unterstützt die <application>GNOME-Energieverwaltung</application> ein einfaches Sperrschema. Das bedeutet, dass der Bildschirm gesperrt wird, falls dies im Bildschirmschoner als »Bildschirm sperren« für die Aktion beim Schließen des Deckels eingestellt wurde, oder das System wechselt in den Bereitschaftsmodus oder Ruhezustand.</para>
+    <para>Für fortgeschrittene Benutzer ist ein weitaus umfangreicheres Sperrsystem verfügbar. Dadurch wird dem Benutzer das Anpassen der Aktionen beim Schließen des Deckels oder dem Wechsel in den Bereitschaftsmodus oder Ruhezustand ermöglicht. Um diesen komplexen Modus zu aktivieren, müssen Sie folgenden GConf-Schlüssel deaktivieren:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/use_screensaver_settings</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>Dann können folgende Schlüssel gesetzt werden, um das Sperren und Entsperren durch den Bildschirmschoner zu erzwingen, wenn die Aktion ausgeführt wird:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/blank_screen</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/suspend</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/hibernate</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Die Sperrungsregeln des Bildschirmschoners werden solange ignoriert, bis der einfache Modus wieder aktiviert wird.</para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>GNOME-Energie-Applets</title>
+
+  <section id="applets-brightness">
+    <title>Helligkeits-Applet</title>
+    <para>Das Helligkeits-Applet ermöglicht dem Benutzer die vorübergehende Anpassung der Bildschirmhelligkeit, ohne die Satndardeinstellungen zu ändern. Nützlich könnte dies für Laptops ohne Helligkeitstasten sein, denn so können Sie die Helligkeit sehr einfach ändern.</para>
+    <figure>
+      <title>Ausgeklapptes Helligkeits-Applet</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Der Schieberegler wird nicht angezeigt, falls Ihre Hardware dies nicht unterstützt.</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>Energiesparmodus-Unterdrückungsapplet</title>
+    <para>Das Energiesparmodus-Unterdrückungsapplet ermöglicht dem Benutzer, den automatischen Wechsel in Bereitschaftsmodus oder Ruhezustand bei Untätigkeit zu unterbinden. Das könnte für alte oder proprietäre Programme wie VMWare oder Matlab erforderlich sein. Klicken Sie einfach auf das Symbol, um die Unterdrückung zu aktivieren, und klicken Sie erneut darauf, um zum normalen Modus zurückzukehren.</para>
+    <figure>
+      <title>Energiesparmodus-Unterdrückungsapplet im unterdrückten Zustand.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Benutzen Sie dieses Applet nicht, wenn Sie nur GNOME-Software verwenden. Melden Sie stattdessen an die Fehlerdatenbank, dass die Anwendung die Methoden Inhibit() und UnInhibit() benutzen sollte.</para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>Häufig gestellte Fragen</title>
+  <para>Diese Fragen werden häufig in Mailinglisten gestellt.</para>
+  <section id="faq-capacity">
+    <title>Was ist die Akkukapazität?</title>
+    <para>Die Kapazität ist das Fassungsvermögen Ihres Akkus entsprechend den Angaben des Herstellers.</para>
+    <figure>
+      <title>Dieser Graph zeigt die Kapazität eines typischen Lithium-Ionen-Akkus über einen Zeitraum von einigen Hundert Lade-/Entladevorgängen.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>Was unterscheidet Bereitschaftsmodus und Ruhezustand?</title>
+    <para>Der Bereitschaftsmodus ist eine Energiesparfunktion, die minimalen Energieverbrauch ermöglicht, wobei die Programmdaten im Hauptspeicher des Rechners vorgehalten werden. Wenn sich Ihr Rechner im Bereitschaftsmodus befindet, wird kein Rechenvorgang ausgeführt, bis wieder die normale Aktivität aufgenommen wird. Die Wiederaufnahme erfolgt erst bei einem Ereignis von außen, z.B. einer Tastaturbedienung. Im Allgemeinen dauert es einige Sekunden, um den Rechner in den Bereitschaftszustand zu versetzen und wieder aufwachen zu lassen.</para>
+    <caution>
+      <para>Eine geringe Menge Akku-Energie wird im Bereitschaftszustand noch benötigt. Daher ist es nicht empfehlenswert, den Bereitschaftszustand als Aktion bei niedrigem Akkuladezustand einzusetzen. Falls Sie einen Desktop-Rechner vom Stromnetz trennen oder der Akku des Laptops vollkommen leer wird, geht Ihre Arbeit verloren.</para>
+    </caution>
+    <para>Im Ruhezustand wird der komplette Status des Rechners auf der Festplatte gesichert und die Energieversorgung abgeschaltet. Der Rechner nimmt seine Tätigkeit auch durch ein äußeres Signal wie eine Tastaturbedienung nicht wieder auf. Dies ist der verfügbare Energiesparmodus mit dem niedrigsten Energieverbrauch. Falls Sie einen Desktop-Rechner vom Stromnetz trennen oder der Akku des Laptops vollkommen leer wird, geht Ihre Arbeit nicht verloren. Es kann eine Minute oder länger dauern, den Rechner in den Ruhezustand zu versetzen oder ihn wieder aufwachen zu lassen.</para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>Mein Monitor behandelt die DPMS-Zustände »standby« und »off« als »no-signal«, wodurch der Monitor eingeschaltet bleibt.</title>
+    <para>Sie müssen den von der <application>GNOME-Energieverwaltung</application> verwendeten DPMS-Suspendmodus ändern. Öffnen Sie den <application>Konfigurationseditor</application> und ändern Sie die Schlüssel <literal>/apps/gnome-power-manager/backlight/dpms_method_ac</literal> und <literal>/apps/gnome-power-manager/backlight/dpms_method_battery</literal> in einen der funktionierenden Modi (»standby«, »suspend« oder »off«).</para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>Obwohl der Akku in Ordnung ist, wird die Entladezeit immer inkorrekt angezeigt. Was kann ich tun?</title>
+    <para>Möglicherweise müssen Sie die prozentuale Ladung als von der <application>GNOME-Energieverwaltung</application> zu verwendende Regel definieren. Öffnen Sie den <application>Konfigurationseditor</application> und setzen Sie den Schlüssel <command>/apps/gnome-power-manager/general/use_time_for_policy</command> auf FALSCH. Sie können auch folgenden Befehl ausführen: <command> gconftool-2 --set --type bool /apps/gnome-power-manager/general/use_time_for_policy false </command></para>
+    <para>Dadurch sollten die festgelegten Aktionen funktionieren, aber die Anzeige der verbleibenden Zeit wird noch immer unkorrekt sein.</para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>Wie kann ich in meiner Anwendung dafür sorgen, dass automatisches Wechseln in einen Energiesparmodus verhindert wird?</title>
+    <para>Falls Ihre Anwendung eine langwierige Operation ausführt, möchten Sie möglicherweise den Wechsel in einen Energiesparmodus für eine gewisse Zeit verhindern. Sie sollten gnome-session verwenden, falls Sie wirklich dem Benutzer die Fähigkeit entziehen wollen, in einen Energiesparmodus zu gelangen oder dem Rechner die Einsparung von Energie durch Bereitschaftszustand oder Ruhemodus zu ermöglichen.</para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>Ich benutze ACPI. Warum benötigen Ereignisse (wie die Entfernung des Netzadapters) so viel Zeit zur Registrierung?</title>
+    <para>Eines dieser zwei Dinge könnte das Problem verursachen.</para>
+    <itemizedlist>
+      <listitem>
+        <para>HAL läuft nicht mit dem Addon, welches die ACPI-Ereignisse überwacht.</para>
+      </listitem>
+      <listitem>
+        <para>Es könnte an Ihrem BIOS liegen, vielleicht ist ein Workaround notwendig. Bitte senden Sie einen Fehlerbericht.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Im ersten Fall suchen Sie zunächst nach den laufenden HAL-Prozessen: <command>ps -eaf | grep hal</command></para>
+    <para>Suchen Sie in der Ausgabe nach dem Prozess <command>hald-addon-acpi</command>. Falls dieser nicht läuft, dann stellen Sie sicher, dass HAL mit der Option <command>--retain-privileges</command> im Initskript <command>haldaemon</command> gestartet wird. Alternativ können Sie acpid anstelle der proc-Datei des Kernels verwenden.</para>
+  </section>
+
+</section>
+
+<section id="about">
+  <title>Info</title>
+  <para>Die GNOME-Energieverwaltung wurde von Richard Hughes <email>richard@hughsie.com</email> geschrieben. Für weitere Informationen über die GNOME-Energieverwaltung besuchen Sie bitte die <ulink url="http://www.gnome.org/projects/gnome-power-manager" type="http"><application>GNOME-Energieverwaltung</application>-Webseite</ulink>.</para>
+  <para>Um einen Fehler zu melden oder einen Vorschlag zu dieser Anwendung oder zu diesem Handbuch zu machen, folgen sie den Anweisungen auf der <ulink url="http://www.gnome.org/projects/gnome-power-manager/bugs.html" type="http">Seite für Fehlerberichte der <application>GNOME-Energieverwaltung</application></ulink>.</para>
+  <para>Dieses Programm ist freie Software. Sie können es unter den Bedingungen der <citetitle>GNU General Public License</citetitle>, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 2 der Lizenz oder (nach Ihrer Wahl) jeder späteren Version. Eine <ulink url="gnome-power-manager:gpl" type="help">Kopie dieser Lizenz</ulink> ist in dieser Dokumentation enthalten, eine weitere in der Datei COPYING, die im Quellcode dieses Programms enthalten ist.</para>
+</section>
+
+</article>

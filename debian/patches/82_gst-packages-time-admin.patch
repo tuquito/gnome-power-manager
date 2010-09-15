@@ -1,0 +1,41 @@
+Description: Install ntp package on demand
+Author: ?
+
+Index: gnome-system-tools-2.31.91/src/time/time-tool.c
+===================================================================
+--- gnome-system-tools-2.31.91.orig/src/time/time-tool.c	2010-05-25 03:09:57.000000000 +1000
++++ gnome-system-tools-2.31.91/src/time/time-tool.c	2010-09-01 18:36:02.102617000 +1000
+@@ -374,6 +374,7 @@
+ {
+ 	GstTimeToolPrivate *priv = GST_TIME_TOOL_GET_PRIVATE (tool);
+ 	GtkWidget *message, *widget;
++	gint response;
+ 
+ 	if (GST_TIME_TOOL (tool)->ntp_service)
+ 		return TRUE;
+@@ -400,9 +401,24 @@
+ 						  _("Please install and activate NTP support in the system to enable "
+ 						    "synchronization of your local time server with "
+ 						    "internet time servers."));
+-	gtk_dialog_run (GTK_DIALOG (message));
++
++	gtk_dialog_add_button (GTK_DIALOG (message), _("Install NTP support"), GTK_RESPONSE_OK);
++	response = gtk_dialog_run (GTK_DIALOG (message));
+ 	gtk_widget_destroy (message);
+ 
++	if (response == GTK_RESPONSE_OK) {
++		const gchar *packages[] = { "ntp", NULL };
++
++		if (gst_packages_install (GTK_WINDOW (tool->main_dialog), packages)) {
++			gtk_combo_box_set_active (GTK_COMBO_BOX (widget), CONFIGURATION_AUTOMATIC);
++			gst_tool_update_config (tool);
++			gst_tool_update_gui (tool);
++
++			if (GST_TIME_TOOL (tool)->ntp_service)
++				return TRUE;
++		}
++	}
++
+ 	return FALSE;
+ }
+ 

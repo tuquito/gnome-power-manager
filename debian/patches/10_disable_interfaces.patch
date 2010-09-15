@@ -1,0 +1,34 @@
+--- a/interfaces/network.ui
++++ b/interfaces/network.ui
+@@ -87,7 +87,7 @@
+         <property name="spacing">12</property>
+         <child>
+           <object class="GtkHBox" id="locations_box">
+-            <property name="visible">True</property>
++            <property name="visible">False</property>
+             <property name="spacing">6</property>
+             <child>
+               <object class="GtkLabel" id="label2">
+@@ -161,7 +161,7 @@
+             <property name="can_focus">True</property>
+             <child>
+               <object class="GtkHBox" id="hbox3">
+-                <property name="visible">True</property>
++                <property name="visible">False</property>
+                 <property name="border_width">12</property>
+                 <property name="spacing">6</property>
+                 <child>
+--- a/src/network/network-tool.c
++++ b/src/network/network-tool.c
+@@ -152,6 +152,11 @@ gst_network_tool_constructor (GType
+   tool->dialog = connection_dialog_init (GST_TOOL (tool));
+   tool->host_aliases_dialog = gst_dialog_get_widget (GST_TOOL (tool)->main_dialog, "host_aliases_edit_dialog");
+ 
++  if (!g_file_test ("/usr/sbin/NetworkManager", G_FILE_TEST_IS_EXECUTABLE)) {
++    gtk_widget_set_visible (gst_dialog_get_widget (GST_TOOL (tool)->main_dialog, "hbox3"), TRUE);
++    gtk_widget_set_visible (gst_dialog_get_widget (GST_TOOL (tool)->main_dialog, "locations_box"), TRUE);
++  }
++
+   return object;
+ }
+ 

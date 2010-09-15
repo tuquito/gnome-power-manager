@@ -1,0 +1,72 @@
+Source: gnome-system-tools
+Section: gnome
+Priority: optional
+Maintainer: Ubuntu Desktop Team <ubuntu-desktop@lists.ubuntu.com>
+XSBC-Original-Maintainer: Jose Carlos Garcia Sogo <jsogo@debian.org>
+Uploaders: @GNOME_TEAM@,
+           Niv Sardi <xaiki@debian.org>
+Build-Depends: cdbs (>= 0.4.41),
+               autotools-dev,
+               intltool (>= 0.35.0),
+               gnome-common,
+               debhelper (>= 5),
+               liboobs-1-dev (>= 2.31.91),
+               libgtk2.0-dev (>= 2.19.7),
+               cracklib2-dev,
+               libglib2.0-dev (>= 2.25.3),
+               libdbus-1-dev (>= 0.32),
+               libpolkit-gtk-1-dev (>= 0.92),
+               system-tools-backends-dev (>= 2.10.1),
+               gettext,
+               libxml-parser-perl,
+               gnome-pkg-tools,
+               scrollkeeper,
+               gnome-doc-utils (>= 0.3.2),
+               pkg-config,
+               libpango1.0-dev
+Standards-Version: 3.8.4
+Vcs-Bzr: https://code.launchpad.net/~ubuntu-desktop/gnome-system-tools/ubuntu
+
+Package: gnome-system-tools
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         perl,
+         system-tools-backends (>= 2.9.4),
+         policykit-1-gnome
+Suggests: ntp, gnome-control-center
+Replaces: ximian-setup-tools
+Description: Cross-platform configuration utilities for GNOME
+ The GNOME System Tools are a fully integrated set of tools aimed to make easy
+ the job that means the computer administration on an UNIX or Linux system.
+ They're thought to help from the new Linux or UNIX user to the system
+ administrators.
+ .
+ Its main advantages are:
+  * Full integration with the new GNOME Control Center.
+  * An user-friendly interface to carry out the main administration tasks.
+  * The use of a common user interface in every system.
+  * A common structure that makes easy the development of new system tools.
+ Nowadays there are tools for managing:
+  - Users and groups
+  - Date and time
+  - Network options
+  - Services
+  - Shares (NFS and Samba)
+
+Package: gnome-network-admin
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         gnome-system-tools
+Conflicts: gnome-system-tools (<< 2.29.1-0ubuntu1)
+Replaces: gnome-system-tools (<< 2.29.1-0ubuntu1)
+Description: GNOME Network Administration Tool
+ The GNOME System Tools are a fully integrated set of tools aimed to make easy
+ the job that means the computer administration on an UNIX or Linux system.
+ They're thought to help from the new Linux or UNIX user to the system
+ administrators.
+ .
+ This package provides network-admin, a program to specify the way your
+ system connects to other computers and to the Internet.
+

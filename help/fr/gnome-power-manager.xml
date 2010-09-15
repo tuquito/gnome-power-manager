@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "GNOME Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.27.3">
+<!ENTITY manrevision "2.27.3">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+	  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="fr">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Manuel du <application>Gestionnaire d'énergie GNOME</application></title>
+    <abstract role="description">
+      <para>Le <application>gestionnaire d'énergie GNOME</application> est un démon de session pour le bureau GNOME qui gère les réglages de consommation de votre ordinateur, portable ou non.</para>
+    </abstract>
+    <copyright>
+      <year>2006-2009</year>
+      <holder>Richard Hughes (richard@hughsie.com)</holder>
+    </copyright><copyright><year>2006-2007.</year><holder>Claude Paroz (claude@2xlibre.net)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Permission vous est donnée de copier, distribuer et/ou modifier ce document selon les termes de la Licence GNU Free Documentation License, Version 1.1 ou ultérieure publiée par la Free Software Foundation sans section inaltérable, sans texte de première page de couverture ni texte de dernière page de couverture. Vous trouverez un exemplaire de cette licence en suivant ce <ulink type="help" url="ghelp:fdl">lien</ulink> ou dans le fichier COPYING-DOCS fourni avec le présent manuel.</para>
+         <para>Ce manuel fait partie de la collection de manuels GNOME distribués selon les termes de la licence de documentation libre GNU. Si vous souhaitez distribuer ce manuel indépendamment de la collection, vous devez joindre un exemplaire de la licence au document, comme indiqué dans la section 6 de celle-ci.</para>
+
+	<para>La plupart des noms utilisés par les entreprises pour distinguer leurs produits et services sont des marques déposées. Lorsque ces noms apparaissent dans la documentation GNOME et que les membres du projet de Documentation GNOME sont informés de l'existence de ces marques déposées, soit ces noms entiers, soit leur première lettre est en majuscule.</para>
+
+	<para>LE PRÉSENT DOCUMENT ET SES VERSIONS MODIFIÉES SONT FOURNIS SELON LES TERMES DE LA LICENCE DE DOCUMENTATION LIBRE GNU SACHANT QUE : <orderedlist>
+		<listitem>
+		  <para>LE PRÉSENT DOCUMENT EST FOURNI « TEL QUEL », SANS AUCUNE GARANTIE, EXPRESSE OU IMPLICITE, Y COMPRIS, ET SANS LIMITATION, LES GARANTIES DE MARCHANDABILITÉ, D'ADÉQUATION À UN OBJECTIF PARTICULIER OU DE NON INFRACTION DU DOCUMENT OU DE SA VERSION MODIFIÉE. L'UTILISATEUR ASSUME TOUT RISQUE RELATIF À LA QUALITÉ, À LA PERTINENCE ET À LA PERFORMANCE DU DOCUMENT OU DE SA VERSION DE MISE À JOUR. SI LE DOCUMENT OU SA VERSION MODIFIÉE S'AVÉRAIT DÉFECTUEUSE, L'UTILISATEUR (ET NON LE RÉDACTEUR INITIAL, L'AUTEUR, NI TOUT AUTRE PARTICIPANT) ENDOSSERA LES COÛTS DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION NÉCESSAIRE. CETTE DÉNÉGATION DE RESPONSABILITÉ CONSTITUE UNE PARTIE ESSENTIELLE DE CETTE LICENCE. AUCUNE UTILISATION DE CE DOCUMENT OU DE SA VERSION MODIFIÉE N'EST AUTORISÉE AUX TERMES DU PRÉSENT ACCORD, EXCEPTÉ SOUS CETTE DÉNÉGATION DE RESPONSABILITÉ ; </para>
+		</listitem>
+		<listitem>
+		  <para>EN AUCUNE CIRCONSTANCE ET SOUS AUCUNE INTERPRÉTATION DE LA LOI, QU'IL S'AGISSE D'UN DÉLIT CIVIL (Y COMPRIS LA NÉGLIGENCE), CONTRACTUEL OU AUTRE, L'AUTEUR, LE RÉDACTEUR INITIAL, TOUT PARTICIPANT OU TOUT DISTRIBUTEUR DE CE DOCUMENT OU DE SA VERSION MODIFIÉE, OU TOUT FOURNISSEUR DE L'UNE DE CES PARTIES NE POURRA ÊTRE TENU RESPONSABLE À L'ÉGARD DE QUICONQUE POUR TOUT DOMMAGE DIRECT, INDIRECT, PARTICULIER, OU ACCIDENTEL DE TOUT TYPE Y COMPRIS, SANS LIMITATION, LES DOMMAGES LIÉS À LA PERTE DE CLIENTÈLE, À UN ARRÊT DE TRAVAIL, À UNE DÉFAILLANCE OU UN MAUVAIS FONCTIONNEMENT INFORMATIQUE, OU À TOUT AUTRE DOMMAGE OU PERTE LIÉE À L'UTILISATION DU DOCUMENT ET DE SES VERSIONS MODIFIÉES, MÊME SI LADITE PARTIE A ÉTÉ INFORMÉE DE L'ÉVENTUALITÉ DE TELS DOMMAGES.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author role="maintainer">
+        <firstname>Richard</firstname>
+        <surname>Hughes</surname>
+	<email>richard@hughsie.com</email>
+      </author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision>
+        <revnumber>2.0</revnumber>
+        <date>30/08/2006</date>
+        <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Votre avis</title>
+      <para>Pour rapporter une anomalie ou émettre une suggestion concernant le gestionnaire d'énergie GNOME ou ce manuel, procédez comme indiqué sur la <ulink url="http://www.gnome.org/projects/gnome-power-manager/" type="http">page de contact du <application>Gestionnaire d'énergie GNOME</application></ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Gestionnaire d'énergie GNOME</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>gnome-power-manager</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Introduction</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Gestionnaire d'énergie GNOME</application></primary>
+    <secondary>Manuel</secondary>
+    <tertiary>gnome-power-manager</tertiary>
+  </indexterm>
+
+  <para>Le démon de session du gestionnaire d'énergie GNOME (GNOME Power Manager) est un démon de gestion d'énergie pour le <systemitem>bureau GNOME</systemitem>.</para>
+
+</section>
+
+<section id="using">
+  <title>Utilisation</title>
+  <para>En principe, le <application>gestionnaire d'énergie GNOME</application> démarre en même temps que GNOME, mais il est possible de le lancer manuellement de la manière suivante :</para>
+  <variablelist>
+    <varlistentry>
+      <term>Ligne de commande</term>
+      <listitem>
+    	<para>Saisissez <command>gnome-power-manager --verbose --no-daemon</command>, puis appuyez sur <keycap>Entrée</keycap>.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>Messages de notification</title>
+  <para>Après avoir démarré, il est possible que le <application>gestionnaire d'énergie GNOME</application> émette les notifications suivantes.</para>
+
+  <section id="notify-unplugged">
+    <title>L'adaptateur secteur est débranché</title>
+    <figure>
+      <title>Notification du gestionnaire d'énergie GNOME lorsque l'adaptateur secteur est débranché.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Vous pouvez désactiver cette notification en modifiant la clé GConf <command>/apps/gnome-power-manager/notify/discharging</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>Complètement chargée</title>
+    <figure>
+      <title>Notification du gestionnaire d'énergie GNOME lorsque la batterie principale de l'ordinateur portable est complètement chargée.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Vous pouvez désactiver cette notification en modifiant la clé GConf <command>/apps/gnome-power-manager/notify/fully_charged</command>.</para>
+    </note>
+    <note>
+      <para>Cette notification n'apparaît que si la charge de la batterie descend à moins de 95%, puis se recharge de nouveau complètement. Cela évite une multiplication inutile de notifications sur certains ordinateurs dont la batterie signale l'état de charge de manière incorrecte.</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>Batterie faible</title>
+    <para>Lorsque la batterie est faiblement chargée, vous recevez la notification ci-après. Il est alors conseillé de vous connecter le plus rapidement possible sur le secteur.</para>
+    <figure>
+      <title>Notification du gestionnaire d'énergie GNOME lorsque la batterie est faiblement chargée</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Vous pouvez désactiver cette notification en modifiant la clé GConf <command>/apps/gnome-power-manager/notify/low_power</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>Niveau critique de la batterie</title>
+    <para>Lorsque l'ordinateur est à court d'énergie, il affiche cette notification signalant l'action requise. Vous pouvez modifier l'action en cas de niveau critique à l'aide du panneau de préférences.</para>
+    <figure>
+      <title>Notification du gestionnaire d'énergie GNOME lorsque l'état de charge du système est très faible</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>Échec de la mise en veille prolongée</title>
+    <para>Lorsqu'une mise en veille prolongée échoue, il est possible que vous receviez l'avertissement ci-après. La raison la plus fréquente de cette notification est que l'utilisateur actuel ne dispose pas des permissions nécessaires pour procéder à une mise en veille prolongée ou à une hibernation de l'ordinateur.</para>
+    <figure>
+      <title>Notification du gestionnaire d'énergie GNOME lors d'un échec de mise en veille prolongée</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Vous pouvez désactiver cette notification en modifiant la clé GConf <command>/apps/gnome-power-manager/notify/sleep_failed</command>.</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>Statistiques</title>
+  <para>Le programme de statistiques permet de visualiser la consommation d'énergie de l'ordinateur portable.</para>
+  <note>
+    <para>Ceci a été supprimé de la fenêtre d'information des versions précédentes du gestionnaire d'énergie GNOME, car l'interface de données utilise maintenant DBUS au lieu de l'IPC interne. Cela permet à d'autres applications d'interroger et d'afficher les données, si nécessaire.</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>Historique d'alimentation avec passage de la batterie à l'alimentation secteur</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>Certaines options ou graphiques ne sont peut-être pas visibles sur votre ordinateur, si celui-ci ne dispose pas du matériel correspondant. Il est aussi possible que vous voyiez apparaître d'autres matériels non visibles ici (par exemple des périphériques UPS). Mais ces derniers sont traités de la même manière que les autres périphériques.</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>Historique de la charge</title>
+    <para>Ce graphique montre le pourcentage de charge disponible pour la batterie composite principale, ce qui signifie que si vous disposez d'une batterie principale et d'une batterie auxiliaire, vous ne voyez qu'une valeur moyenne. Aucune légende n'est affichée avec ce graphique.</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>Historique de l'alimentation</title>
+    <para>Ce graphique montre l'historique de la charge d'alimentation utilisée par la batterie composite principale. Cette courbe représente soit la quantité d'énergie utilisée pour charger les batteries, soit l'énergie extraite des batteries par le système. La courbe devrait s'élever lorsque le processeur est fortement mis à contribution et redescendre lorsque le système est au repos ou lorsque l'écran est atténué. Une légende apparaît avec ce graphique lorsque des événements de données ont été reçus.</para>
+
+    <note>
+      <para>Vous ne recevez pas d'information de taux lorsque l'ordinateur n'est pas en état de charge ou de décharge, ou s'il est mis en veille. Cela est dû à des limitations matérielles, dans la mesure où le taux est communiqué par la puce de gestion de la batterie au lieu de la puce de gestion d'énergie de la carte mère.</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>Historique du temps estimé</title>
+    <para>Ce graphique montre l'historique de la charge estimée pour la batterie composite principale. Cette courbe représente la quantité de temps nécessaire jusqu'à la charge ou décharge complète. Cette courbe devrait s'élever en proportion de la diminution du taux et descendre lorsque le taux augmente. Une légende apparaît avec ce graphique lorsque des événements de données ont été reçus.</para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>Préférences</title>
+
+  <para>La fenêtre des préférences permet de contrôler :</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>La luminosité de l'écran LCD en alimentation secteur ou batterie</para>
+    </listitem>
+    <listitem>
+      <para>Le temps d'inactivité avant la mise en veille ou l'extinction de l'écran</para>
+    </listitem>
+    <listitem>
+      <para>Les actions à effectuer lorsque l'écran du portable est rabattu</para>
+    </listitem>
+    <listitem>
+      <para>Le comportement de l'icône de la zone de notification</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>Certains curseurs ou cases d'option peuvent être désactivés si les clés GConf correspondantes ne sont pas modifiables. Cela permet aux administrateurs de restreindre les paramètres configurables par les utilisateurs.</para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>Préférences secteur</title>
+    <figure id="prefs-ac">
+      <title>Onglet secteur du gestionnaire d'énergie GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>Préférences batterie</title>
+    <figure id="prefs-processor">
+      <title>Onglet batterie du gestionnaire d'énergie GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Ceci permet à un ordinateur puissant de réduire sa consommation d'énergie lorsqu'inactif ou lorsque des performances maximales ne sont pas nécessaires.</para>
+  </section>
+
+  <section id="preferences-general">
+    <title>Préférences générales</title>
+    <figure id="prefs-general">
+      <title>Onglet général du gestionnaire d'énergie GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>Périodes d'inactivité de session et du système</title>
+    <para><command>gnome-screensaver</command> est un démon de session qui surveille l'activité de l'utilisateur et qui génère une période d'attente lorsque la souris ne bouge pas ou qu'aucune touche du clavier n'est appuyée. Lorsque la valeur de cette période d'attente atteint la valeur définie dans les préférences de l'économiseur d'écran GNOME (<command>gnome-screensaver-preferences</command>), la session passe en mode d'inactivité (« session idle »). C'est alors que le <application>gestionnaire d'énergie GNOME</application> effectue les actions d'inactivité de session telles que l'activation du mode basse consommation et l'abaissement de la luminosité de l'écran.</para>
+
+    <figure>
+      <title>Modification du délai d'inactivité de session dans les préférences de l'économiseur d'écran</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Dès que la session passe en mode d'inactivité, le <application>gestionnaire d'énergie GNOME</application> démarre son propre compteur « système ». Lorsque le délai défini dans les préférences du gestionnaire d'énergie est écoulé et que le processeur est inactif, l'action en cas d'inactivité est effectuée, en principe l'extinction de l'écran ou la mise en veille ou encore l'hibernation.</para>
+    <para>Pour que ce soit bien clair, les curseurs dans les préférences du gestionnaire d'énergie GNOME ont comme point de départ la valeur du délai d'inactivité de session + 1 minute, puisqu'il n'est logiquement pas possible de déclencher un compteur avant que la session passe en mode d'inactivité. Si vous ajustez la valeur du délai d'inactivité de session dans les préférences de l'économiseur d'écran de GNOME, le point de départ des curseurs des préférences du gestionnaire d'énergie s'adapte automatiquement.</para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>Préférences avancées</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>Atténuation de la luminosité de l'écran</title>
+    <note>
+      <para>Vous pouvez modifier la luminosité de l'écran en mode d'inactivité en modifiant la clé GConf <command>/apps/gnome-power-manager/backlight/idle_brightness</command>.</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>Verrouillage de l'écran</title>
+    <para>Par défaut, le <application>gestionnaire d'énergie GNOME</application> met en place un processus de verrouillage simple. Cela signifie que l'écran est verrouillé si l'option correspondante est activée dans l'économiseur d'écran GNOME et que l'écran est rabattu, ou que le système effectue une mise en veille ou une hibernation.</para>
+    <para>Il existe un processus de verrouillage complexe à disposition des utilisateurs experts permettant des stratégies de verrouillage différenciées pour le rabattage de l'écran, la mise en veille et l'hibernation. Pour activer ce mode complexe, vous devez désactiver la clé GConf :</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/use_screensaver_settings</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>Ensuite, les clés de stratégie peuvent être définies pour forcer l'économiseur d'écran à verrouiller et déverrouiller en fonction de l'action effectuée :</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/blank_screen</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/suspend</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <command>/apps/gnome-power-manager/lock/hibernate</command>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>La stratégie de verrouillage de l'économiseur d'écran GNOME est ignorée tant que le mode simple n'est pas réactivé.</para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>Applets d'énergie GNOME</title>
+
+  <section id="applets-brightness">
+    <title>Applet de luminosité</title>
+    <para>L'applet de luminosité permet à l'utilisateur de modifier temporairement la luminosité sans changer la stratégie générale. Cela peut se révéler utile si votre ordinateur portable ne dispose pas de boutons de luminosité. Dans ce cas, il est maintenant possible de modifier facilement la luminosité.</para>
+    <figure>
+      <title>Menu déroulant de l'applet de luminosité.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Si votre matériel ne prend pas en charge cette fonction, vous n'aurez pas accès au curseur de réglage de luminosité.</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>Applet d'inhibition</title>
+    <para>L'applet d'inhibition permet à l'utilisateur d'empêcher l'ordinateur de se mettre automatiquement en veille lorsqu'il est inactif. C'est parfois nécessaire avec des programmes anciens ou propriétaires tels que VMWare ou Matlab. Il suffit de cliquer sur l'icône afin que la mise en veille automatique soit inhibée, et cliquez à nouveau pour retourner au fonctionnement normal.</para>
+    <figure>
+      <title>L'applet d'inhibition dans son état inhibé.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>N'utilisez pas cette applet si vous n'avez que des logiciels GNOME. En cas de problème, rapportez une anomalie afin que l'application utilise les méthodes Inhibit() et UnInhibit(), comme cela devrait être le cas pour un fonctionnement correct.</para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>Questions fréquentes</title>
+  <para>Voici les questions souvent posées sur la liste de diffusion.</para>
+  <section id="faq-capacity">
+    <title>Qu'est-ce que la capacité de la batterie ?</title>
+    <para>La capacité est la quantité de charge potentielle de la batterie en comparaison des indications de son fabricant.</para>
+    <figure>
+      <title>Ce graphique montre la capacité d'une batterie lithium-ion classique sur quelques centaines de cycles charge-décharge.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>Quelle est la différence entre la mise en veille et l'hibernation ?</title>
+    <para>L'état de mise en veille est une fonctionnalité d'économie d'énergie qui représente la plus faible consommation électrique possible pour conserver les données des programmes dans la mémoire de l'ordinateur. Lorsque l'ordinateur est en mis en veille, aucune opération ne peut être effectuée tant que l'activité normale n'est pas rétablie. La sortie de la mise en veille doit être générée par un événement externe tel qu'une pression de touche du clavier. Il faut compter généralement quelques secondes pour la mise en veille ou le rétablissement de l'activité normale.</para>
+    <caution>
+      <para>En état de mise en veille, la batterie est toujours légèrement mise à contribution, ce qui n'est pas recommandé pour une consommation minimale. Si vous débranchez l'alimentation secteur sur un ordinateur de bureau ou que la batterie est épuisée sur un ordinateur portable, le travail en cours est perdu.</para>
+    </caution>
+    <para>L'état d'hibernation enregistre l'état complet de l'ordinateur sur le disque dur et coupe l'alimentation, comme si l'ordinateur était éteint. La sortie de cet état doit être générée par un événement externe tel qu'une pression de touche du clavier. C'est la situation où la consommation est la plus faible possible. Si vous débranchez l'alimentation secteur sur un ordinateur de bureau ou que la batterie est épuisée sur un ordinateur portable, le travail en cours n'est pas perdu. Il faut compter généralement au moins une minute pour l'hibernation ou le rétablissement de l'activité normale.</para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>Mon écran est défectueux et considère les états DPMS standby (en pause) et off (désactivé) comme « no-signal » (aucun signal), ce qui fait qu'il reste alimenté normalement.</title>
+    <para>Vous devez modifier le mode DPMS de mise en veille prolongée utilisé par le <application>gestionnaire d'énergie GNOME</application>. Ouvrez <command>gconf-editor</command> et modifiez les clés <literal>/apps/gnome-power-manager/backlight/dpms_method_ac</literal> et <literal>/apps/gnome-power-manager/backlight/dpms_method_battery</literal> dans un mode qui fonctionne, par exemple standby (mise en attente), suspend (mise en veille prolongée) ou off (désactivé).</para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>Le temps de décharge annoncé est toujours faux en raison d'une batterie défectueuse, que puis-je faire ?</title>
+    <para>Une solution possible est d'utiliser le pourcentage de charge comme donnée de stratégie pour le <application>gestionnaire d'énergie GNOME</application>. Ouvrez <command>gconf-editor</command> et mettez « false » dans la clé <command>/apps/gnome-power-manager/general/use_time_for_policy</command>. Ceci peut se faire facilement avec la commande : <command> gconftool-2 --set --type bool /apps/gnome-power-manager/general/use_time_for_policy false </command></para>
+    <para>Cela devrait vous permettre de faire fonctionner correctement les actions de stratégie, mais le temps de charge restant s'affichera toujours de manière incorrecte.</para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>Comment faire pour qu'une application empêche l'ordinateur de se mettre automatiquement en veille ?</title>
+    <para>
+      If your application is doing a long operation, you might want to
+      disable the ability to suspend for a little while.
+      You should use gnome-session if you really don't want the user to be
+      able to suspend, or for the computer to save power by hibernating
+      or suspending.
+    </para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>J'utilise ACPI. Pourquoi les événements (comme le retrait de l'adapatateur secteur) prennent-ils tant de temps à s'enregistrer ?</title>
+    <para>Le problème peut provenir d'une des deux causes suivantes.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Il se peut que HAL n'utilise pas le complément qui intercepte l'événement ACPI.</para>
+      </listitem>
+      <listitem>
+        <para>Il se peut que le BIOS soit en cause. Il faut peut-être rechercher une solution. Veuillez envoyer un rapport d'anomalie.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Dans le premier cas, essayez d'identifier les processus HAL en cours de fonctionnement : <command>ps -eaf | grep hal</command></para>
+    <para>Puis vérifiez si le processus <command>hald-addon-acpi</command> est présent. S'il n'est pas en cours d'exécution, contrôlez si HAL est bien lancé avec l'option <command>--retain-privileges</command> dans le script d'initialisation <command>haldaemon</command>. Une autre possibilité est d'utiliser acpid à la place du fichier proc du noyau.</para>
+  </section>
+
+</section>
+
+<section id="about">
+  <title>À propos</title>
+  <para>Le gestionnaire d'énergie GNOME a été écrit par Richard Hughes <email>richard@hughsie.com</email>. Vous pouvez consulter des informations supplémentaires au sujet de ce programme sur la <ulink url="http://www.gnome.org/projects/gnome-power-manager" type="http">page Web du <application>gestionnaire d'énergie GNOME</application></ulink> (anglais).</para>
+  <para>Pour rapporter une anomalie ou émettre une suggestion concernant cette application ou ce manuel, procédez comme indiqué sur la <ulink url="http://www.gnome.org/projects/gnome-power-manager/bugs.html" type="http">page d'anomalies du <application>Gestionnaire d'énergie GNOME</application></ulink>.</para>
+  <para>Ce programme est distribué selon les termes de la GNU General Public License, tels que publiés par la Free Software Foundation ; soit la version 2 de cette licence ou (à votre choix) toute version ultérieure. Une copie de cette licence est disponible à <ulink url="ghelp:gpl" type="help">ce lien</ulink> ou dans le fichier COPYING inclus dans le code source de ce programme.</para>
+</section>
+
+</article>

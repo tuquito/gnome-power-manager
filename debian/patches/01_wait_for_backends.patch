@@ -1,0 +1,25 @@
+Index: gnome-system-tools-2.31.91/src/common/gst-tool.c
+===================================================================
+--- gnome-system-tools-2.31.91.orig/src/common/gst-tool.c	2010-05-25 03:09:57.000000000 +1000
++++ gnome-system-tools-2.31.91/src/common/gst-tool.c	2010-09-01 18:34:58.412617000 +1000
+@@ -221,6 +221,7 @@
+ 	gchar *widget_name;
+ 	GtkWidget *dialog;
+ 	OobsResult result;
++	int i;
+ 
+ 	object = (* G_OBJECT_CLASS (gst_tool_parent_class)->constructor) (type,
+ 									  n_construct_properties,
+@@ -241,6 +242,12 @@
+ 		g_free (widget_name);
+ 	}
+ 
++	for (i=0; i<12; i++) { /* Loop for 3 seconds waiting for the backends to start */
++		if (oobs_session_get_connected (tool->session))
++			break;
++		g_usleep(250000);
++	}
++
+ 	result = oobs_session_get_platform (tool->session, NULL);
+ 	if (result == OOBS_RESULT_NO_PLATFORM) {
+ 		dialog = gst_platform_dialog_new (tool->session);

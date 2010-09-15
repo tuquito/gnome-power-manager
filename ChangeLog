@@ -1,0 +1,6810 @@
+commit 551876665fa4dc14b8f9cf6369adc976e498c4d6
+Author: Richard Hughes <richard@hughsie.com>
+Date:   2010-08-31
+
+    GNOME Power Manager 2.31.91
+
+M	NEWS
+M	RELEASE
+M	configure.ac
+
+commit 51ff5159c7dd1c4e8ac0b7423b8f468f3adb1d47
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-31
+
+    Do not dist org.gnome.power.policy in the tarball
+
+M	policy/Makefile.am
+
+commit db4c3f1b45694e3af0e119c47d6fa07447db5c65
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-31
+
+    trivial: don't crash in gpm_brightness_output_get_internal() if we
+    have no backlight device
+
+M	src/gpm-brightness.c
+
+commit abd02c6724bb78823fd0ebee1956eaf11030ff8d
+Author: Will Woods <wwoods@redhat.com>
+Date:	2010-08-31
+
+    Use the correct backlight step value when using the legacy fallback
+    device
+
+    The 'legacy fallback' backlight handling code in gnome-power-manager
+    increments/decrements the backlight value by one whenever the
+    brightness
+    buttons are pressed.
+
+    On systems like the Apple MacBook, where the backlight has upwards
+    of 1024
+    brightness levels, this doesn't work.
+
+    The attached patch uses the gpm_brightness_get_step function (like the
+    xrandr-based code does) to properly step the backlight value.
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-brightness.c
+
+commit db7d17c1e49cf6e9cb9bf77b07e05d1ef32492c1
+Author: Chris Coulson <chris.coulson@canonical.com>
+Date:	2010-08-23
+
+    Fix #627711 - Don't crash on systems which don't have XBACKLIGHT
+
+M	src/gpm-brightness.c
+
+commit 309c96047c5756ee002d3c0a26c6a0345cb61f53
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-31
+
+    Do not autoscale the percentage graph in the history tab. Fixes
+    #613984
+
+M	src/gpm-statistics.c
+
+commit 124bf2484d5694c71fec69aeb46627ac4ad0f67a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-31
+
+    Only connect the UpClient::device-added signal after the coldplug
+
+    This avoids duplicated devices in gnome-power-statistics
+
+M	src/gpm-statistics.c
+
+commit c4818d7ae8fc10f8f11afc6cf0420d2fbd2269d9
+Author: Andika Triwidada <andika@gmail.com>
+Date:	2010-08-30
+
+    Updated Indonesian translation
+
+M	po/id.po
+
+commit 6b22b3b66362b4498039df2a516ac07a30f31ca6
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2010-08-30
+
+    [l10n] Updated Estonian translation
+
+M	po/et.po
+
+commit a9e9e4939118cce88be44679869d87d4a869a4bb
+Author: Pavol Šimo <palo.simo@gmail.com>
+Date:	2010-08-29
+
+    Updated Slovak translation
+
+M	po/sk.po
+
+commit 06eba6fe39d8f4d30e37d55ed54cf54392f00988
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:	2010-08-29
+
+    Updated Hungarian translation
+
+M	po/hu.po
+
+commit 25e14a601f3fc6e263d0c85ce39951f18950c700
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-08-24
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit a0a02361689db2d4ebd171aa215e383c7f56f2d7
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-08-24
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit 45ebc31c7a20f33da5148a0bc642221587ff6400
+Author: Ask H. Larsen <asklarsen@gmail.com>
+Date:	2010-08-22
+
+    Updated Danish translation
+
+M	po/da.po
+
+commit 14baa8ec667960fcd0c0cd004eb228f97945f78d
+Author: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>
+Date:	2010-08-21
+
+    Updated Traditional Chinese translation(Hong Kong and Taiwan)
+
+M	po/zh_HK.po
+M	po/zh_TW.po
+
+commit e1915283c2f74bcc3f6631d954c51859159756b5
+Author: Милош Поповић <gpopac@gmail.com>
+Date:	2010-08-20
+
+    Updated Serbian translation
+
+M	po/sr.po
+M	po/sr@latin.po
+
+commit 17c1c8681330ada466f7edf65dd5002cf32ff008
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2010-08-19
+
+    inhibit-applet: Add missing include and re-enable deprecated GDK
+    functions
+
+    inhibit-applet suffered the same problem as brightness-applet,
+    so apply the
+    corresponding changes from commits eb407c4f and 81c4c85f.
+
+M	applets/inhibit/inhibit-applet.c
+
+commit 81c4c85f4efbac2ec5720abf9f3398492857c752
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2010-08-19
+
+    Re-enable deprecated GDK functions for brightness applet
+
+    brightness-applet.c: In function ‘gpm_applet_draw_cb’:
+    brightness-applet.c:282: warning: implicit declaration of function
+    ‘gdk_gc_new’
+    brightness-applet.c:282: warning: assignment makes pointer from
+    integer without a cast
+    brightness-applet.c:288: warning: implicit declaration of function
+    ‘gdk_draw_drawable’
+    brightness-applet.c:293: warning: implicit declaration of function
+    ‘gdk_gc_set_rgb_fg_color’
+    brightness-applet.c:294: warning: implicit declaration of function
+    ‘gdk_gc_set_fill’
+    brightness-applet.c:295: warning: implicit declaration of function
+    ‘gdk_draw_rectangle’
+    brightness-applet.c:307: warning: implicit declaration of function
+    ‘gdk_draw_pixbuf’
+
+    The long-term fix is to port the applet from gdk_gc_* to cairo,
+    but implicit
+    pointer conversions cause crashes on x86_64 platforms, so re-enable
+    the
+    functions for now.
+
+M	applets/brightness/brightness-applet.c
+
+commit eb407c4fd5902a41567e4013e6fb5f5610c06b36
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2010-08-19
+
+    brightness-applet: Add missing include
+
+    brightness-applet.c: In function ‘main’:
+    brightness-applet.c:1026: warning: implicit declaration of function
+    ‘unsetenv’
+
+    Include <stdlib.h> to fix this.
+
+M	applets/brightness/brightness-applet.c
+
+commit 71ae0fdb16b193d499f0958d186fc8c97e537fbd
+Author: Frédéric Péters <fpeters@0d.be>
+Date:	2010-08-18
+
+    [release] 2.31.90
+
+M	NEWS
+M	configure.ac
+
+commit f93082ccf69c320d5737df8e1d5f1f7f9d54c833
+Author: Frédéric Péters <fpeters@0d.be>
+Date:	2010-08-17
+
+    Deal with the deprecation of GtkNotebookPage
+
+M	src/gpm-statistics.c
+
+commit 227df8c3d4535269b74dc20fc66597cf855af97a
+Author: Frédéric Péters <fpeters@0d.be>
+Date:	2010-08-17
+
+    Cast idle_time_in_msec to appropriate type
+
+    -Werror is used but newer gcc have a new check, and it makes the
+    compilation fail with gpm-idle.c:295: error: format ‘%lld’
+    expects type
+    ‘long long int’, but argument 5 has type ‘gint64’
+
+M	src/gpm-idle.c
+
+commit 0bd09d6e8b07a59d3301ca65f2666ca8daa1df1f
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2010-08-17
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 208a15801dc93a03cb27a189437df1be31de7001
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2010-08-16
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 87eb92dbc83418a0acb246fb89dab582fa2dc675
+Author: Christian Kirbach <Christian.Kirbach@googlemail.com>
+Date:	2010-08-15
+
+    Updated German translation
+
+M	po/de.po
+
+commit 9bdcbaa3a61d9843d1ec79bf3b6b422e079ed224
+Author: A S Alam <aalam@users.sf.net>
+Date:	2010-08-16
+
+    update translation for Punjabi
+
+M	po/pa.po
+
+commit 51b0c565fc4453e875e5b2bea6545bc9a8c4d915
+Author: Aron Xu <aronxu@gnome.org>
+Date:	2010-08-14
+
+    Update Simplified Chinese translation.
+
+M	po/zh_CN.po
+
+commit 2bd4fcf7cb44e7cff2c0d90d7f2bdc6b643201bb
+Author: Fran Diéguez <fran.dieguez@mabishu.com>
+Date:	2010-08-11
+
+    Updated galician translations
+
+M	po/gl.po
+
+commit 4e9c984c12cd7fb5da4b30332a5f562a040eb481
+Author: Yaron Shahrabani <sh.yaron@gmail.com>
+Date:	2010-08-09
+
+    Updated Hebrew translation.
+
+M	po/he.po
+
+commit 3fa0b3126a59215253d9baa4ad29d4619e1ac26f
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2010-08-07
+
+    Updated Norwegian bokmål translation
+
+M	po/nb.po
+
+commit b61d3e2afd7a9035cc9d9d4a074cdc4dbca85948
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2010-08-07
+
+    Updated Norwegian bokmål translation
+
+M	po/nb.po
+
+commit 784682cb5e048e2fa3a610a70b0e73398acb683b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-06
+
+    Fix make check, urgh
+
+M	po/POTFILES.in
+
+commit 156fd85171b3892b17b029ffcf35e1865d10a7b9
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-06
+
+    GNOME Power Manager 2.31.6
+
+M	NEWS
+M	RELEASE
+
+commit 207dfb90f9a16a4cc27e89d21d7d5776855fce93
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-06
+
+    Fix a crash when displaying the 'No GConf schema warning'
+
+M	src/gpm-manager.c
+
+commit 2c9575dcc6358af87dbef372dd0e9a22f01d02e9
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-06-23
+
+    Do not show the prefs menu on LiveCD's and with GDM. Fixes #621674
+
+M	src/gpm-tray-icon.c
+
+commit 746273c955c5a131c7d6e23dcc3b3edf479e471e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-06
+
+    Backport support for new devices recognised in UPower
+
+M	src/gpm-engine.c
+M	src/gpm-manager.c
+M	src/gpm-phone.c
+M	src/gpm-statistics.c
+M	src/gpm-tray-icon.c
+M	src/gpm-upower.c
+
+commit ebad1f2667dbef27285dbf4e0cc4bee5184facfe
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-06
+
+    Backport various translation fixes and translator comments from
+    git master
+
+M	src/gpm-manager.c
+M	src/gpm-statistics.c
+M	src/gpm-upower.c
+M	src/gpm-upower.h
+
+commit f242d266a9659d72cdbbb148ad867fc4ccbc6f26
+Author: Chow Loong Jin <hyperair@ubuntu.com>
+Date:	2010-08-06
+
+    Don't treat percentage=0 as error condition
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-engine.c
+
+commit 60792430b4c2d89857145bae605adcdd538fab9f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-06
+
+    Do not assume the lid is open at boot. Fixes #622026
+
+M	src/gpm-button.c
+
+commit 98fbac12bbb40ed05378e935481c7fd02552104b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-06
+
+    trivial: Post branch version bump
+
+M	configure.ac
+
+commit 987ebaea4b0adbc3c24d0d9e5dec8694b7455d9c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-08-06
+
+    trivial: fix up a tiny merge conflict
+
+M	src/gpm-idle.c
+
+commit 9b1c7aafc1b4da01c1ac0fe99759da6234ad7ec4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-28
+
+    Use device icons from the icon name specification
+
+M	src/gpm-upower.c
+
+commit 5c923ca49207cc7a995653b66ecace3742b12531
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-30
+
+    Port from DeviceKit-power to UPower
+
+M	configure.ac
+M	src/Makefile.am
+M	src/gpm-backlight.c
+M	src/gpm-button.c
+M	src/gpm-common.h
+M	src/gpm-control.c
+M	src/gpm-engine.c
+M	src/gpm-engine.h
+M	src/gpm-graph-widget.c
+M	src/gpm-idle.c
+M	src/gpm-manager.c
+M	src/gpm-prefs-core.c
+M	src/gpm-statistics.c
+M	src/gpm-tray-icon.c
+M	src/gpm-upower.c
+M	src/gpm-upower.h
+
+commit 7242cc643cf71f735275fcb0fb95b3a7387a9dac
+Author: Tim Liim <tim.liim@alcatel-lucent.com>
+Date:	2010-08-04
+
+    Adjust dim timeout when necessary
+
+    On slow machines, or machines that have lots to load duing login,
+    the current idle time could be bigger than the requested timeout.
+    In this case the scheduled idle timeout will never fire, unless
+    some user activity (keyboard, mouse) resets the current idle time.
+    Instead of relying on user activity to correct this issue, we need
+    to adjust timeout, as related to current idle time, so the idle
+    timeout will fire as designed.
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-idle.c
+
+commit d100aaccaaff61546a7586c0cbb2e3dcfa05e4e7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-06-07
+
+    Do not require PolicyKit to get the brightness values as these are
+    already accessable by all users
+
+    This also fixes the random dialog when launching a session
+    using VNC
+
+M	src/gpm-backlight-helper.c
+M	src/gpm-brightness.c
+
+commit a041b3eecf9522fd1afee3ab38d5e5b88ac84a31
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-29
+
+    trivial: move a lot of the .gitignore help rules into a common place
+
+M	help/.gitignore
+D	help/C/.gitignore
+D	help/ca/.gitignore
+D	help/de/.gitignore
+D	help/el/.gitignore
+D	help/en_GB/.gitignore
+D	help/es/.gitignore
+D	help/eu/.gitignore
+D	help/fi/.gitignore
+D	help/fr/.gitignore
+D	help/hu/.gitignore
+D	help/it/.gitignore
+D	help/oc/.gitignore
+D	help/pa/.gitignore
+D	help/ru/.gitignore
+D	help/sv/.gitignore
+
+commit 8c68282d8e4efa8d58b70773cc42836b375959ee
+Author: Rafał Rosiak <szafarz@box43.pl>
+Date:	2010-05-29
+
+    Add new 6 hours period in power history stats
+
+    New missing `6 hours` period added between `2 hours` and `1 day`
+    periods in power statistics history.
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-statistics.c
+
+commit 57b24fccbfce1cd0c34fbbd8abb8572690834a83
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-19
+
+    Add toshiba backlight in the interfaces list so it is prefered
+    over acpi_video
+
+M	src/gpm-backlight-helper.c
+
+commit 3d76b039fc9f0664f48c851d4c22aa8958d1a50a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-19
+
+    Do not show gnome-power-statistics in the menus
+
+M	data/gnome-power-statistics.desktop.in.in
+
+commit dd86df3456db190897a0c8581995daa785ecdc44
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-19
+
+    Remove the filter in GpmBrightness to prevent a crash in some
+    circumstances. Fixes #617529
+
+M	src/gpm-brightness.c
+
+commit 989735bf51fb0a2478c1794ba68f7fbbacb6d0be
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-18
+
+    Prefer the NVIDIA backlight rather than the SONY backlight to get
+    the right number of brightness steps
+
+M	src/gpm-backlight-helper.c
+
+commit cd394b32568919564f0971a9a6d4fd042235c3db
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-17
+
+    trivial: Remove some debugging that crept in
+
+M	src/gpm-brightness.c
+
+commit 1f52e3bb4815d19c65f9e49adc27a84c2fba3461
+Author: Brian Hutsell <bhut_ooto@yahoo.com>
+Date:	2010-05-17
+
+    Remove hardcoded paths from pkexec setup.
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	configure.ac
+M	policy/Makefile.am
+R090	policy/org.gnome.power.policy.in
+policy/org.gnome.power.policy.in2
+M	src/Makefile.am
+M	src/gpm-brightness.c
+
+commit 8049a01a2490c991ca52e1847b33eb6a161e69b9
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-07
+
+    Detect more backlight devices even if they are not in the static array
+
+M	src/gpm-backlight-helper.c
+
+commit 4886023ce254093f0f52eb8a23fe9cd48ed268d3
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-06
+
+    Provide a pkexec helper for systems that do not have xbacklight
+    capability
+
+M	Makefile.am
+M	configure.ac
+M	po/POTFILES.in
+A	policy/.gitignore
+A	policy/Makefile.am
+A	policy/org.gnome.power.policy.in
+M	src/.gitignore
+M	src/Makefile.am
+A	src/gpm-backlight-helper.c
+M	src/gpm-brightness.c
+
+commit d2782a70a419c8cfc1b0aacf22b8c23f05a4e437
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-04-30
+
+    trivial: remove some duplicated code
+
+M	src/gpm-statistics.c
+
+commit 90816445671343256e2ed1542ee94b5187c2c181
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-04-29
+
+    As we no longer have more than one backlight mechanism, remove a
+    ton of abstract code
+
+M	po/POTFILES.in
+M	src/Makefile.am
+D	src/gpm-brightness-xrandr.c
+D	src/gpm-brightness-xrandr.h
+M	src/gpm-brightness.c
+M	src/gpm-brightness.h
+
+commit 3d0e3bc60836217ad788e74757a2b9931166c9db
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-04-29
+
+    Remove the use of HAL from gnome-power-manager.
+
+    Using HAL as a fallback has gone on long enough.
+    People just need to be using a sane x drivers now
+
+M	Makefile.am
+M	configure.ac
+D	libhal-glib/.gitignore
+D	libhal-glib/Makefile.am
+D	libhal-glib/egg-dbus-monitor.c
+D	libhal-glib/egg-dbus-monitor.h
+D	libhal-glib/egg-dbus-proxy.c
+D	libhal-glib/egg-dbus-proxy.h
+D	libhal-glib/egg-debug.c
+D	libhal-glib/egg-debug.h
+D	libhal-glib/hal-device.c
+D	libhal-glib/hal-device.h
+D	libhal-glib/hal-manager.c
+D	libhal-glib/hal-manager.h
+D	libhal-glib/hal-marshal.list
+M	po/POTFILES.in
+M	src/Makefile.am
+D	src/gpm-brightness-hal.c
+D	src/gpm-brightness-hal.h
+M	src/gpm-brightness.c
+
+commit ac74f06f35ae2efc434fe3da07ffdfade98a125b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-04-21
+
+    trivial: I'm informed that GConf short names should not have
+    trailing dots
+
+M	data/gnome-power-manager.schemas.in
+
+commit a518c0a78cabd538d52afb1e0657c5e256dd8f45
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-07-19
+
+    [i18n] Updated German translation, fixed bug #623946
+
+M	po/de.po
+
+commit 67950cf7d70fec28247e1c07d0eec24193b2b00f
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-06-20
+
+    [i18n] Updated German doc translation
+
+M	help/de/de.po
+
+commit 2d3619e86269e6673f81a7fa64ab45a0dd4fcef4
+Author: Wolfgang Stöggl <c72578@yahoo.de>
+Date:	2010-06-20
+
+    [i18n] Added screenshots
+
+M	help/de/figures/gpm-charged.png
+A	help/de/figures/gpm-critical.png
+A	help/de/figures/gpm-low.png
+M	help/de/figures/gpm-unplugged.png
+
+commit fc7da6c239a313c6980f40ef374183bc778443bf
+Author: Wolfgang Stöggl <c72578@yahoo.de>
+Date:	2010-06-19
+
+    [i18n] Fixed some wording in German translation
+
+M	po/de.po
+
+commit 6405e0cb021b8218d3b6edddab36ee5cb50a74aa
+Author: Dominique Leuenberger <dominique@leuenberger.net>
+Date:	2010-06-11
+
+    man: correctly call docbook2man
+
+    Using the redirection had the side-effect that output of docbook2man
+    is being added to the resulting man pages, resulting in some garbage
+    in the manpages in plus.
+    Redirect output of docbook2man to dev/null
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	man/Makefile.am
+
+commit 262614f9d129e27316ea296bc39a88e93bfad7ed
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-06-08
+
+    trivial: remove some unused code
+
+D	src/egg-obj-list.c
+D	src/egg-obj-list.h
+
+commit 32da52506b4bc07c4919ac6ffd1efc83007fd9af
+Author: Rudolfs Mazurs <rudolfs.mazurs@gmail.com>
+Date:	2010-06-06
+
+    Updated Latvian translation
+
+M	po/lv.po
+
+commit 7a07a7317f3a83f06072dea2aba0c149f00b6531
+Author: Milan Bouchet-Valat <nalimilan@club.fr>
+Date:	2010-05-30
+
+    Updated French translation
+
+M	po/fr.po
+
+commit e01b3173172715680421b8690bf09d6e7d39a177
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2010-05-27
+
+    Estonian translation updated
+
+M	po/et.po
+
+commit 7abfad8f13dfe66a2ee423342e4af26712d8277f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-05-05
+
+    trivial: lower the dep on autoconf it's not required to be this high
+
+M	configure.ac
+
+commit 24946900f7fff57d2bfac9b4d4f1135c6ad57d51
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-04-26
+
+    trivial: Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit 92067a4776aabb228f1bd2d5860af4db569e6407
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-04-26
+
+    GNOME Power Manager 2.30.1
+
+M	NEWS
+M	RELEASE
+
+commit e19ce6e93c065e97b7a97a66b4cdcc4d4473fcaf
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-04-26
+
+    trivial: make the GtkVBox's, well, vertical in the glade UI editor
+
+M	data/gpm-statistics.ui
+
+commit 663add0b4d2e7c40e92b921c70ac107100895dfa
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2010-03-31
+
+    Make EggConsoleKit a singleton
+
+M	src/egg-console-kit.c
+
+commit 0365b4e37e399be085672d3a891c334b625abac9
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2010-03-27
+
+    Only dim the screen on idle when on the active console
+
+    Check if we are on the active VT before dimming or blanking the
+    screen on idle.
+
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=614207
+
+M	src/gpm-backlight.c
+
+commit bebaacbc38874a838f42f581de78469bb70197fb
+Author: Carles Ferrando <carles.ferrando@gmail.com>
+Date:	2010-04-21
+
+    Updated Catalan (Valencian) translation
+
+M	po/ca@valencia.po
+
+commit 18c2cb05c5de9e39ceb5ac3ab47e1966b04d8d68
+Author: Shankar Prasad <svenkate@svenkate.pnq.redhat.com>
+Date:	2010-04-21
+
+    Updated Kannada translations
+
+M	po/kn.po
+
+commit 881aa23fe43a73d2d609f54ce5fa5a6da9418396
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2010-04-19
+
+    Estonian translation updated
+
+M	po/et.po
+
+commit 0315e1b27ff80cc3e8c2139f747926969c9cedaa
+Author: Manoj Kumar Giri <mgiri@mgiri.csb>
+Date:	2010-04-16
+
+    Updated Oriya Translation
+
+M	po/or.po
+
+commit a24d7b646f299206763897575181155d9549601e
+Author: Jenny Petoumenou <epetoumenou@gmail.com>
+Date:	2010-04-11
+
+    Updated Greek translation for gnome-power-manager
+
+M	po/el.po
+
+commit 3c265b06fa82d37daeb6404b0ff04e6ec0886ff5
+Author: Chen Xing <cxcxcxcx@gmail.com>
+Date:	2010-04-08
+
+    Update Simplified Chinese translation.
+
+M	po/zh_CN.po
+
+commit 504e811c3b9247e2c8ab4e6e1f710107ac6f81ba
+Author: Theppitak Karoonboonyanan <thep@linux.thai.net>
+Date:	2010-04-06
+
+    Updated Thai translation.
+
+M	po/th.po
+
+commit 8fc2cfc24e6b3d44a0c6d5701300bd01ccbe7bf1
+Author: Andika Triwidada <andika@gmail.com>
+Date:	2010-04-03
+
+    Updated Indonesian translation
+
+M	po/id.po
+
+commit 37ecff93f8878cae251cfaa771e167c043844a30
+Author: Jordi Serratosa <jordis.lists@gmail.com>
+Date:	2010-04-02
+
+    Fixes to Catalan translation
+
+M	po/ca.po
+
+commit 2d17b9c49420f9fdcd8aff858321482634a25f15
+Author: Timo Jyrinki <timo.jyrinki@iki.fi>
+Date:	2010-04-01
+
+    term change
+
+M	po/fi.po
+
+commit b6c6a18be40a39aae69bac564e2d63732be20593
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-31
+
+    Fix up a critical warning from the GpmScreensaver code
+
+M	src/gpm-screensaver.c
+
+commit fc8624dbe2d460d06c8104acdcbb0cc8d910f6b9
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:	2010-03-29
+
+    Fix a typo
+
+M	po/ar.po
+
+commit 85773cf906fb738702df8848aa90c521d1cc37fc
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-29
+
+    Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit a067046c13514fbd00bc26a2814efaa640e58943
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-29
+
+    GNOME Power Manager 2.30.0
+
+M	NEWS
+M	RELEASE
+M	configure.ac
+
+commit 166a91fd49de9795eeb39e2423d1b2b1a9df22d7
+Author: Simos Xenitellis <simos@gnome.org>
+Date:	2010-03-29
+
+    Updated Greek translation for gnome-power-manager documentation
+
+M	help/el/el.po
+
+commit 6782a21c4792ffb686f66e937bb23261d3dfaea9
+Author: Jamil Ahmed <itsjamil@gmail.com>
+Date:	2010-03-28
+
+    Updated Bengali translation
+
+M	po/bn.po
+
+commit cea09a7318e08d53f97e99dc86634518c61b5035
+Author: Kostas Papadimas <pkst@gnome.org>
+Date:	2010-03-28
+
+    Updated Greek translation
+
+M	po/el.po
+
+commit 83f66624700824d8946207f4bd942e55f78bd8a3
+Author: Nikos Bakaoukas <nikolaosx1@gmail.com>
+Date:	2010-03-27
+
+    Updated Greek translation for gnome-power-manager
+
+M	po/el.po
+
+commit 249082bc2bccbe9b139949e37e5d521bafede321
+Author: Inaki Larranaga Murgoitio <dooteo@zundan.com>
+Date:	2010-03-27
+
+    Updated Basque language
+
+M	po/eu.po
+
+commit 1268c679feac17e7b2b69b10f2e9dfcd24f743f6
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2010-03-27
+
+    Updated Norwegian bokmål translation
+
+M	po/nb.po
+
+commit 7808e8bd0486c80bd58020813340bf5f97ce29d6
+Author: Ask H. Larsen <asklarsen@gmail.com>
+Date:	2010-03-27
+
+    Updated Danish translation
+
+M	po/da.po
+
+commit 182055d7fefa2573e0cf4a35ccb56af50eec57bc
+Author: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>
+Date:	2010-03-27
+
+    Updated Traditional Chinese translation(Hong Kong and Taiwan)
+
+M	po/zh_HK.po
+M	po/zh_TW.po
+
+commit 375e86ca35f074ea3372f69ca28e802bd8df518a
+Author: Maxim V. Dziumanenko <dziumanenko@gmail.com>
+Date:	2010-03-26
+
+    Updated Ukrainian translation
+
+M	po/uk.po
+
+commit 1bc1bf044739ca608e1145423b2a8ff0a03721dc
+Author: parimbra <parimbra@redhat.com>
+Date:	2010-03-26
+
+    Malayalam translation updated by Praveen Arimbrathodiyil
+
+M	po/ml.po
+
+commit b49c941fbf3c35b87d28dcb803af07f54193194e
+Author: Fran Diéguez <frandieguez@ubuntu.com>
+Date:	2010-03-24
+
+    Updated Galician translation
+
+M	po/gl.po
+
+commit 2738c6b136b0520b061d2d921de8db44d340243b
+Author: Inaki Larranaga Murgoitio <dooteo@zundan.com>
+Date:	2010-03-23
+
+    Updated Basque language
+
+M	po/eu.po
+
+commit 50ee1fc3a126e29a4bdad11862bccf9b2ddbf4d4
+Author: Miloš Popović <mpopovic@src.gnome.org>
+Date:	2010-03-23
+
+    Updated Serbian translations
+
+M	po/sr.po
+M	po/sr@latin.po
+
+commit c7728fddf901635794edd7db299c7247f4c27ab3
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2010-03-17
+
+    Fix wrong suspends with docked laptops
+
+    Commit 2afc10 introduced execution of lid/suspend policy when g-p-m
+    got back
+    the active ConsoleKit session. However, this
+
+     * does not fix the original problem in
+       https://bugzilla.redhat.com/show_bug.cgi?id=497262, since "does
+       not suspend
+       while no g-p-m is running" is not at all related to ConsoleKit
+       sessions, and
+
+     * causes wrong suspends on user switching with docked laptops where
+     the lid is
+       always closed.
+
+    Remove the entire gpm_manager_console_kit_active_changed_cb() and thus
+    effectively revert 2afc10. We generally handle events only if we
+    have the
+    active CK session, which is checked in the particular event handlers
+    themselves. The mere fact of switching CK sessions is not related to
+    suspend/lid/etc. policies and should not be handled at all in g-p-m.
+
+    https://bugzilla.gnome.org/show_bug.cgi?id=613130
+    https://launchpad.net/bugs/515465
+
+M	src/gpm-manager.c
+
+commit 05ae83fbd41fd823569f8a7bbc1163e9d154c0f0
+Author: Adi Roiban <adi@roiban.ro>
+Date:	2010-03-22
+
+    Update Romanian translation
+
+M	po/ro.po
+
+commit 3c29759cf6c8451ba35b4878d960acf8af27d8f0
+Author: Rémi Cardona <remi@gentoo.org>
+Date:	2010-03-21
+
+    configure: use pkg-config instead of autoconf macros to find X libs
+    and protos
+
+    This removes the optional DPMS support. But since libXext is always
+    installed along with libX11, let's just force its use.
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	configure.ac
+M	src/Makefile.am
+M	src/gpm-dpms.c
+
+commit ced3dbf6883f604f20693c0c391053e194a15f62
+Author: Rémi Cardona <remi@gentoo.org>
+Date:	2010-03-21
+
+    configure: shrink code
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	configure.ac
+
+commit 79c06bed69271fdae534911b5ea320d055fb7231
+Author: Rémi Cardona <remi@gentoo.org>
+Date:	2010-03-21
+
+    configure: clean out low-hanging cruft
+
+    PKG_CHECK_MODULES already calls AC_SUBST, no need to do it twice
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	configure.ac
+
+commit 6ec5d4dd8a55ac7edc507ce0e5457afdaf4a601c
+Author: Rémi Cardona <remi@gentoo.org>
+Date:	2010-03-21
+
+    Check for XRR* functions using library version instead of proto
+    version
+
+    randrproto 1.3 can be installed with libXrandr 1.2, which causes
+    linking
+    errors with g-p-m. This patch checks that libXrandr (and not
+    randrproto)
+    1.3 is available.
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	configure.ac
+M	src/gpm-brightness-xrandr.c
+
+commit 8aeab42e5502c4b487d4489b2942af40940bc411
+Author: André Gondim <andregondim@ubuntu.com>
+Date:	2010-03-20
+
+    Updated Brazilian Portuguese translation
+
+    Reviewed by Vladimir Melo <vmelo@gnome.org>
+
+M	po/pt_BR.po
+
+commit 4262064cc825e859fe92951de8a1010c6a9b5547
+Author: Petr Kovar <pknbe@volny.cz>
+Date:	2010-03-21
+
+    Update Czech translation by Marek Cernocky
+
+    Reviewed by: Lucas Lommer.
+
+M	po/cs.po
+
+commit 44e25465ec5d61bae9d1c106c0c69a8fd4015a48
+Author: Tommi Vainikainen <thv@iki.fi>
+Date:	2010-03-20
+
+    Updated Finnish translation
+
+M	po/fi.po
+
+commit 0f60afb067c383fb1bdd8fe8aec45b9e43abd443
+Author: Fran Diéguez <frandieguez@ubuntu.com>
+Date:	2010-03-20
+
+    Updated Galician translation
+
+M	po/gl.po
+
+commit 9b4f792ae95e6f6895a158d55fa526d25f2e72d7
+Author: Wouter Bolsterlee <wbolster@gnome.org>
+Date:	2010-03-20
+
+    Dutch translation updated by Wouter Bolsterlee
+
+M	po/nl.po
+
+commit 8a3138c0213260c6d62f5ef52fd04355f7bfa4ae
+Author: Wouter Bolsterlee <wbolster@gnome.org>
+Date:	2010-03-20
+
+    Dutch translation updated by Wouter Bolsterlee
+
+M	po/nl.po
+
+commit 1d5f25162d201f2feb51f7c0c76d20aea314e059
+Author: vasudeven <agnihot3@gmail.com>
+Date:	2010-03-20
+
+    updated Tamil translation
+
+M	po/ta.po
+
+commit f688f2c04d85f7efa7b52236a2146d28183e642d
+Author: Leonid Kanter <leon@asplinux.ru>
+Date:	2010-03-20
+
+    Update Russian translation from Юрий Козлов
+
+M	po/ru.po
+
+commit 454ec3f5a547d9b9a8650d11c2da8ec90a12570d
+Author: Leonid Kanter <leon@asplinux.ru>
+Date:	2010-03-20
+
+    Update Russian translation from Юрий Козлов
+
+M	po/ru.po
+
+commit be6939dfc295cd62d3171005ffc03abf6da5299b
+Author: Leonid Kanter <leon@asplinux.ru>
+Date:	2010-03-20
+
+    Update Russian translation from Юрий Козлов
+
+M	po/ru.po
+
+commit d56d5b5bb953ac713651b769dbb9713a0ff2a2df
+Author: Changwoo Ryu <cwryu@debian.org>
+Date:	2010-03-20
+
+    Updated Korean translation
+
+M	po/ko.po
+
+commit 09321d2b84805d8e36b103f0c9fe6057025e9ed2
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2010-03-19
+
+    Estonian translation updated
+
+M	po/et.po
+
+commit a41e89f1a3c320ab9b801b1dde223cff547505de
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:	2010-03-18
+
+    Updated Italian translation
+
+M	po/it.po
+
+commit 2f9b4b350f15f06031af72e4f9faaf5acdf9e45e
+Author: Gintautas Miliauskas <gintautas@miliauskas.lt>
+Date:	2010-03-18
+
+    Updated Lithuanian translation.
+
+M	po/lt.po
+
+commit 98866eb3859e619de03da6cb99e44ecee7a4789c
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:	2010-03-18
+
+    Updated Polish translation
+
+M	po/pl.po
+
+commit be7471ab3491da3897da3121cbe84f6617e26524
+Author: Duarte Loreto <happyguy_pt@hotmail.com>
+Date:	2010-03-17
+
+    Updated Portuguese translation
+
+M	po/pt.po
+
+commit 3ec8953bdb36cf416d89fd2463956d6a487832a0
+Author: Bruce Cowan <bcowan@fastmail.co.uk>
+Date:	2010-03-17
+
+    Updated British English translation
+
+M	po/en_GB.po
+
+commit 856d8fa92934a8b5c97d58a396f345ee40cbf0a7
+Author: David Planella <david.planella@gmail.com>
+Date:	2010-03-17
+
+    Updated Catalan translation
+
+M	po/ca.po
+
+commit b1aebe4e21037febca7f19e8538c876f37f0f1aa
+Author: Marc Deslauriers <marc.deslauriers@ubuntu.com>
+Date:	2010-02-05
+
+    Do not use EggDbusProxy in GpmScreensaver
+
+    Remove EggDbusProxy from GpmScreensaver so it can be removed.
+    Also, get a proxy to the name, and not the name owner, so
+    gnome-screensaver can become a D-Bus service and it can be
+    respawned without the proxy becoming invalid.
+
+M	src/gpm-screensaver.c
+
+commit 2ba70b4c99638294d25dfcd9d72c682f751797f3
+Author: Christian.Kirbach <Christian.Kirbach@googlemail.com>
+Date:	2010-03-17
+
+    Updated German translation
+
+M	po/de.po
+
+commit 15cb82e218c2c7b4856fcb93f124b3a0da808523
+Author: Alexander Shopov <ash@contact.bg>
+Date:	2010-03-17
+
+    Updated Bulgarian translation
+
+M	po/bg.po
+
+commit dbed24d2cbf266df5fd6ea1f1421d073f8701384
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-03-17
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit 12842001905b3603653f4c3647b16685528ca71b
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2010-03-17
+
+    Replace devkit-power call with upower in gnome-power-bugreport.sh
+
+M	tools/gnome-power-bugreport.sh
+
+commit 0c171b962989d20b55f65ae016c584d3543f4801
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2010-03-17
+
+    Fix a race condition where we can miss the idle reset alarm
+
+    When the idle timeout alarm fires, a reset alarm is created. If
+    the IDLETIME counter resets in between the idle timeout alarm being
+    detected and creating the reset alarm, then the reset alarm will be
+    missed and we will think that X is idle forever.
+
+    This patch checks the current IDLETIME value from the server just
+    after creating the reset alarm. If the current value is less than
+    the reset threshold, then we assume that we missed the event and
+    handle it accordingly.
+
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=609720
+
+M	src/egg-idletime.c
+
+commit 487fb08873d425b4afd339ba2019916b99186e4e
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2010-03-17
+
+    Don't query the capabilities of the notification daemon
+
+    The capabilities aren't used anywhere, so there is no need to
+    query them
+
+M	src/gpm-manager.c
+
+commit 708905e42f0f0f4bff667a14e171bda247b63ccf
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:	2010-03-17
+
+    Updated Arabic translation
+
+M	po/ar.po
+
+commit aff03f96bce300e0d28b39ed12355ac17a649a59
+Author: Leonid Kanter <leon@asplinux.ru>
+Date:	2010-03-17
+
+    Update Russian translation by Alexander Saprykin
+
+M	po/ru.po
+
+commit 2699c7570b25d06f75045912fec3c3b5c3151f95
+Author: Inaki Larranaga Murgoitio <dooteo@zundan.com>
+Date:	2010-03-17
+
+    Updated Basque language
+
+M	po/eu.po
+
+commit 0bf421d1aa6f741e3279a6f508d3aa85a24870d8
+Author: Claude Paroz <claude@2xlibre.net>
+Date:	2010-03-17
+
+    Updated French translation
+
+M	po/fr.po
+
+commit 6be1dfd0bb19883d9d7b29cfe483a5edbc9ecc3c
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2010-03-17
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 045e06b7b55e0eed20f50a24e27fa6fc8ad95972
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2010-03-17
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 4bd4d43a7b1d7d73f81a513c9ad95fc1eadfbee4
+Author: A S Alam <aalam@users.sf.net>
+Date:	2010-03-17
+
+    updating for Punjabi by A S Alam
+
+M	po/pa.po
+
+commit 6b8934e458cfc67d12b641d2dac8931a714ac1d0
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:	2010-03-17
+
+    Updated Hungarian translation
+
+M	po/hu.po
+
+commit 1db01e961d4835edd81e8707d282adc17f8f9632
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-16
+
+    Fix up a translation using ngettext rather than assuming the
+    plural. Fixes #612950
+
+M	src/gpm-statistics.c
+
+commit b3555b7d8bf7b024c71c93b080424c16032dbd3e
+Author: Inaki Larranaga Murgoitio <dooteo@zundan.com>
+Date:	2010-03-16
+
+    Updated Basque language
+
+M	po/eu.po
+
+commit a505b34c03e8b5be96c4917a2a67d903fee1cd84
+Author: Alexander Shopov <ash@contact.bg>
+Date:	2010-03-16
+
+    Updated Bulgarian translation
+
+M	po/bg.po
+
+commit dbf7ab64bda102f67e42108806db3fdd9e9f8996
+Author: Leonid Kanter <leon@asplinux.ru>
+Date:	2010-03-16
+
+    Update Russian translation from Alexander Saprykin
+
+M	po/ru.po
+
+commit a1670f6ff6312ad2f58001b712ec17b9103c741c
+Author: Christian Kirbach <Christian.Kirbach@googlemail.com>
+Date:	2010-03-15
+
+    Updated German translation
+
+M	po/de.po
+
+commit ef6206fee70a4d7f91ff2c2e1ce587622b9f2f9c
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:	2010-03-15
+
+    Updated Italian transltion
+
+M	po/it.po
+
+commit d5af8f62d2213145cd48fa0e0fc58fe20aeca785
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2010-03-15
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 2b50b620021c2429e14332987259527b53c386b9
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-03-15
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit ee9fb0d3e85bc7e7e022e1f3cb274bce854caf62
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:	2010-03-15
+
+    Updated Polish translation
+
+M	po/pl.po
+
+commit 85272e630b7ccc4d4c1a7e02dcb67f04ef5e31e7
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2010-03-15
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 4b0c25509297d4f5de081d7b355ec6ba5f4d2eab
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-15
+
+    Mark a few trivial strings as translatable to fix #612950
+
+M	src/gpm-statistics.c
+
+commit 3f659b088f6aaf90e811ac4aa3b2f7926417f48b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-15
+
+    Remove the pointy-finger status icon when the idletime cde fails to
+    work correctly
+
+M	src/gpm-idle.c
+
+commit d36ec7486273e825bb42910d041913e1072e9336
+Author: Saleem Abdulrasool <compnerd@compnerd.org>
+Date:	2010-03-04
+
+    only check for libpanel if building the applets
+
+M	configure.ac
+
+commit 137cc4053a0f1f8bea9a1a304d64a4f893142f02
+Author: Inaki Larranaga Murgoitio <dooteo@zundan.com>
+Date:	2010-03-11
+
+    Updated Basque language
+
+M	po/eu.po
+
+commit ad58d19d3e84968be510917e83636d07f1dc7d4b
+Author: Priit Laes <plaes@plaes.org>
+Date:	2010-03-11
+
+    Estonian translation updated
+
+M	po/et.po
+
+commit f07b282c6a111374bbc4ceea27f181fa952db3ad
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2010-03-11
+
+    Estonian translation updated
+
+M	po/et.po
+
+commit 2212a428c438465b3b73bbc5242ed7aa2fe6cfe2
+Author: Duarte Loreto <happyguy_pt@hotmail.com>
+Date:	2010-03-09
+
+    Updated Portuguese translation
+
+M	po/pt.po
+
+commit ee7e0ec047093d13047f85b4331fafe0f99e4fab
+Author: Alexander Shopov <ash@contact.bg>
+Date:	2010-03-08
+
+    Updated Bulgarian translation
+
+M	po/bg.po
+
+commit 8b81c74c63a605b422fa5e17f23a51aaab679ff3
+Author: Marek Černocký <marek@manet.cz>
+Date:	2010-03-07
+
+    Update Czech translation
+
+M	po/cs.po
+
+commit bc651c98313fc91817b1b4bb9f41407e399b95d6
+Author: David Planella <david.planella@gmail.com>
+Date:	2010-03-06
+
+    Updated Catalan translation
+
+M	po/ca.po
+
+commit 65c1b3c275be3826cab5f01ad48012676049a9f4
+Author: Kevin_Wei_2 <kevin_wei3@yahoo.com.tw>
+Date:	2010-03-06
+
+    Updated Traditional Chinese translation(Hong Kong and Taiwan)
+
+M	po/zh_HK.po
+M	po/zh_TW.po
+
+commit f8578a8eebf2947a99788730f6f6e8d0bbebc42d
+Author: Ruben Vermeersch <ruben@savanne.be>
+Date:	2010-03-05
+
+    Fix translation typo for nl (BGO#611938).
+
+M	po/nl.po
+
+commit 61583540cd3cb32740fa9bebe3fc9b5458582c72
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:	2010-03-05
+
+    Updated Hungarian translation
+
+M	po/hu.po
+
+commit 9f9318133aff5b8a2cb225e2a0ea8752d2906eaf
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2010-03-05
+
+    Updated Norwegian bokmål translation
+
+M	po/nb.po
+
+commit abd39fcf1d0f6db646379820fe4370df23172874
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-05
+
+    Ensure we close any 'battery low' notifications when we switch to
+    being on AC
+
+M	src/gpm-manager.c
+
+commit d481774ee1aee94bb193f545be58ba0062c672a1
+Author: Gintautas Miliauskas <gintautas@miliauskas.lt>
+Date:	2010-03-05
+
+    Updated Lithuanian translation.
+
+M	po/lt.po
+
+commit 523f50aecbc2371990461a590098e0d5b931fcd4
+Author: Fran Diéguez <frandieguez@ubuntu.com>
+Date:	2010-03-05
+
+    Update Galician translation
+
+M	po/gl.po
+
+commit 79e038d377f8120056803181255133e49d6d4d69
+Author: André Gondim <andregondim@ubuntu.com>
+Date:	2010-03-04
+
+    Updated Brazilian Portuguese translation
+
+M	po/pt_BR.po
+
+commit f07cbaed1b24ab1383457bfc6c8a0ec0d0fed0f4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-04
+
+    trivial: remove -Wredundant-decls as system headers are often to blame
+
+M	configure.ac
+
+commit 8e6f8c4494073fa4fc5975bde4d45890799e0050
+Author: Pramod Dematagoda <pmd.lotr.gandalf@gmail.com>
+Date:	2010-03-04
+
+    Play a sound loop if the charge of a laptop battery/ups reaches a
+    critical level. Fixes rh#470090
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-manager.c
+
+commit ba4cb0f9fcde392c4a3dd3b87f9844d06c20b85f
+Author: Pramod Dematagoda <pmd.lotr.gandalf@gmail.com>
+Date:	2010-03-04
+
+    Fix a problem where the critical action is not done in the case of
+    a UPS
+
+M	src/gpm-manager.c
+
+commit 8c25c3ea7f52567fd2e82ad26fd4498f78f3fac9
+Author: Pramod Dematagoda <pmd.lotr.gandalf@gmail.com>
+Date:	2010-03-04
+
+    If a battery charge is low but not critical don't play the sound
+    meant for a critical charge event
+
+M	src/gpm-manager.c
+
+commit 940bdebf1f0ecb039b255d0bd0a4236f8188fdd4
+Author: Pramod Dematagoda <pmd.lotr.gandalf@gmail.com>
+Date:	2010-03-04
+
+    Do not set a charge warning if the device is on AC
+
+M	src/gpm-engine.c
+
+commit bad9145865880f34d93e99ab18949dfd390aeb1e
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:	2010-03-03
+
+    Updated Arabic translation
+
+M	po/ar.po
+
+commit 6ac196baf6c49b59434f7bb79ecf5fb4f4df6383
+Author: vasudeven <agnihot3@gmail.com>
+Date:	2010-03-03
+
+    updated Tamil translation
+
+M	po/ta.po
+
+commit c14ec9e49cd86f69ed8dd5f2d04bc0221b6c68ca
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2010-03-03
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit fdcf156c85c10a6053b7364d882611df07000343
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2010-03-02
+
+    Declare GError in gpm_brightness_hal_init to fix build failure
+
+M	src/gpm-brightness-hal.c
+
+commit e4c282bcc9017309d32f93d45c392867cb5798f7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-01
+
+    Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit eee1fdc3934452c7bda7a7c5d207598373c2f9f2
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-01
+
+    GNOME Power Manager 2.29.91
+
+M	NEWS
+M	RELEASE
+M	configure.ac
+
+commit 3fa636c00153212797b27e3e775a748df59ed53a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-03-01
+
+    trivial: add some more data to a few translator comments
+
+M	src/gpm-statistics.c
+
+commit 1cf1955da1236e6f25179b0d54224b4a6a1dc590
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:	2010-02-28
+
+    Updated Italian translation
+
+M	po/it.po
+
+commit 0957c223d6f63c4d20d94365e00d82df248e6d72
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:	2010-02-27
+
+    Updated Italian translation
+
+M	po/it.po
+
+commit 5c166026a46988d57dbb8f2a7dcf60ddf1760ae6
+Author: Torstein Adolf Winterseth <kvikende@yahoo.no>
+Date:	2010-02-27
+
+    Updated Norwegian Nynorsk translation
+
+M	po/nn.po
+
+commit e544bbbefb9dc80218343a58ce87bce2f5f0530b
+Author: Claude Paroz <claude@2xlibre.net>
+Date:	2010-02-26
+
+    Updated French translation
+
+    Contributed by Nicolas Repentin and Claude Paroz
+
+M	po/fr.po
+
+commit 1117eb4737217718cae9ab00826864d95ff64341
+Author: Leonid Kanter <leon@asplinux.ru>
+Date:	2010-02-25
+
+    Update Russian translation by Yuri Kozlov <yuray@komyakino.ru>
+
+M	po/ru.po
+
+commit fd108ffc4050e4b8d612581580105454afadb4d5
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:	2010-02-25
+
+    Updated Polish translation
+
+M	po/pl.po
+
+commit b531689ddb72ea93d86eef4b6744f743b1adf500
+Author: Bruce Cowan <bcowan@fastmail.co.uk>
+Date:	2010-02-24
+
+    Updated British English translation
+
+M	po/en_GB.po
+
+commit db31bff61ba3ecb4c7802b0cc89643d0fca33b6d
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-02-24
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit df2851342e174547cb9c6dee7018d094240408bd
+Author: Alexander Shopov <ash@contact.bg>
+Date:	2010-02-24
+
+    Updated Bulgarian translation
+
+M	po/bg.po
+
+commit bfcbfb8db3f280968173beb074acccca089de697
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-02-23
+
+    Updated German translation
+
+M	po/de.po
+
+commit 32bb49aa38a879b6d6cf87ae408f2114e74ebe8d
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2010-02-23
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit c3c513f6b5ba0e80fae53b2c823cc1e237097864
+Author: William Jon McCann <william.jon.mccann@gmail.com>
+Date:	2010-02-23
+
+    When we're critically low, don't give a time as it's often imprecise
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-manager.c
+
+commit b417e43e14619bc2ac44142848c83dbf1ff738ab
+Author: William Jon McCann <william.jon.mccann@gmail.com>
+Date:	2010-02-23
+
+    Increase the critical action timeout to 20 seconds
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-manager.c
+
+commit e1d6fd0bb756ca92550b0f1685a0ae2fb671397b
+Author: William Jon McCann <william.jon.mccann@gmail.com>
+Date:	2010-02-23
+
+    Set the timeout for critical battery notification to never
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-manager.c
+
+commit 8199453b74df331c72170bd3f148b419e7852279
+Author: William Jon McCann <william.jon.mccann@gmail.com>
+Date:	2010-02-23
+
+    Ensure we clear all notification bubbles on resume
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-manager.c
+
+commit f684a1c55b0ff78152bd8f673a1224a9636c2c8f
+Author: Leonid Kanter <leon@asplinux.ru>
+Date:	2010-02-23
+
+    Update Russian translation
+
+M	po/ru.po
+
+commit 3442cc756b8597b0edd2dde1d3161b12cc792d50
+Author: Alexander Shopov <ash@contact.bg>
+Date:	2010-02-23
+
+    Updated Bulgarian translation
+
+M	po/bg.po
+
+commit a66a81eecf613801d7a7376fa2cb73457e167452
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:	2010-02-22
+
+    Updated Polish translation
+
+M	po/pl.po
+
+commit b4b66f12024ad28cd25e092eee0b6c9390217804
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:	2010-02-22
+
+    Updated Italian translation
+
+M	po/it.po
+
+commit 769e2876a515965c708712d740874e77b83af4b1
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:	2010-02-22
+
+    Updated Polish translation
+
+M	po/pl.po
+
+commit caa275e30b3fb34cec5e758967c17de9950a0762
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-02-21
+
+    Updated German translation
+
+M	help/de/de.po
+
+commit 3d4bea79226a78a853c687916950aeaa32fcfea5
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-02-21
+
+    Added screenshot
+
+A	help/de/figures/applet-inhibit.png
+
+commit ad512192b9d273512529c98eadd154b8815b1c86
+Author: Fran Diéguez <frandieguez@ubuntu.com>
+Date:	2010-02-20
+
+    Updated Galician Translation
+
+M	po/gl.po
+
+commit 20dc351667e1bfb6894c5f134bdae0a019c95c5c
+Author: Wolfgang Stöggl <c72578@yahoo.de>
+Date:	2010-02-20
+
+    Updated German translation
+
+M	po/de.po
+
+commit f7c9d7ed9ba11d25cedf3e5e71bb7d5af994aff7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-02-18
+
+    Revert "Avoid a race in detecting the idle reset alarm"
+
+    This reverts commit 7380ab4e13db76cb5be2e1bc4a42a810a5261fd4.
+
+M	src/egg-idletime.c
+
+commit 5d4410dfd00d1d22fe639837e08993f133fdc3b7
+Author: vasudeven <agnihot3@gmail.com>
+Date:	2010-02-18
+
+    updated Tamil translation
+
+M	po/ta.po
+
+commit f9e162507a61df3127cb50a621af195d33da9e73
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-02-17
+
+    Revert "Use the name of 'Power' for the power management preferences
+    capplet"
+
+    This reverts commit 40607020e0d6a447e262edd89f089e5c0fc91120.
+
+M	data/gnome-power-manager.desktop.in.in
+
+commit dd6b752691634727e1a2eee0ae273f9d0e2639f2
+Author: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>
+Date:	2010-02-16
+
+    Updated Traditional Chinese translation(Hong Kong and Taiwan)
+
+M	po/zh_HK.po
+M	po/zh_TW.po
+
+commit 9317792485617c8c379ff4fcc82b8b79ce53f185
+Author: Fran Diéguez <frandieguez@ubuntu.com>
+Date:	2010-02-15
+
+    Updated Galician Translation
+
+M	po/gl.po
+
+commit 33e77937e7908552b56003279db86e42d6e47409
+Author: Djavan Fagundes <djavan@comum.org>
+Date:	2010-02-13
+
+    Updates Brazilian Portuguese translation
+
+M	po/pt_BR.po
+
+commit 2f70503a74b2baf86409138b40e94b5d20d46790
+Author: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>
+Date:	2010-02-13
+
+    Update Romanian translation
+
+M	po/ro.po
+
+commit 7380ab4e13db76cb5be2e1bc4a42a810a5261fd4
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2010-02-12
+
+    Avoid a race in detecting the idle reset alarm
+
+    When the idle timeout alarm fires, a reset alarm is created. If
+    the IDLETIME counter resets in between the idle timeout alarm being
+    detected and creating the reset alarm, then the reset alarm will
+    be missed and we will think that X is idle forever.
+
+    This patch creates a reset alarm when creating a EggIdletime
+    instance, but blocks emitting a "reset" signal from this instance
+    each time the reset alarm expires, unless the idle timeout alarm
+    has triggered since the last time the reset alarm expired. This
+    ensures that we always catch the reset alarm.
+
+M	src/egg-idletime.c
+
+commit ceca973bcd507ed9fcda69b6a445af756f725198
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:	2010-02-12
+
+    Updated Arabic translation
+
+M	po/ar.po
+
+commit a83b2e8d41b58832373f1234788b8aa342eedbb2
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:	2010-02-12
+
+    Fix a typo
+
+M	po/ar.po
+
+commit d31438cbb4e503ebc506bff1d1dcd211352e4e58
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:	2010-02-10
+
+    Fixed wrong file name in POTFILES.in, damned-lies was complaining
+
+M	po/POTFILES.in
+
+commit 1559f7d651366d1da8e374c2e88150da2d6cb11f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-02-05
+
+    trivial: Rename an internal source file as DeviceKit-power might
+    not be providing the data
+
+M	src/Makefile.am
+M	src/gpm-engine.c
+M	src/gpm-manager.c
+M	src/gpm-statistics.c
+M	src/gpm-tray-icon.c
+R095	src/gpm-devicekit.c	src/gpm-upower.c
+R087	src/gpm-devicekit.h	src/gpm-upower.h
+
+commit a3d1ecead1caba852fe89818a7556630cfa0b45a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-02-05
+
+    DeviceKit-disks is now called UDisks
+
+M	src/gpm-disks.c
+
+commit 9d6e266bf65f53282bd8e0328860bc71e24d2ccd
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-02-05
+
+    trivial: do not use EggDbusProxy in GpmBrightnessHal
+
+M	src/gpm-brightness-hal.c
+
+commit 37cd54a7aa2752da70bf5252c7d3ecc8ce041a65
+Author: Marc Deslauriers <marcdeslauriers@videotron.ca>
+Date:	2010-02-05
+
+    trivial: add additional error message
+
+    Here is a trivial patch to add an additional error message when the
+    timeout is
+    hit while waiting for gnome-screensaver. This helps debugging
+    screen locking
+    problems.
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-screensaver.c
+
+commit 92967ad6585c88a7cc8eb524686b73b2a3dec6aa
+Author: Eleanor Chen <chenyueg@gmail.com>
+Date:	2010-02-04
+
+    Update Simplified Chinese translation.
+
+M	po/zh_CN.po
+
+commit 98932d5fdcdf940f3bc3844f567b4dddc211eb83
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-02-01
+
+    Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit 5eb3aa94aef3cb40c8165926f03a5876dd8c5c63
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-02-01
+
+    GNOME Power Manager 2.29.2
+
+M	NEWS
+M	RELEASE
+
+commit eb7287bb015c0523e941f18dceb8e142051ff61e
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2010-02-01
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 825e7a0871deab890c76a0e48257b0ec1240b22f
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2010-01-30
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 54ce674107faa28f7e674cdca983d347762bc135
+Author: Theppitak Karoonboonyanan <thep@linux.thai.net>
+Date:	2010-01-29
+
+    Updated Thai translation.
+
+M	po/th.po
+
+commit ba12f8aa89bc2b303e9699434a04ce7b321604bf
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-01-28
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit b9a8c88d76b3c58af3d95b45200a2173586deac8
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2010-01-27
+
+    Don't automatically suspend if there are suspend inhibits
+
+    Check for suspend inhibits before registering the gpm_idle_sleep_cb
+    timeout callback, to avoid automatically suspending if this action is
+    inhibited by another application. Fixes #607748
+
+M	src/gpm-idle.c
+M	src/gpm-session.c
+M	src/gpm-session.h
+
+commit 60caccafe87a1531a78a66c56bad0f8856a0a16a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-27
+
+    Update the Free Software Foundation address
+
+M	applets/brightness/brightness-applet.c
+M	applets/inhibit/inhibit-applet.c
+M	libhal-glib/hal-device.c
+M	libhal-glib/hal-device.h
+M	libhal-glib/hal-manager.c
+M	libhal-glib/hal-manager.h
+M	src/egg-array-float.c
+M	src/egg-array-float.h
+M	src/egg-color.c
+M	src/egg-color.h
+M	src/egg-console-kit.c
+M	src/egg-console-kit.h
+M	src/egg-dbus-monitor.c
+M	src/egg-dbus-monitor.h
+M	src/egg-dbus-proxy.c
+M	src/egg-dbus-proxy.h
+M	src/egg-debug.c
+M	src/egg-debug.h
+M	src/egg-discrete.c
+M	src/egg-discrete.h
+M	src/egg-idletime.c
+M	src/egg-idletime.h
+M	src/egg-obj-list.c
+M	src/egg-obj-list.h
+M	src/egg-precision.c
+M	src/egg-precision.h
+M	src/egg-string.c
+M	src/egg-string.h
+M	src/egg-test.c
+M	src/egg-test.h
+M	src/egg-unique.c
+M	src/egg-unique.h
+M	src/gpm-backlight.c
+M	src/gpm-backlight.h
+M	src/gpm-brightness-hal.c
+M	src/gpm-brightness-hal.h
+M	src/gpm-brightness-xrandr.c
+M	src/gpm-brightness-xrandr.h
+M	src/gpm-brightness.c
+M	src/gpm-brightness.h
+M	src/gpm-button.c
+M	src/gpm-button.h
+M	src/gpm-common.c
+M	src/gpm-common.h
+M	src/gpm-control.c
+M	src/gpm-control.h
+M	src/gpm-devicekit.c
+M	src/gpm-devicekit.h
+M	src/gpm-disks.c
+M	src/gpm-disks.h
+M	src/gpm-dpms.c
+M	src/gpm-dpms.h
+M	src/gpm-engine.c
+M	src/gpm-engine.h
+M	src/gpm-graph-widget.c
+M	src/gpm-graph-widget.h
+M	src/gpm-idle.c
+M	src/gpm-idle.h
+M	src/gpm-load.c
+M	src/gpm-load.h
+M	src/gpm-main.c
+M	src/gpm-manager.c
+M	src/gpm-manager.h
+M	src/gpm-networkmanager.c
+M	src/gpm-networkmanager.h
+M	src/gpm-phone.c
+M	src/gpm-phone.h
+M	src/gpm-prefs-core.c
+M	src/gpm-prefs-core.h
+M	src/gpm-prefs-server.c
+M	src/gpm-prefs-server.h
+M	src/gpm-prefs.c
+M	src/gpm-screensaver.c
+M	src/gpm-screensaver.h
+M	src/gpm-self-test.c
+M	src/gpm-self-test.h
+M	src/gpm-session.c
+M	src/gpm-session.h
+M	src/gpm-statistics.c
+M	src/gpm-stock-icons.h
+M	src/gpm-tray-icon.c
+M	src/gpm-tray-icon.h
+M	src/gsd-media-keys-window.c
+
+commit 2bab811c7b28b7d37fd87875043422238df2a29a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-27
+
+    trivial: fix up the last commit
+
+M	src/gpm-manager.c
+
+commit 8a500832d83ba9a548ce6b22cf54aaada5806a9f
+Author: Chow Loong Jin <hyperair@gmail.com>
+Date:	2010-01-27
+
+    Add just_resumed flag to inhibit consolekit events
+
+M	src/gpm-manager.c
+
+commit 55e69bf800fc8d18290560b549f85bb3638fb143
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-26
+
+    trivial: Modernize the configure.ac file
+
+M	configure.ac
+
+commit afe31107057dc37928026e6c1a02a602e5400088
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-26
+
+    Show the device name even when using UPower
+
+M	src/gpm-statistics.c
+
+commit df221cb007000499685335f1e2c3d46f1b44f825
+Author: Alexander Shopov <ash@contact.bg>
+Date:	2010-01-25
+
+    Updated Bulgarian translation
+
+M	po/bg.po
+
+commit e776c2ac4d94b2e3a9f6727748cb55c73e086951
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-25
+
+    Don't show the user a sleep failed link pointing to the quirk site
+
+    In a KMS world the quirks are more than likely ignored now anyway.
+
+M	data/gnome-power-manager.schemas.in
+
+commit 3331418de160ce344c6fa688522370cea3a2229d
+Author: Jamil Ahmed <itsjamil@gmail.com>
+Date:	2010-01-24
+
+    Updated Bengali translation
+
+M	po/bn.po
+
+commit b10f242af345f01415d26e35edb147dd7177453b
+Author: Chow Loong Jin <hyperair@ubuntu.com>
+Date:	2010-01-23
+
+    Don't rely on the cached value of the lid status, to properly fix
+    the double suspend issue
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-button.c
+
+commit 1d5199e68791b09747af52985fcb7ff05be52adc
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2010-01-22
+
+    Updated Norwegian bokmål translation
+
+M	po/nb.po
+
+commit 0d0fce9b9d5580de73ba21e695436a34b6cb6bb3
+Author: vasudeven <agnihot3@gmail.com>
+Date:	2010-01-22
+
+    updated Tamil translation
+
+M	po/ta.po
+
+commit e8f0ae3ce9f1bc405a4b5df81c3bfdf3372b38d0
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-19
+
+    Ensure the window is realized before we invalidate it. Fixes #604918
+
+M	src/gsd-media-keys-window.c
+
+commit e95c1fd06ed177990f1dd37d989388cb1c349c87
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-19
+
+    Fix a race in the callback ordering so that we never suspend twice
+    when the lid is closed. Fixes #604362
+
+    Based on a patch from Maciej Piechotka, many thanks.
+
+M	src/gpm-manager.c
+
+commit 40607020e0d6a447e262edd89f089e5c0fc91120
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-18
+
+    Use the name of 'Power' for the power management preferences capplet
+
+M	data/gnome-power-manager.desktop.in.in
+
+commit c6e39fe7675558519bac57066bf9a79307785e69
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-18
+
+    Move the power management preferences into the hardware section of
+    the control center
+
+M	data/gnome-power-preferences.desktop.in.in
+
+commit 65097823f0b884a1c30ee2517a5270e202eae4a9
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2010-01-14
+
+    only connect to HAL if there is no xrandr hardware
+
+    Nowadays it is a valid setup to have hal installed, but only start
+    on demand
+    via D-Bus activation (instead of during boot). If we detect
+    xrandr-capable
+    hardware, do not try to connect to hal.
+
+    https://bugzilla.gnome.org/show_bug.cgi?id=603470
+
+M	src/gpm-brightness.c
+
+commit 77841e569db325f27e2422e9e6041d6e448c1d9e
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2009-12-01
+
+    do not exit if hal is not available
+
+    g-p-m now runs sufficiently well without hal, so people who have
+    working
+    XBACKLIGHT (or don't care about missing notifications) should be
+    able to
+    uninstall hal.
+
+M	libhal-glib/hal-manager.c
+
+commit fc3c688a0152449b3e58b68e385b8c22f08433ec
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-17
+
+    trivial: use g_set_error() in more places
+
+M	src/gpm-backlight.c
+M	src/gpm-control.c
+
+commit 2b959a857ae447ae2522e0e69ee81ce870503df9
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-14
+
+    Enable the help action in gnome-power-statistics. Fixes #607005
+
+M	src/gpm-statistics.c
+
+commit 3463790183f6965186489dd100b6261b46bed869
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:	2010-01-14
+
+    Updated Arabic translation
+
+M	po/ar.po
+
+commit 6c6653e5c9eb1ebdced24d738fc8be4726ad644c
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2010-01-13
+
+    Updated Norwegian bokmål translation
+
+M	po/nb.po
+
+commit c0363054242f20c8c0f6d5df8b6481c98a2437b3
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-08
+
+    bugfix: fix compile when using an ld that defaults to --as-needed
+
+M	configure.ac
+M	src/Makefile.am
+
+commit 334e2c24674b4e978ec4b1eaed048679368441eb
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2010-01-06
+
+    Use -lm to fix the compile when linking with --as-needed
+
+M	src/Makefile.am
+
+commit d3ca4efb3ae2a21e593b8b262eb8fb697f262a9a
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:	2010-01-06
+
+    Updated Arabic translation
+
+M	po/ar.po
+
+commit 76a3ee837b3b6a0b410fc3cfc40e4c63315cd52d
+Author: Maxim V. Dziumanenko <dziumanenko@gmail.com>
+Date:	2010-01-05
+
+    Update Ukrainian translation
+
+M	po/uk.po
+
+commit 2d5056e75ddd391bedeaadbb76e72c6fbb24797d
+Author: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>
+Date:	2009-12-27
+
+    vi.po: updated Vietnamese translation
+
+M	po/vi.po
+
+commit 1b9c947a329d33ac560a30e8fbcabbaa1920c25c
+Author: Iestyn Pryce <dylunio@gmail.com>
+Date:	2009-12-21
+
+    Updated Welsh translation
+
+M	po/cy.po
+
+commit 87109315d398e3c65634409a70029a054dea455c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-12-18
+
+    trivial: fix a bug spotted by clang
+
+M	src/gpm-control.c
+
+commit 0f75da960738ada0bc9dfbdd98f3d67f741fb963
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-12-08
+
+    Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit cc18ffdb33f5bcfda529e1137923c13047da8a23
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-12-08
+
+    GNOME Power Manager 2.29.1
+
+M	NEWS
+M	RELEASE
+M	src/gpm-self-test.c
+
+commit f33903b8fd2538e092ac27bae2c2328df8e15004
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2009-12-05
+
+    Updated Norwegian bokmål translation.
+
+M	po/nb.po
+
+commit d0679b114d6e73e6cbfa332b6414e7f74a1da6ef
+Author: Yaron Sharabani <sh.yaron@gmail.com>
+Date:	2009-12-04
+
+    Updated Hebrew translation
+
+M	po/he.po
+
+commit ecb095b02b844fbc2cd0c92a1bf9cff0bdff9dcf
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-12-02
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 672ad722daf9d81405c03245409962e3826d6645
+Author: Tao Wei <weitao1979@gmail.com>
+Date:	2009-11-30
+
+    Updated Simplified Chinese translation.
+
+M	po/zh_CN.po
+
+commit 936b68fa54f39b28729d0f7eda2015667a189975
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-11-30
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 9f91080285c4e63661bc7c0826ed5decb5e3d165
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-11-27
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit eec4b266a315dfd22c1aaf76cefda4c15a578d42
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2009-11-27
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit 8440ef958cab79a30ce3d44fd2c37eebf7683754
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-11-25
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit fc016692a0902f8987a0226f58a3877affc9961b
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-11-24
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit c1f4722a2eebbdfa2efb5bb97549e90fc25449f6
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-11-23
+
+    trivial: remove unused define
+
+M	src/gpm-engine.c
+
+commit 21f951b687a50b320b9aff43706f10a0fb6723a7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-11-23
+
+    Sets some tooltips for the gnome-power-preferences buttons
+
+M	data/gpm-prefs.ui
+
+commit 479b89e8b2d4c7b18e9d443e89c2b5c70944bff1
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-11-18
+
+    Show the sleep failure as a modal dialog box. Fixes rh#427065
+
+M	src/gpm-control.c
+M	src/gpm-manager.c
+
+commit 640ce0d39a905f66b2b36459429c5388f6e2edcd
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-11-22
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 7f82d182b2ac50c2885513d2054d22ec3eb97adc
+Author: Thomas Thurman <tthurman@gnome.org>
+Date:	2009-11-21
+
+    Shavian translation
+
+M	po/LINGUAS
+A	po/en@shaw.po
+
+commit 9a679c2c3cfff004aa59ce574166e91d003e2fef
+Author: Aron Xu <aronxu@gnome.org>
+Date:	2009-11-18
+
+    Update Simplified Chinese translation.
+
+M	help/zh_CN/zh_CN.po
+
+commit 87c66c9038b1dd4ae6dafdaac891d76655e32753
+Author: Timo Jyrinki <timo.jyrinki@iki.fi>
+Date:	2009-11-13
+
+    Fix annoying typo (<br> tag) and translate 2 untranslated strings.
+
+M	po/fi.po
+
+commit db5a1c4a12b947914b93590c7bae8da5e24947a8
+Author: 苏运强 <wzssyqa@gmail.com>
+Date:	2009-11-13
+
+    Added Simplified Chinese translation of gnome-power-manager user
+    manual.
+
+M	help/Makefile.am
+A	help/zh_CN/zh_CN.po
+
+commit d2d90570c4da0ba7c7f63539c1098e5ac5f6ee4f
+Author: Bastien Nocera <hadess@hadess.net>
+Date:	2009-10-27
+
+    Use gnome-settings-daemon popup code
+
+    Instead of forking it.
+
+    Also make sure the location of the popup matches
+    that used by gnome-settings-daemon, and we switch
+    styles when switching compositing on/off.
+
+    https://bugzilla.gnome.org/show_bug.cgi?id=594664
+
+M	data/Makefile.am
+A	data/acme.ui
+M	src/Makefile.am
+M	src/gpm-backlight.c
+D	src/gpm-popup-window.c
+D	src/gpm-popup-window.h
+A	src/gsd-media-keys-window.c
+A	src/gsd-media-keys-window.h
+
+commit 10ad2ae0506b716e22193fdd51a9046e1cdfd840
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2009-11-05
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit 9fa8f0bd5b1d919387ca48be0653268efe3007d6
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-10-28
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 4772856522af74d964179d5fa05e54c0927a2ef9
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-10-23
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit ad58b65ee95d65235da0bd671bfd781d93579feb
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-10-21
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 6b4c3e63b58d331fe54afe02137c295fbc78b78c
+Author: Yaron Shahrabani <sh.yaron@gmail.com>
+Date:	2009-10-20
+
+    Updated Hebrew translation
+
+M	po/he.po
+
+commit eb6e16fc849ccf760035ff5c44da541f834fbd9c
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-10-20
+
+    Small fixup for 6245b1b9f8af94775ff060326336817183cf2101
+
+    - Use AS_HELP_STRING, AC_HELP_STRING is deprecated
+    - Use correct WARNINGFLAGS variable name
+
+M	configure.ac
+
+commit 94af439d1833dbd21481773bc8c3f69872c4a0a9
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-10-20
+
+    Remove DBUS_SYS_DIR from configure summary
+
+    The variable is not set anywhere and not used, so just remove it.
+
+M	configure.ac
+
+commit 6245b1b9f8af94775ff060326336817183cf2101
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-10-20
+
+    Sync compiler warnings handling with DK-power
+
+    - Remove -Werror from default WARNINGFLAGS
+    - Name the configure switch --enable-strict, which turns on -Werror
+    - Set default_strict=yes for Git checkouts
+
+M	configure.ac
+
+commit 48939c85d09149438f06846eab08aaf1b7cefb71
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-10-17
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit c4491f68379f43d5340377fe27de2f2ce51062dc
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-15
+
+    Switch to a single menu design, rather than a seporate left and
+    right menu
+
+M	src/gpm-tray-icon.c
+
+commit a4e920e6121f051420e5cb0c75a35528d072a4f3
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-15
+
+    Fix a bug where we try to match and refresh a virtual device, which
+    means g-p-s crashes on next start
+
+M	src/gpm-statistics.c
+
+commit e2ce87a4ccea29bcd838a12a3538ce4bde7baa5e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-15
+
+    trivial: unexport gpm_control_allowed_suspend() and
+    gpm_control_allowed_hibernate() stubs
+
+M	src/gpm-control.c
+M	src/gpm-control.h
+
+commit 350496a4a39df2079840b362c9a8ca1f47b38dd0
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-15
+
+    Remove the NOP gpm_control_check_foreground_console()
+
+M	src/gpm-control.c
+
+commit 58862f1ceaf1a6fe894956e74d9304cd91f162e2
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-15
+
+    Remove the suspend and hibernate menu items
+
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-common.h
+M	src/gpm-control.c
+M	src/gpm-manager.c
+M	src/gpm-tray-icon.c
+
+commit d1727825f920f0ec54b0708fb6c2c6cfeb6803c6
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-15
+
+    Remove show_actions_in_menu GConf key as the menu items are being
+    removed eventually
+
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-common.h
+M	src/gpm-tray-icon.c
+
+commit 4e561983793442ce1a25998447445affb959bd76
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-15
+
+    Rename show_context_menu to show_actions as we're moving to a
+    mono-menu design
+
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-common.h
+M	src/gpm-tray-icon.c
+
+commit 07f0f21c0e72ad603ad532153975496acebd5c48
+Author: Kostas Papadimas <pkst@gnome.org>
+Date:	2009-10-14
+
+    Updated Greek translation.
+
+M	po/el.po
+
+commit 55e5329af0cd9219ab4d740d2408328367095232
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-14
+
+    Remove the 'About' and 'Help' items from the status area context menu
+
+M	src/gpm-tray-icon.c
+
+commit 465c614ba70db67a10664efb01e575b625104f32
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-14
+
+    Apparently 'whilst' is only a British English thing. Change to
+    'while' throughout. Fixes #596963
+
+M	NEWS
+M	help/C/gnome-power-manager.xml
+M	help/ca/ca.po
+M	help/de/de.po
+M	help/el/el.po
+M	help/en_GB/en_GB.po
+M	help/es/es.po
+M	help/eu/eu.po
+M	help/fi/fi.po
+M	help/fr/fr.po
+M	help/hu/hu.po
+M	help/it/it.po
+M	help/oc/oc.po
+M	help/pa/pa.po
+M	help/ru/ru.po
+M	help/sv/sv.po
+M	po/ca.po
+
+commit 926a875df7b6b39b97982499fa4d7cb767ea1624
+Author: Scott Howard <showard314@gmail.com>
+Date:	2009-10-14
+
+    DeviceKit-disks is expecting an int, not a uint
+
+    Fixes a crash on un-plugging AC on some machines
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-disks.c
+M	src/gpm-disks.h
+M	src/gpm-manager.c
+
+commit 9a18ac26a509cffdec272235b18989f380cacda9
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2009-10-13
+
+    fix error messages/comments
+
+    gpm-disks.c talked about contacting DK-power, but it's really
+    talking to
+    DK-disks.
+
+M	src/gpm-disks.c
+
+commit e5f6185e30c768fc898e09c8f79acdaf4692a448
+Author: Chris Coulson <chrisccoulson@googlemail.com>
+Date:	2009-10-13
+
+    Add missing indirection to return value of DriveSetAllSpindownTimeouts
+    call
+
+    https://bugzilla.gnome.org/show_bug.cgi?id=598339
+
+M	src/gpm-disks.c
+
+commit 8a7345a2691884b967e56b81886b3f1befe8869a
+Author: David Planella <david.planella@gmail.com>
+Date:	2009-10-12
+
+    Updated Catalan translation
+
+M	po/ca.po
+
+commit 20d57be381b0cf474d8f81bc20b57ea098da156d
+Author: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>
+Date:	2009-10-11
+
+    Updated Romanian translation
+
+M	po/ro.po
+
+commit 93a8df607cf174158c48eca8e9daf20965b361a0
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-10-11
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 11ad78f7e52868cae8635a38bde79a891dde8d9f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-06
+
+    re-enable G_DISABLE_SINGLE_INCLUDES and GTK_DISABLE_SINGLE_INCLUDES
+    in CPPFLAGS
+
+M	configure.ac
+
+commit 3405c59281f82a6b9294c0d634d524fd9327df96
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-06
+
+    Add GSEAL_ENABLE to CPPFLAGS
+
+M	configure.ac
+
+commit a352afc4dc15df54251dfd10166355c846f76dc5
+Author: Javier Jardón <javierjc1982@gmail.com>
+Date:	2009-09-22
+
+    Use accessor functions instead direct access. Second patch
+
+    Remove GTK_WIDGET_UNSET_FLAGS (applet->popup, GTK_TOPLEVEL) because
+    a popup *is* a toplevel
+
+    http://bugzilla.gnome.org/show_bug.cgi?id=594585
+
+M	applets/brightness/brightness-applet.c
+
+commit 4514eec0437a5ca4b2ab9adb81e25e122fade5bf
+Author: Matthias Clasen <mclasen@redhat.com>
+Date:	2009-10-06
+
+    Help the kernel through its confusion
+
+    If you talk to the kernel, 'suspend' sometimes means 'hibernate'.
+    Just smile and wave...
+
+M	src/gpm-button.c
+
+commit 5d3b1cecc36038695eee13dae6d8eeb68e58d984
+Author: Tormod Volden <debian.tormod@gmail.com>
+Date:	2009-10-03
+
+    throttle screensaver before suspend/hibernate
+
+    Otherwise the screensaver will flash by for a second, bug #586555.
+
+    Signed-off-by: Tormod Volden <debian.tormod@gmail.com>
+
+M	src/gpm-control.c
+
+commit c98d90d683e717dc62a98095643625a36cc36fce
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-10-05
+
+    Remove outdated information about DeviceKit from README
+
+M	README
+
+commit a3f923433573758e204525a467fb475fc3a183a9
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-01
+
+    When we click on a battery device in the context menu, show the
+    gnome-power-statistics dialog with the correct device focused. Fixes
+    #596983
+
+M	src/gpm-tray-icon.c
+
+commit 4fcf6130a9195329e89ac35ee29b60888327a152
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-01
+
+    Add a --device parameter to gnome-power-statistics so we can set
+    the focus on a specific device
+
+M	src/gpm-statistics.c
+
+commit 17c6d1c6374133ee8e65a2255ea9564e452f4b15
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-10-01
+
+    Correctly set the focus on the last used device in
+    gnome-power-statistics
+
+M	src/gpm-statistics.c
+
+commit 73bd434b1c65c89cedc045a460946144bcfa59d8
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-30
+
+    Do not hide some radio buttons depending on the current machine state
+
+    Fixes https://bugzilla.redhat.com/show_bug.cgi?id=526075
+
+M	src/gpm-prefs-core.c
+
+commit a688602976cfd5561786c716f10656f79f546917
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-09-29
+
+    Improve configure summary wrt HAL
+
+    Mention in the configure summary that HAL is used for brightness
+    support.
+
+M	configure.ac
+
+commit 88047affd5934f0d3575a74066902351a5af7316
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-09-29
+
+    Use separate variables for dbus and dbus-glib
+
+    dbus and dbus-glib have been split into separate packages quite some
+    time ago, so also use separate version requirements.
+    For dbus, require at least version 1.0, which has a stable API and no
+    longer requires DBUS_API_SUBJECT_TO_CHANGE
+
+M	configure.ac
+
+commit be1aa650adee6655895ed0137d1a8333a3b04dd8
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-09-29
+
+    Remove obsolete check-foreground-console support.
+
+    pam_foreground has been deprecated and removed from Ubuntu for quite
+    some time now, so remove the dead code.
+
+M	configure.ac
+M	src/gpm-control.c
+
+commit 47ac2db84adf887569e303328b45d7dd9351ad1c
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-09-29
+
+    Remove HAL_LIBS/HAL_CFLAGS
+
+    No longer check for hal libraries and link against them, as we
+    no longer
+    require them.
+
+M	configure.ac
+M	src/Makefile.am
+
+commit 0591686a465ebdee5cb98f6e23bdf8aa05583e2f
+Author: Michael Biebl <biebl@debian.org>
+Date:	2009-09-29
+
+    Remove devkit-power check
+
+    The devkit-power binary is a runtime dependency, not build time, so
+    just remove it.
+
+M	configure.ac
+
+commit 8d2a56d6cb2b30a6e696d39187f2bd254d729705
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:	2009-09-24
+
+    Small fixes
+
+M	po/hu.po
+
+commit 40e2ce1dcf9f69f0f65f918282b40fb6e4885769
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2009-09-24
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit 7816167bdfaa78146e0479e83567c6da2e4ac6f8
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-22
+
+    Fix up all the issues reported by clang
+
+M	src/gpm-brightness-xrandr.c
+M	src/gpm-graph-widget.c
+M	src/gpm-prefs-core.c
+M	src/gpm-screensaver.c
+M	src/gpm-statistics.c
+
+commit f2fe2a9b3fd54ecf822d6512515b418dd8b28e1f
+Author: Mads Lundby <lundbymads@gmail.com>
+Date:	2009-09-21
+
+    Updated Danish translation
+
+M	po/da.po
+
+commit 14e295caa31977e988bb41493a108025af745144
+Author: Marek Černocký <marek@manet.cz>
+Date:	2009-09-21
+
+    Update Czech translation
+
+M	po/cs.po
+
+commit a1f9e6379dc1f9a13959079211cc32e27e6aa2f2
+Author: Marek Černocký <marek@manet.cz>
+Date:	2009-09-21
+
+    Update Czech translation
+
+M	po/cs.po
+
+commit 8b4e339fcd681b947f8a76f17bbee40c7fe83e9a
+Author: Manoj Kumar Giri <mgiri@mgiri.csb>
+Date:	2009-09-21
+
+    Upadated Oriya Translation
+
+M	po/or.po
+
+commit 43e4fb7ab6b4131cb9a002fd2afee817486615a4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-21
+
+    Bump release now we've branched for 2-28
+
+M	RELEASE
+M	configure.ac
+
+commit fe701c36f66709bda622c36453add600ba974a31
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-21
+
+    Fix make check
+
+M	src/gpm-screensaver.h
+
+commit 78533d86b400117d984304b71ef872fc442ca563
+Author: Amitakhya Phukan <aphukan@fedoraproject.org>
+Date:	2009-09-21
+
+    Updating Assamese translations
+
+M	po/as.po
+
+commit 6124b5c614fb14ca3c8b459b653644d1081ba2d7
+Author: Shankar Prasad <svenkate@redhat.com>
+Date:	2009-09-21
+
+    Updated Kannada(kn) translation
+
+M	po/kn.po
+
+commit 6e3b385af702faf21699760b14a1dd1dc1f6b368
+Author: Petr Kovar <pknbe@volny.cz>
+Date:	2009-09-20
+
+    Updated Czech translation by Pavel Sefranek, Petr Pulc & Lucas Lommer
+
+M	po/cs.po
+
+commit 13bc1983b86b9f35b4a79363fb6660a1318bc5cc
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:	2009-09-20
+
+    Updated Italian translation
+
+M	po/it.po
+
+commit 09c496a0183add1b853dfb7a79b143d27b0c3c47
+Author: Manoj Kumar Giri <mgiri@mgiri.csb>
+Date:	2009-09-19
+
+    Upadated Oriya Translation
+
+M	po/or.po
+
+commit 450c772b0d8378a0a42a2f566271647900f3f91c
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:	2009-09-19
+
+    Updated Hungarian translation
+
+M	po/hu.po
+
+commit 7663f81ecea985762be526d0b41025069788a77e
+Author: krishnababu k <kkrothap@redhat.ocm>
+Date:	2009-09-17
+
+    Updated Telugu Translation
+
+M	po/te.po
+
+commit 9ff7dc0c8b70fb9d640813435dfd721bb92b0f11
+Author: Maxim V. Dziumanenko <dziumanenko@gmail.com>
+Date:	2009-09-17
+
+    Added Ukrainian translation
+
+M	po/uk.po
+
+commit 87e09d67b86df107d14c8845fad8175c5a1a0dc0
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2009-09-17
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 4f37165333d71f347aeca8028e47cd114fa5a9fa
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:	2009-09-16
+
+    Updated Italian translation
+
+M	po/it.po
+
+commit 9d63fafec7f3baebce60ce44116e1290c9f33678
+Author: Rajesh Ranjan <rranjan@rranjan.csb>
+Date:	2009-09-17
+
+    hindi update by Rajesh Ranjan
+
+M	po/hi.po
+
+commit 773f1480d02bd08c0ed5e95caf28b9d250736cb4
+Author: Sweta Kothari <swkothar@redhat.com>
+Date:	2009-09-15
+
+    Updated Gujarati Translations
+
+M	po/gu.po
+
+commit 2732b79e24760ca3898eaec629ed0cf1e657643a
+Author: Astur <malditoastur@gmail.com>
+Date:	2009-09-14
+
+    Updated Asturian translation
+
+M	po/ast.po
+
+commit b36e51d35e7a816ca4bb5710fe6a05d84930f15f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-14
+
+    Change the default of show_actions_in_menu to FALSE
+
+M	data/gnome-power-manager.schemas.in
+
+commit 5c273338ee0d9b7def15e00d9ad2a4d5e067a857
+Author: Sandeep Shedmake <sshedmak@redhat.com>
+Date:	2009-09-14
+
+    Updated Marathi Translations
+
+M	po/mr.po
+
+commit 06754350cadac58a28165039d950f509dbc9fd81
+Author: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>
+Date:	2009-09-13
+
+    Updated Romanian translation
+
+M	po/ro.po
+
+commit 16a5d174f877ad3fbcd59fa0fd42c281d4c4a505
+Author: A S Alam <aalam@users.sf.net>
+Date:	2009-09-13
+
+    Updating Translation for Punjabi
+
+M	po/pa.po
+
+commit 5b3770f8e3589616800dfb68b4b17027b5f8bc25
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-13
+
+    Comment out the AuthRequest signal handling as Jon removed this
+    functionality from gnome-screensaver
+
+M	src/gpm-manager.c
+M	src/gpm-screensaver.c
+M	src/gpm-screensaver.h
+M	src/gpm-self-test.c
+
+commit 19de54ba0671561c9a443bc2021c8f41936a066f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-13
+
+    trivial: remove unused functionality in GpmScreensaver
+
+M	src/gpm-screensaver.c
+M	src/gpm-screensaver.h
+
+commit fbb63df9c10820dbbff5d2e9b2063ea8687b5441
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-13
+
+    trivial: remove duplicated include
+
+M	src/gpm-manager.c
+
+commit 83186cc819802d8de11021673cec5c2ff5c1237b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-11
+
+    Use g_ptr_array_unref() in more places, which also fixes a few small
+    memory leaks
+
+M	src/gpm-brightness-xrandr.c
+M	src/gpm-engine.c
+M	src/gpm-engine.h
+M	src/gpm-graph-widget.c
+M	src/gpm-manager.c
+M	src/gpm-prefs-core.c
+M	src/gpm-statistics.c
+M	src/gpm-tray-icon.c
+
+commit 820f5dee5ad2d8dabba57f44a8febfb281ba95ae
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-13
+
+    Use the correct gnome-screensaver path
+
+M	src/gpm-screensaver.c
+
+commit 8fdee725b6313b74713f22d3ee8e2ccd72a444d9
+Author: Bruce Cowan <bcowan@fastmail.co.uk>
+Date:	2009-09-12
+
+    Updated British English translation
+
+M	po/en_GB.po
+
+commit d24518e05771440079ee92c1025973d5a5f21f9f
+Author: Ani <peter.ani@gmail.com>
+Date:	2009-09-12
+
+    Updaeted Malayalam Translations
+
+M	po/ml.po
+
+commit 43c4933991bf0ba93c7af5bd7e60d73e3d5b63c5
+Author: Ask H. Larsen <asklarsen@gmail.com>
+Date:	2009-09-12
+
+    Updated Danish translation
+
+M	po/da.po
+
+commit 9d02ce3a4d36153b905f4703de9a7131ad768eb0
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-11
+
+    Use the correct interface name for DeviceKit-disks
+
+M	src/gpm-disks.c
+
+commit 2f3fa137583b442252900473954337adeb0aa53b
+Author: Sweta Kothari <swkothar@redhat.com>
+Date:	2009-09-10
+
+    Updated Gujarati Translations
+
+M	po/gu.po
+
+commit 0549df3002fc358469e71f0338b0a9604aa11bee
+Author: Javier Jardón <javierjc1982@gmail.com>
+Date:	2009-09-09
+
+    Use accessor functions instead direct access.
+
+    GTK+ 2.17.7 is now the required version
+
+    http://bugzilla.gnome.org/show_bug.cgi?id=594585
+
+M	applets/brightness/brightness-applet.c
+M	applets/inhibit/inhibit-applet.c
+M	configure.ac
+M	src/gpm-graph-widget.c
+M	src/gpm-popup-window.c
+
+commit a70a740cbabb2ddee4cec6af2d348d15ece89770
+Author: Scott Howard <showard314@gmail.com>
+Date:	2009-09-08
+
+    Inhibit applet now will inhibit the session from being marked IDLE.
+    Fixes bug 593800.
+
+M	applets/inhibit/inhibit-applet.c
+
+commit f44f936ccc1e67429b278a0bfc0ade08d11e066f
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:	2009-09-08
+
+    Hungarian translation updated
+
+M	po/hu.po
+
+commit 88edf36dd14aedb8fd87f82fb375fa8f9a9697af
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-08
+
+    Only print the DeviceKit-power device data when debugging
+
+M	src/gpm-engine.c
+
+commit d27580a141e9517290e12f3581299093d8db997e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-07
+
+    Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit 047ccc751ce511f8128f67b6a526edcd92243e3a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-07
+
+    GNOME Power Manager 2.27.92
+
+M	NEWS
+
+commit aa7b35d454524b3fbe47eb827edb2f1a1f6fa79a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-07
+
+    trivial: fix make distcheck
+
+M	Makefile.am
+
+commit f120a024aeb68438097b496ea2e7c59cfd81bc45
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-07
+
+    trivial: fix a crasher in the self test code
+
+M	src/gpm-session.c
+
+commit 69ef0620c52d88336a7cb4713c21f6fe5abf52f7
+Author: Gintautas Miliauskas <gintautas@miliauskas.lt>
+Date:	2009-09-07
+
+    Updated Lithuanian Translation.
+
+M	po/lt.po
+
+commit 34a0cdfb80ebfb11f075027b61e03ebbc6143a85
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2009-09-07
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 1155708ecc64854dd1f1051946693a82d9deb024
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-07
+
+    Correct some shoddy error checking. Spotted by clang
+
+M	src/gpm-load.c
+
+commit 62071f386387439f0a019ba2ed1b4de050b2049b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-07
+
+    Assign the correct icon when the sleep fails. Spotted by clang
+
+M	src/gpm-manager.c
+
+commit 7aebce8a5350278653368da5325b2a1eb100c72c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-07
+
+    Remove small memory leak spotted using clang
+
+M	src/gpm-screensaver.c
+
+commit c4dfb0a09e5ed9c1ad80e80f821da53e13e2e28a
+Author: Pramod Dematagoda <pramod@pramod.fedora>
+Date:	2009-09-06
+
+    Make notifications more reliable at session startup
+
+M	src/gpm-manager.c
+M	src/gpm-tray-icon.c
+
+commit bee42fe9cac38db45c974f665dd96421643469bc
+Author: Frédéric Péters <fpeters@0d.be>
+Date:	2009-09-03
+
+    When building with hal, link gnome-power-manager against libhal-glib
+
+M	src/Makefile.am
+
+commit 93b69b36a88d8a36ac0cc13c16bd690118f315e7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-03
+
+    Allow compile without HAL. Inspired from a patch from Javier Jardón,
+    many thanks.
+
+M	Makefile.am
+M	configure.ac
+M	src/Makefile.am
+M	src/gpm-brightness.c
+
+commit 41d6fdee1a19ba17d9411f3be8800d6e41bbe608
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-03
+
+    Never, never, show 'Unknown time'. No string changes allowed, so
+    text suboptimal. Fixes rh#520999
+
+M	src/gpm-manager.c
+
+commit 0f4d0c3d241f7f0aba3537919faf32306bcf847c
+Author: Duarte Loreto <happyguy_pt@hotmail.com>
+Date:	2009-09-03
+
+    Updated Portuguese translation
+
+M	po/pt.po
+
+commit a067d0199b7df1c5d2824f4bcd941650b7cd7985
+Author: Alexander Nyakhaychyk <nyakhaychyk@gmail.com>
+Date:	2009-09-02
+
+    Added Belarusian translation
+
+M	po/LINGUAS
+A	po/be.po
+
+commit a472d25191ec3202ecc4c0d1a652bd32e87fef8f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-09-02
+
+    Open the gnome-power-manager help, not the 'cheese' help
+
+M	src/gpm-common.c
+
+commit 8c4b7e5fc63a7b89ed0bf1c46653c4b0f6222a53
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2009-09-01
+
+    Update Norwegian bokmål translation.
+
+M	po/nb.po
+
+commit 5504feb32f38bdd5efb17a366f4767da8180c9a1
+Author: Jamil Ahmed <itsjamil@gmail.com>
+Date:	2009-09-01
+
+    Updated Bengali translation
+
+M	po/bn.po
+
+commit f056c8d3a5b003e6c0840186189567cb55532022
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-31
+
+    Don't crash g-p-s when there are no devices
+
+M	src/gpm-statistics.c
+
+commit 5cbafb3046354b0f5c3c74a3ff453525605287a3
+Author: krishnababu k <kkrothap@redhat.ocm>
+Date:	2009-08-31
+
+    Updated Telugu Translations
+
+M	po/te.po
+
+commit a73107cd5b0168d4d0b572ee39629fd0431dbea8
+Author: Runa Bhattacharjee <runab@redhat.com>
+Date:	2009-08-31
+
+    Updated Bengali India Translations
+
+M	po/bn_IN.po
+
+commit 9ea7b64a1769486edc1643eb25507dea2ab3300e
+Author: Miloš Popović <mpopovic@src.gnome.org>
+Date:	2009-08-30
+
+    Updated Serbian translation
+
+M	po/sr.po
+M	po/sr@latin.po
+
+commit 163ee4019a374e0bdde672db3fd4adc72a19b3af
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2009-08-30
+
+    Updated German translation
+
+M	po/de.po
+
+commit 51460621470935966bfea9f0c77aed9780cd5b8c
+Author: Baris Cicek <baris@teamforce.name.tr>
+Date:	2009-08-30
+
+    Updated Turkish translation.
+
+M	po/tr.po
+
+commit 18f16c0441ad5f8e4fb42a515e888f52a83ea9c6
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:	2009-08-27
+
+    Updated Arabic translation
+
+M	po/ar.po
+
+commit c94185629994395225df53aa786703905cfaa499
+Author: Inaki Larranaga Murgoitio <dooteo@zundan.com>
+Date:	2009-08-26
+
+    Updated Basque language
+
+M	po/eu.po
+
+commit ba614eba711cdeec68b89f326337cba118cba52d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-26
+
+    Fix a bug where the critical time was not displayed correctly
+
+M	src/gpm-manager.c
+
+commit 78f24bf9ef7ee27cf8f6d10d4caed9f567b27f77
+Author: ifelix <ifelix@redhat.com>
+Date:	2009-08-26
+
+    Updated Tamil Translations
+
+M	po/ta.po
+
+commit c87d1fc671fc817823ed17e49a78c8f485d293d7
+Author: Sweta Kothari <swkothar@redhat.com>
+Date:	2009-08-26
+
+    Updated Gujarati Translations
+
+M	po/gu.po
+
+commit 69f3aee58b9b67140f9545e7528685df02cd0ca0
+Author: ifelix <ifelix@redhat.com>
+Date:	2009-08-26
+
+    Updated Tamil Translations
+
+M	po/ta.po
+
+commit 198e2a5b42b6dd715d12a67d6adb6fcfe3fc7dbd
+Author: Carles Ferrando <carles.ferrando@gmail.com>
+Date:	2009-08-24
+
+    Added Catalan (Valencian) translation
+
+M	po/LINGUAS
+A	po/ca@valencia.po
+
+commit b386eb7272567deeaa285c8c034794af8c762203
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-24
+
+    Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit 6c39ceb0597acd2cd3727c74308d92379241ad5c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-24
+
+    GNOME Power Manager 2.27.91
+
+M	NEWS
+M	RELEASE
+
+commit e19d8eab24fdbfca7ef6cccc5b514e3c3709a741
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-24
+
+    Refresh the translations
+
+M	po/ar.po
+M	po/as.po
+M	po/ast.po
+M	po/be@latin.po
+M	po/bg.po
+M	po/bn.po
+M	po/bn_IN.po
+M	po/ca.po
+M	po/cs.po
+M	po/cy.po
+M	po/da.po
+M	po/de.po
+M	po/dz.po
+M	po/el.po
+M	po/en_CA.po
+M	po/en_GB.po
+M	po/es.po
+M	po/et.po
+M	po/eu.po
+M	po/fa.po
+M	po/fi.po
+M	po/fr.po
+M	po/ga.po
+M	po/gl.po
+M	po/gu.po
+M	po/he.po
+M	po/hi.po
+M	po/hr.po
+M	po/hu.po
+M	po/id.po
+M	po/is.po
+M	po/it.po
+M	po/ja.po
+M	po/ka.po
+M	po/kn.po
+M	po/ko.po
+M	po/ku.po
+M	po/lt.po
+M	po/lv.po
+M	po/mai.po
+M	po/mg.po
+M	po/mk.po
+M	po/ml.po
+M	po/mr.po
+M	po/nb.po
+M	po/nl.po
+M	po/nn.po
+M	po/oc.po
+M	po/or.po
+M	po/pa.po
+M	po/pl.po
+M	po/pt.po
+M	po/pt_BR.po
+M	po/ro.po
+M	po/ru.po
+M	po/si.po
+M	po/sk.po
+M	po/sl.po
+M	po/sr.po
+M	po/sr@latin.po
+M	po/sv.po
+M	po/ta.po
+M	po/te.po
+M	po/th.po
+M	po/tr.po
+M	po/uk.po
+M	po/vi.po
+M	po/zh_CN.po
+M	po/zh_HK.po
+M	po/zh_TW.po
+
+commit 6fef652a015852d4569813059dbb7ceae43c4a59
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-24
+
+    Sort LINGUAS alphabetically
+
+M	po/LINGUAS
+
+commit d2b9ea2b94532717d5c4c81069a1e2bf57527a2b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-24
+
+    Bump for imminent 2.27.91 release
+
+M	configure.ac
+
+commit 6432cde7aabece9d1997f8b55c46fa6f49c905ba
+Author: Alexander Shopov <ash@contact.bg>
+Date:	2009-08-24
+
+    Updated Bulgarian translation
+
+M	po/bg.po
+
+commit 27b4bc6042408828bad23a9cbece4ef69b94f90b
+Author: Theppitak Karoonboonyanan <thep@linux.thai.net>
+Date:	2009-08-24
+
+    Updated Thai translation.
+
+M	po/th.po
+
+commit abc152c09d58d3e9f2115835997e270e8869887c
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-08-23
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 8f1e0e9e2d0269c3f7ecc47f0946f519e73d205f
+Author: Changwoo Ryu <cwryu@debian.org>
+Date:	2009-08-23
+
+    Update Korean translation
+
+M	po/ko.po
+
+commit 9c88331f6bea8c38834fc583cd916655dc8dcc5f
+Author: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>
+Date:	2009-08-22
+
+    Updated Traditional Chinese translation(Hong Kong and Taiwan)
+
+M	po/zh_HK.po
+M	po/zh_TW.po
+
+commit 7234ed4b166bb6ced2a53d123fee246701b10aa1
+Author: Claude Paroz <claude@2xlibre.net>
+Date:	2009-08-22
+
+    Updated French translation
+
+    Contributed by Laurent Coudeur and Claude Paroz
+
+M	po/fr.po
+
+commit 38ad95ff7f080a661e6513c14a05a458eab2bf16
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-21
+
+    remove unused GConf keys
+
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-common.h
+
+commit cab790deac56f57735eabb1d07944166b66e119c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-21
+
+    Change the default for /apps/gnome-power-manager/notify/fully_charged
+    to FALSE for #592613
+
+M	data/gnome-power-manager.schemas.in
+
+commit a4d73331058f1d81ffbf2241abc083d3282243bc
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-21
+
+    Always show the battery status icons in the left click action
+
+M	src/gpm-tray-icon.c
+
+commit 61cdf75a220673499fa47bc1cb7ccd028f84673f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-20
+
+    trivial: add te self test program to .gitignore
+
+M	src/.gitignore
+
+commit c6048d72df9dd3a67a8cfc6d763886f6d69ac588
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-20
+
+    Only show shutdown in the prefs GUI if ConsoleKit allows it
+
+M	src/gpm-prefs-core.c
+
+commit 02f36fb723b1c6376819d362c2f9eb1329120319
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-19
+
+    trivial: egg update of the ConsoleKit helper
+
+M	src/egg-console-kit.c
+M	src/egg-console-kit.h
+
+commit aa4e990e1067781933ad68d8023f7237657b8cb3
+Author: Tomasz Dominikowski <dominikowski@gmail.com>
+Date:	2009-08-18
+
+    Updated Polish translation
+
+M	po/pl.po
+
+commit b6ea044d3b67087ef2fd73f4647d7c5b2d17f8c8
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-18
+
+    Remove all the bodges from the IDLETIMER code now X is fixed
+
+    For the DPMS blanking to work correctly, you need to be running
+    either xserver
+    git master, or any fairly new xserver with these two trivial patches
+    backported:
+
+    http://cgit.freedesktop.org/xorg/xserver/patch/?id=db568f9eabf3450d8a023597ff007df355b13ea8
+    http://cgit.freedesktop.org/xorg/xserver/patch/?id=6b5978dcf1f7ac3ecc2f22df06f7000f360e2066
+
+    If you don't do this, you'll get an extra nag-icon with a tooltip
+    telling you what to do.
+
+M	src/egg-idletime.c
+M	src/gpm-idle.c
+
+commit a5d3c4be802e32cda0e5d8cd31d4331761a7ec13
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-17
+
+    Don't show the brightness OSD when system AC state changes
+
+M	src/gpm-backlight.c
+
+commit b764e9c428fd3f092658f14b2c64e064cb3921b1
+Author: Antón Méixome <meixome@mancomun.org>
+Date:	2009-08-17
+
+    Updated Galician Translation
+
+M	po/gl.po
+
+commit 94105b7075ac21e89c0bf2a935eba4b2ef0ea9ae
+Author: Seán de Búrca <leftmostcat@gmail.com>
+Date:	2009-08-16
+
+    Remove useless Plural-Forms line which breaks build with
+    gnome-doc-utils master
+
+M	help/el/el.po
+
+commit d7b885585890932aada707d54aebbd565a68c0f3
+Author: Tommi Vainikainen <thv@iki.fi>
+Date:	2009-08-16
+
+    Updated Finnish translation
+
+M	po/fi.po
+
+commit dc894fa01fe573a65adebb8c3152535edffb71b4
+Author: Tommi Vainikainen <thv@iki.fi>
+Date:	2009-08-16
+
+    Fix typo in translator comment
+
+M	src/gpm-manager.c
+
+commit 04e4cd1e769ae81e8d05402a95564966ed5cb668
+Author: Djavan Fagundes <dnoway@gmail.com>
+Date:	2009-08-15
+
+    Updated Brazilian Portuguese translation.
+
+M	po/pt_BR.po
+
+commit aaccd7d823aa9b8bb7edb7dad634593803ce109c
+Author: Seán de Búrca <leftmostcat@gmail.com>
+Date:	2009-08-15
+
+    Updated Irish translation
+
+M	po/ga.po
+
+commit 7910bc1fa23079c934f002acd279f017b82bc937
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-08-14
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit f991278946e242bbce9f1f272e2ac4a8920151b9
+Author: Mark Krapivner <mark125@gmail.com>
+Date:	2009-08-14
+
+    Updated Hebrew translation
+
+M	po/he.po
+
+commit fb7d51353adfbefab853befc9916a178be80303d
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-08-14
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit ce274a35e50bc8546c39179503873f7ba58b6d89
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-14
+
+    Show the user some more information about the new strange icon
+
+M	src/gpm-idle.c
+
+commit 9776fcb8a52bd898b0d4a3c4834a08dcebe0bd0c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-14
+
+    Use a larger DPMS idletime timeout to mitigate an XSync bug
+
+M	src/gpm-idle.c
+
+commit 3399970e19d4e11921d92c88b11f5dc9dc9c18ea
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-14
+
+    Revert "Add a bodge to reset the idletime XAlarm when we are no
+    longer inhibited."
+
+    This reverts commit b5cf34d4b9861ab916a3ff74a2a08093ccb75b9f.
+
+    Peter has found and patched the bug in the X server that was causing
+    the failure
+    of negative transition triggers in XSync.
+    For you and me, that means that XIDLETIME now works as expected,
+    and gnome-session
+    and gnome-power-manager do the right thing. This means no more
+    random blanking
+    when typing.
+
+    The important patch for the xserver is here:
+    http://cgit.freedesktop.org/xorg/xserver/patch/?id=db568f9eabf3450d8a023597ff007df355b13ea8
+
+M	src/gpm-idle.c
+
+commit 9bce65fa35e0a43dd5dc1cfd60ef1ad15ae0b99f
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-08-14
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 8d956e2a8d3cada1b5e5ac75681bd69120f085fd
+Author: Manoj Kumar Giri <mgiri@mgiri.csb>
+Date:	2009-08-13
+
+    Updated Oriya Translation
+
+M	po/or.po
+
+commit 8ae9438e8bfbcf2aca3ae787185b2200eb4f59d2
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-11
+
+    Add the enumerated actions in a 64bit safe way. Fixes #590991
+
+M	src/gpm-prefs-core.c
+
+commit ae45e89a6aebdd0b58dbf1e0d75df84ee4f7d94a
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2009-08-11
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 6e29c58d98ca224b762948f92815707c06bb66fa
+Author: Seán de Búrca <leftmostcat@gmail.com>
+Date:	2009-08-10
+
+    Updated Irish translation
+
+M	po/ga.po
+
+commit 7b6da1894dcb95b3120a22a873a3993e1cfdf559
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-08-10
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit ea73da152c596e8410821d898bb1f67aa3cc835f
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-08-10
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 55e78b8927631d7fa030a478a23d1e017ef24e12
+Author: Antón Méixome <meixome@mancomun.org>
+Date:	2009-08-10
+
+    Updated Galician translation
+
+M	po/gl.po
+
+commit 14d47bf28161ea977223bb7e496de58f07e22271
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-08-10
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 0499d7a6eb4f03e64223cac4b7007a5be0cfcf73
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-10
+
+    Use the second tray icon when we are blanked as we want to make the
+    X bug more visible
+
+M	src/gpm-idle.c
+
+commit 0bfe44b903dc12512c7e99579c35bbd62a331d28
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-10
+
+    Fix up quite a few translations, inspired by a patch from Scott Howard
+
+M	src/gpm-devicekit.c
+M	src/gpm-manager.c
+
+commit c2a5c303a07951387b46c2e0b365c6fdb83683a5
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2009-08-06
+
+    Updated German translation
+
+M	help/de/de.po
+
+commit 189a38f44fc2a0a65bc5cf8658a78733e9cf7b56
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2009-08-06
+
+    Updated German translation
+
+M	help/de/de.po
+A	help/de/figures/gpm-charged.png
+A	help/de/figures/gpm-prefs-ac.png
+A	help/de/figures/gpm-prefs-battery.png
+A	help/de/figures/gpm-prefs-general.png
+A	help/de/figures/gpm-unplugged.png
+A	help/de/figures/gs-prefs.png
+
+commit 78aed8c978292593d8f4744f2f21f81020527643
+Author: Seán de Búrca <leftmostcat@gmail.com>
+Date:	2009-08-06
+
+    Updated Irish translation
+
+M	po/ga.po
+
+commit 1788b55b925379a47188d4db7a7cd428e2d6a2e2
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-08-04
+
+    Updated Spanish translation
+
+M	help/es/es.po
+
+commit 51025a1d19e1d275acbaa7b58cb3252abefd07b1
+Author: Claude Paroz <claude@2xlibre.net>
+Date:	2009-08-04
+
+    Updated French translation
+
+    Contributed by Laurent Coudeur and Claude Paroz
+
+M	po/fr.po
+
+commit 3a96deae5878238bc4a223159d93dbc61bf6f1ee
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2009-08-04
+
+    Updated Norwegian bokmål translation.
+
+M	po/nb.po
+
+commit 2e582443d46bf667091a02a0d1d27aac2a5e75e2
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-03
+
+    Remove the depricated Encoding= lines from the desktop files. Fixes
+    #590612
+
+M	data/gnome-power-manager.desktop.in.in
+M	data/gnome-power-preferences.desktop.in.in
+M	data/gnome-power-statistics.desktop.in.in
+
+commit 79227c8320fa04dfbaa24408a1a0d88526269d68
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-03
+
+    Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit 80e530ce36d1f224a6e465b62e913f35c38e1dae
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-03
+
+    GNOME Power Manager 2.27.5
+
+M	NEWS
+M	configure.ac
+
+commit b5cf34d4b9861ab916a3ff74a2a08093ccb75b9f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-01
+
+    Add a bodge to reset the idletime XAlarm when we are no longer
+    inhibited.
+
+    There's no bug in gnome-power-manager, and I suspect gnome-session
+    somehow triggers this
+    bug. There's a full writeup in
+    http://blogs.gnome.org/hughsie/2009/07/30/accidental-blanking-and-gnome-power-manager/
+    but I've got next-to-no help in debugging gnome-session or the XSync
+    alarms stuff.
+
+    Open source sucks sometimes.
+
+M	src/gpm-idle.c
+
+commit 0a257a46668d91a048b93cc89a7b45b9fdb6d564
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-01
+
+    Fix up the setting of the combo-boxes in gnome-power-preferences
+
+M	src/gpm-prefs-core.c
+
+commit 67e182fd60d10a430a4d54dccbb196d55fd3a082
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-08-01
+
+    Force an icon update if the composite device changes
+
+M	src/gpm-engine.c
+
+commit 040a10c1beddb58f9fdb30e974073ca34b60bee2
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-30
+
+    Only show gnome-power-statistics in the context menu if it is
+    installed. Fixes rh#514249
+
+M	src/gpm-tray-icon.c
+
+commit bd0df98122c2254a6b3f006750d8045776b28e4b
+Author: Seán de Búrca <leftmostcat@gmail.com>
+Date:	2009-07-31
+
+    Updated Irish translation
+
+M	po/ga.po
+
+commit f669bea7168ef5fecbb11993e4ab35cead26b5a4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-29
+
+    Respect the do not show gconf key for battery recalls
+
+M	src/gpm-manager.c
+
+commit 72104c40988a858a8d18fd38464653707e45974b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-29
+
+    Egg shared code updates
+
+M	src/egg-string.c
+M	src/egg-string.h
+
+commit 7c5488d7130e4d84468761bc31d95a7573b91a5d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-29
+
+    Remove an unused include
+
+M	src/gpm-session.c
+
+commit 6a3f087d31949ff8a3345976dd82253c80f61284
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-07-29
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit d585c3a4e5646120a09580e179aaa56f44da734d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-29
+
+    Add functionality to debug the idle code by setting GPMIDLEDEBUG on
+    the command line
+
+M	src/gpm-idle.c
+
+commit 7a7a9251971e3991a7f2fbaed8ec56957bf15af0
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-29
+
+    Add a trivial debug output when the sound fails to be played
+
+M	src/gpm-manager.c
+
+commit af6ec46a578168210bbe72262be45e69642f89d7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-29
+
+    Make a simpler gpm_engine_get_composite_device() which doesn't update
+    the composite device to reduce the CPU load when getting an icon
+
+M	src/gpm-engine.c
+
+commit e00ebf964c4c9f8530eeedc8a0513b3f09f18b6e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-29
+
+    Save the caches value before we emit the inhibit and idle signals,
+    in case they are used in the handler
+
+M	src/gpm-session.c
+
+commit b487e42cc01564319994bb014e7a17ec944b30d0
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-29
+
+    Use the correct DBus signal types when watching gnome-session
+
+M	src/gpm-session.c
+
+commit cbeaa7902ad225ca8453acc504e43b7217c35dfe
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-07-29
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit db880ca68d8ce9e3dd0036d94bc05705c81d9639
+Author: Matthias Clasen <mclasen@redhat.com>
+Date:	2009-07-28
+
+    Remove an unused include to fix compile
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-dpms.c
+
+commit 964a319b9d802f0efaaa4a172ea46c07f7951ec3
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-27
+
+    trivial: Fix make check
+
+M	po/POTFILES.in
+
+commit 31a9ffd29398d9102670930a92dfd3af4d3601c5
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-26
+
+    Make the orange icons yellower. Fixes rh#512962
+
+M	data/icons/16x16/status/gpm-battery-020.png
+M	data/icons/16x16/status/gpm-keyboard-020.png
+M	data/icons/16x16/status/gpm-mouse-020.png
+M	data/icons/16x16/status/gpm-phone-020.png
+M	data/icons/16x16/status/gpm-ups-020.png
+M	data/icons/22x22/status/gpm-battery-020.png
+M	data/icons/22x22/status/gpm-keyboard-020.png
+M	data/icons/22x22/status/gpm-mouse-020.png
+M	data/icons/22x22/status/gpm-phone-020.png
+M	data/icons/22x22/status/gpm-ups-020.png
+M	data/icons/24x24/status/gpm-battery-020.png
+M	data/icons/24x24/status/gpm-keyboard-020.png
+M	data/icons/24x24/status/gpm-mouse-020.png
+M	data/icons/24x24/status/gpm-phone-020.png
+M	data/icons/24x24/status/gpm-ups-020.png
+M	data/icons/32x32/status/gpm-battery-020.png
+M	data/icons/32x32/status/gpm-keyboard-020.png
+M	data/icons/32x32/status/gpm-mouse-020.png
+M	data/icons/32x32/status/gpm-phone-020.png
+M	data/icons/32x32/status/gpm-ups-020.png
+M	data/icons/48x48/status/gpm-battery-020.png
+M	data/icons/48x48/status/gpm-keyboard-020.png
+M	data/icons/48x48/status/gpm-mouse-020.png
+M	data/icons/48x48/status/gpm-phone-020.png
+M	data/icons/48x48/status/gpm-ups-020.png
+
+commit 79c61d130f91e55f4c0981d18badd4c4c040404b
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-07-24
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 19dd88cc9204937547b59fac3d978d1e812ff95d
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-07-24
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 480bb58e8aed0bd6ef50c8e8379a23711fbfca77
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-07-24
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit f307993c2e08eb54c30845b5a44c06ae6f2b266f
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-07-24
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 5a51e663f6bab36d2d00be102d84dac989be0404
+Merge: 9286af9 bcd0eb6
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-23
+
+    Merge branch 'composited-popup'
+
+commit bcd0eb6343ff0f78a73af78f16951a8a30d7f23e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-23
+
+    Correct a few places where the interface names were wrong
+
+M	src/gpm-backlight.c
+M	src/gpm-common.h
+M	src/gpm-main.c
+M	src/gpm-manager.h
+M	src/gpm-statistics.c
+
+commit d2251e9373add05113623c0a812a86bdd35d9116
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-23
+
+    Use the same composited OSD for brightness notification. Fixes
+    rh#512968
+
+M	data/gpm-feedback-widget.ui
+M	src/.gitignore
+M	src/Makefile.am
+M	src/gpm-backlight.c
+D	src/gpm-feedback-widget.c
+D	src/gpm-feedback-widget.h
+M	src/gpm-manager.c
+A	src/gpm-popup-window.c
+A	src/gpm-popup-window.h
+
+commit 9286af907243532eb39b5f977e7f2660d7f47959
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2009-07-23
+
+    Make hotkeys work with modifiers
+
+    Use AnyModifier modmask with XGrabKey so that hotkeys being handled
+    through
+    gpm-button still work if e.g. numlock happens to be on.
+
+    https://launchpad.net/bugs/280646
+
+M	src/gpm-button.c
+
+commit 70c79e6455445cb8aa7af385860e7eb01a8edb05
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2009-07-23
+
+    Show .desktop files in XFCE, too.
+
+M	data/gnome-power-preferences.desktop.in.in
+M	data/gnome-power-statistics.desktop.in.in
+
+commit 5c01e6357d22624e6dbf24fd1f5c2306e78f9540
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-23
+
+    Add a GConf key to show or hide the sleep quirk site
+
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-common.h
+M	src/gpm-manager.c
+
+commit 78d1f0bec04d71372e8957bc45583fd1b4315fd9
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2009-07-22
+
+    gnome-power-bugreport.sh: add missing hasbang
+
+M	tools/gnome-power-bugreport.sh
+
+commit ca9cf6b95d88b3930439395277baa73efcc0a585
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2009-07-22
+
+    claim org.freedesktop.Policy.Power on D-BUS
+
+    Make gnome-power-manager claim org.freedesktop.Policy.Power on the
+    D-Bus system
+    bus on startup. This ensures that gnome-power-manager, kpowersave and
+    powersaved are not stepping on each other's toes and only one program
+    is acting
+    on power management events.
+
+M	src/gpm-main.c
+
+commit cd1b1020832452553ae53edfbe043a2fc9a1bc16
+Author: Martin Pitt <martin.pitt@ubuntu.com>
+Date:	2009-07-22
+
+    Fix pointer alignment, to build on sparc.
+
+    gpm-brightness-xrandr.c fails to build on sparc, due to a passing
+    a char* as
+    guint*, which doesn't have the right alignment. This is caught by
+    gcc, and
+    result s in a build failure.
+
+    http://bugzilla.gnome.org/show_bug.cgi?id=589404
+
+M	src/gpm-brightness-xrandr.c
+
+commit f84bdb59ae7898cf2d07954d2af3ecf4209af55f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-22
+
+    Trivial spacing nits
+
+M	src/Makefile.am
+
+commit a807800886407980a5438c2208fa50952220f072
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-22
+
+    Compile common code with a noinst library to make compile quicker,
+    and reduce the compressed package size by 100kB
+
+M	src/Makefile.am
+
+commit 38d68a6f5904e406caab87b5c6184ebc50e8be04
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-22
+
+    Switch back to org.gnome.PowerManager as we don't adhere to the
+    shared spec anymore
+
+M	data/gnome-power-manager.service.in
+M	docs/Makefile.am
+D	docs/dbus-interface.xml
+M	help/C/gnome-power-manager.xml
+M	src/.gitignore
+M	src/Makefile.am
+M	src/gpm-common.h
+M	src/gpm-main.c
+M	src/gpm-manager.c
+M	src/gpm-manager.h
+M	src/gpm-prefs.c
+R075	src/org.freedesktop.PowerManagement.Backlight.xml
+src/org.gnome.PowerManager.Backlight.xml
+R078	src/org.freedesktop.PowerManagement.xml
+src/org.gnome.PowerManager.xml
+
+commit 58c4512ab741b8614dc63baf014172221e8e9ddd
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-22
+
+    Finally remove the CanSuspend and CanHibernate options, now that
+    gnome-session is ported
+
+M	src/gpm-manager.c
+M	src/org.freedesktop.PowerManagement.xml
+
+commit 1b059570ad2f62bd7e0ea31859e714b011c84274
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-07-22
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit 16d6a947af81a86a225602dc17c8f31e98b55ab6
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-22
+
+    Fix a trivial problem with the last commit
+
+M	src/gpm-manager.c
+
+commit 8bf6879f00e17d7feb39cecb820ad0ad33e2e827
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-22
+
+    Use enumerated values for the policy actions, and hide 'Do nothing'
+    unless specified in GConf
+
+M	data/gnome-power-manager.schemas.in
+M	src/Makefile.am
+M	src/gpm-common.c
+M	src/gpm-common.h
+M	src/gpm-engine.c
+M	src/gpm-load.c
+M	src/gpm-manager.c
+M	src/gpm-prefs-core.c
+M	src/gpm-prefs.c
+D	src/gpm-prefs.h
+
+commit 97e425304e01054840d8d7ba5ee2988fb569e9ce
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-22
+
+    DeviceKit isn't available with newer systems
+
+M	configure.ac
+
+commit e20a3e1beeab6b6b0e089ed1ecfd6e4fa6cf27f5
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    Fix crash in gpm_manager_notification_closed_cb
+
+    libnotify stupidly unrefs the client object when it is detroyed,
+    so just set the class to NULL in this case
+
+M	src/gpm-manager.c
+
+commit faffb0935e417088379c9609442f7590daa7811b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    Add a weak ref for the notifications so they are set NULL when
+    being finalised
+
+M	src/gpm-manager.c
+
+commit 726be8aa00eb68e390c510d0e74e0c0f822751dd
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    When libnotify fails, fall back to modal dialogs
+
+M	src/gpm-manager.c
+
+commit 862c40a8e1b5a4051d5ab3b355abe14e05c18427
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    Change the default to hibernate when critically low on battery power
+
+M	data/gnome-power-manager.schemas.in
+
+commit d9c3a4808de5796283af500ab0c3824eb6a23ebe
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    Remove interface docs that are no longer relevant
+
+D	docs/dbus-interface.html
+M	docs/dbus-interface.xml
+
+commit 5431e8b46c084b130cdbfd4f6408b00de5a22f58
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    Remove a file that is no longer relevant
+
+D	docs/dbus-test-inhibit.py
+
+commit 6ca633fe3246c8f135701c46d0c876ea1325a3c3
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    Inhibit gnome-session in the applet, not gnome-power-manager
+
+M	applets/inhibit/inhibit-applet.c
+
+commit c5e34acfbc1b57903bb18d84575b1beaa67e3344
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    Remove the gnome-power-cmd script, as it will no longer work
+
+M	tools/Makefile.am
+D	tools/gnome-power-cmd.sh
+
+commit e4d25036d0d1220b9783266dc6f5ff503b0b43c0
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-21
+
+    Add DeviceKit data to the bugreport script
+
+M	tools/gnome-power-bugreport.sh
+
+commit e61ba4f2d90f7fc1905d4100c3d3a64976e97c15
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-07-20
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 16627b5651898940f280913c29e71e50c3931675
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-20
+
+    Add policy to show icon when low, rather than critically low. Fixes
+    #589125
+
+M	data/gnome-power-manager.schemas.in
+M	data/gpm-prefs.ui
+M	src/gpm-common.c
+M	src/gpm-common.h
+M	src/gpm-engine.c
+M	src/gpm-prefs-core.c
+
+commit 959750806ceddbe35a63475b8c7feb5dacb94b87
+Author: Vincent Untz <vuntz@gnome.org>
+Date:	2009-07-20
+
+    Only use libpanel-applet flags to build applets
+
+    http://bugzilla.gnome.org/show_bug.cgi?id=575468
+
+M	applets/brightness/Makefile.am
+M	applets/inhibit/Makefile.am
+M	configure.ac
+
+commit dc6a67e3513107de5b8210983e0e485bff83e678
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-07-19
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 3f89ba497bd8a9458975d7da64e5cad48d2e2ac3
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-07-19
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit f744bedad026a7190391d750c28c2570473e4fb4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-19
+
+    Fix a compile error for a condition that shouldn't happen
+
+M	src/gpm-prefs-core.c
+
+commit e1b1b4de5e8d86f07a3b2eb6a2e0937cdfe26f71
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-19
+
+    Constrain the user to a dropdown selection of times, as freeform
+    sliders are bad UI
+
+    Who cares if the sleep time is 27 minutes or 28...
+
+M	data/gpm-prefs.ui
+M	src/gpm-prefs-core.c
+
+commit 9df98fc8192604c74bf29f1c8bd10845a8513499
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-19
+
+    Add two keys about UPS policy that were removed accidently
+
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-common.h
+
+commit 11f8438427ae4321f06e2ba15619f5553852e5be
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-17
+
+    Fix a trivial build issue with the last commit
+
+M	src/gpm-manager.c
+
+commit e9960cb4b9b63df9cd7fa0b52ecb94b49575e292
+Author: Ilkka Tuohela <hile@iki.fi>
+Date:	2009-07-19
+
+    Updated Finnish translation
+
+M	po/fi.po
+
+commit a5fdb98d77be1af5dc4a0271953775814ee620c1
+Author: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>
+Date:	2009-07-18
+
+    Updated Traditional Chinese translation(Hong Kong and Taiwan)
+
+M	po/zh_HK.po
+M	po/zh_TW.po
+
+commit 934f3a39c0451ed4fcd8df052cefaa545c13e51c
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-07-18
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 4f5b5c11a693041c8f30d100c4d35f6bc81ee603
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-07-18
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit 3c721b77404f59e23ab712c099b0c179fd1e491c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-17
+
+    Remove GpmNotify, and do the notifications in a more sane way. Fixes
+    #423186
+
+M	po/POTFILES.in
+M	src/Makefile.am
+M	src/gpm-manager.c
+D	src/gpm-notify.c
+D	src/gpm-notify.h
+M	src/gpm-tray-icon.c
+M	src/gpm-tray-icon.h
+
+commit 13ddc83b6aa890fd88b25dfe537fe7b72a9bddc9
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-14
+
+    The composite battery is only fully charged if all batteries are
+    fully charged
+
+M	src/gpm-engine.c
+
+commit 7f5b5fad55368f4ec9d9f2e825afc059c211d02d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-13
+
+    Don't show a discharging battery notififcation on each battery,
+    just the global battery
+
+M	src/gpm-engine.c
+
+commit 4c8ba87d647d433efaac0152a15e88e4391357a4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-13
+
+    Don't ever fallback to the warning icon in the tray when batteries
+    are invalid
+
+M	src/gpm-devicekit.c
+
+commit 9b63fc5af4bdeaacbaf2d2fda442b000afac1a3c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-11
+
+    trivial: don't return from midway in a function
+
+M	src/gpm-manager.c
+
+commit bb409051e3dc731068f34e1afdedbba808ed9029
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-11
+
+    Correct the type of the fully-charged signal. Fixes #588259
+
+M	src/gpm-engine.c
+
+commit 6eef3b66cf5fda4085dcc3334c7c4beca42e71a3
+Author: Maxim V. Dziumanenko <dziumanenko@gmail.com>
+Date:	2009-07-09
+
+    Updated Ukrainian translation
+
+M	po/uk.po
+
+commit 15d5ed129edf3024ae5b1a138ebfa87b3342de98
+Author: Reinout van Schouwen <reinouts@gnome.org>
+Date:	2009-07-09
+
+    Local commit
+
+M	po/nl.po
+
+commit d3b91f8b64b7bb1877b61ce214039c5aeaeb0023
+Author: Reinout van Schouwen <reinouts@gnome.org>
+Date:	2009-07-09
+
+    Git is frustrating
+
+M	po/nl.po
+
+commit 2f9d645ec1db1a6b34c2c553e18fdab43d87e077
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-07-09
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit d5eb6c4c8c81f6480bd5398daddfd46aaa401aef
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-07-09
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit 38882f57b84c83caa6f6833da4b5c5eac90fc72f
+Author: Tino Meinen <tino.meinen@gmail.com>
+Date:	2009-07-09
+
+    Dutch translation updated
+
+M	po/nl.po
+
+commit e17aa91f11e0ae1541c8fa77bd08f293c7ecd75e
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-07-07
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit d225229427f97589dff156d46ceb62747ce7c9a1
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-07-07
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit d245875a3517221a90a08ba36975f89ff1c93be7
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2009-07-07
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit af19ef18b93abb7f92cb6b1345cf4c633e6f8513
+Merge: 36f03d1 55e6216
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Merge branch 'polkit1'
+
+commit 36f03d11fb0da09d495edd28c77dcc7dff23bc2d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Remove unused code
+
+M	libhal-glib/hal-device.c
+
+commit 4cf01ffcaa8f48baa83c9bcb8a4c145b87b848f1
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Remove a file from POTFILES.in that should never have been there
+
+M	po/POTFILES.in
+
+commit 55e62167f8e2c6504d79f3e447570be6ab750c40
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Remove a file from POTFILES.in that should never have been there
+
+M	po/POTFILES.in
+
+commit fa68f1289b696a80cff068236e6e2ca9b7f52989
+Merge: ad1c40c 613a9bd
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Merge branch 'master' into polkit1
+
+commit 613a9bd2280d5d46779d669e34c13729f2343752
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Post release version bump
+
+M	RELEASE
+M	configure.ac
+
+commit 98618fc185d23b939520ea8107e0a38baf6d0158
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    GNOME Power Manager 2.27.2
+
+M	NEWS
+M	RELEASE
+
+commit ad1c40c103fb1f5a8d96e24c0c9c4fa68af74034
+Merge: 9e46495 2fdbc3c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    moo
+
+commit 2fdbc3c23f39b1e4cabda9d44db8847fd57e6391
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Support DKP_DEVICE_STATE_PENDING_x in more places
+
+M	src/gpm-devicekit.c
+M	src/gpm-statistics.c
+
+commit b37c2211c95dd97c4c2906bb3518df6eb6536ccf
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Support the new DKP_DEVICE_STATE_PENDING_CHARGE and
+    DKP_DEVICE_STATE_PENDING_DISCHARGE enumerated values
+
+M	src/gpm-devicekit.c
+
+commit 68dd409d703f56aec9e0fdd1a4ba43de560a92fb
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-06
+
+    Add some compatibility code for < DeviceKit-power 009
+
+M	src/gpm-devicekit.c
+
+commit 1649eb6746bb2f21e7e32c65325a6bb0e70a6f5f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-05
+
+    Remove two unused includes from Makefiles
+
+M	applets/brightness/Makefile.am
+M	applets/inhibit/Makefile.am
+
+commit f621bb11d6707844b373513c0c683b031b185f90
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-05
+
+    Update TODO
+
+M	TODO
+
+commit 1593e2a88c8b9f05445ab33c502f4088855f9ab9
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-05
+
+    Update README
+
+M	README
+
+commit 5bcaa97a3b6ac29dce840c590eb06700aac3e777
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-05
+
+    Revert "Support changing the panel brightness with DeviceKit-power,
+    and prefer it over HAL"
+
+    This reverts commit 675aefef188eff902a91ea42b12bdfc94ed987a4.
+
+M	src/Makefile.am
+D	src/gpm-brightness-dkp.c
+D	src/gpm-brightness-dkp.h
+M	src/gpm-brightness.c
+
+commit 852ab8676a78e9a7edbad60e35adef92e24f9132
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-05
+
+    Revert "HAL is no longer a dependency of gnome-power-manager"
+
+    This reverts commit f884a1ae954d14928a6a7055d4d4b182fbb2a3bc.
+
+M	Makefile.am
+M	README
+M	TODO
+M	applets/brightness/Makefile.am
+M	applets/inhibit/Makefile.am
+M	configure.ac
+A	libhal-glib/.gitignore
+A	libhal-glib/Makefile.am
+A	libhal-glib/egg-dbus-monitor.c
+A	libhal-glib/egg-dbus-monitor.h
+A	libhal-glib/egg-dbus-proxy.c
+A	libhal-glib/egg-dbus-proxy.h
+A	libhal-glib/egg-debug.c
+A	libhal-glib/egg-debug.h
+A	libhal-glib/hal-device.c
+A	libhal-glib/hal-device.h
+A	libhal-glib/hal-manager.c
+A	libhal-glib/hal-manager.h
+A	libhal-glib/hal-marshal.list
+M	src/Makefile.am
+A	src/gpm-brightness-hal.c
+A	src/gpm-brightness-hal.h
+M	src/gpm-brightness.c
+
+commit 10d182d67aed60f9daf1d6f9b594add463fff8e2
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-05
+
+    Revert "Remove some trivial debugging that snuck in"
+
+    This reverts commit d75e3455f95756dadf341fad5c42d82197268f7d.
+
+M	src/gpm-brightness-dkp.c
+
+commit fe4cd564478043ca7969e78052c3bc6f8626f26b
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-07-04
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit e9dff4e2289965e61a45d9ecb3350333b37b7af7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    Add support for recall data provided by DeviceKit-power
+
+M	src/gpm-engine.c
+
+commit d75e3455f95756dadf341fad5c42d82197268f7d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    Remove some trivial debugging that snuck in
+
+M	src/gpm-brightness-dkp.c
+
+commit f884a1ae954d14928a6a7055d4d4b182fbb2a3bc
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    HAL is no longer a dependency of gnome-power-manager
+
+M	Makefile.am
+M	README
+M	TODO
+M	applets/brightness/Makefile.am
+M	applets/inhibit/Makefile.am
+M	configure.ac
+D	libhal-glib/.gitignore
+D	libhal-glib/Makefile.am
+D	libhal-glib/egg-dbus-monitor.c
+D	libhal-glib/egg-dbus-monitor.h
+D	libhal-glib/egg-dbus-proxy.c
+D	libhal-glib/egg-dbus-proxy.h
+D	libhal-glib/egg-debug.c
+D	libhal-glib/egg-debug.h
+D	libhal-glib/hal-device.c
+D	libhal-glib/hal-device.h
+D	libhal-glib/hal-manager.c
+D	libhal-glib/hal-manager.h
+D	libhal-glib/hal-marshal.list
+M	src/Makefile.am
+D	src/gpm-brightness-hal.c
+D	src/gpm-brightness-hal.h
+M	src/gpm-brightness.c
+
+commit 675aefef188eff902a91ea42b12bdfc94ed987a4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    Support changing the panel brightness with DeviceKit-power, and
+    prefer it over HAL
+
+M	src/Makefile.am
+A	src/gpm-brightness-dkp.c
+A	src/gpm-brightness-dkp.h
+M	src/gpm-brightness.c
+
+commit c4a0f4039ca578edab425a0c40a465268a31fc17
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    Add a missing .gitignore file
+
+A	src/.gitignore
+
+commit c8a560caf488129c03a4e437ff7bd54f173c2f55
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    Remove ambient light sensor support, and keyboard backlight devices
+
+M	data/gnome-power-manager.schemas.in
+M	libhal-glib/Makefile.am
+D	libhal-glib/hal-device-store.c
+D	libhal-glib/hal-device-store.h
+M	libhal-glib/hal-device.c
+M	libhal-glib/hal-device.h
+M	libhal-glib/hal-manager.c
+M	src/Makefile.am
+M	src/gpm-backlight.c
+D	src/gpm-brightness-kbd.c
+D	src/gpm-brightness-kbd.h
+M	src/gpm-common.h
+D	src/gpm-light-sensor.c
+D	src/gpm-light-sensor.h
+M	src/gpm-manager.c
+M	src/gpm-prefs-core.c
+M	src/gpm-prefs-server.h
+
+commit 1b79c35f8e9f9b3f12b2f951f324a8a000256eb8
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    No longer support HAL legacy buttons
+
+M	configure.ac
+M	src/gpm-button.c
+
+commit c12a7c5a312c3fc8e694be83bd51e85f32a462df
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    Remove unused include
+
+M	src/gpm-prefs-core.c
+
+commit 4894a3d66ed65615e2effec166cc6988dd52202b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    Fix compile with DKP_DISABLE_DEPRECATED turned on
+
+M	src/Makefile.am
+M	src/gpm-backlight.c
+M	src/gpm-button.c
+M	src/gpm-control.c
+M	src/gpm-manager.c
+M	src/gpm-notify.c
+M	src/gpm-prefs-core.c
+
+commit c02269895a787e674597f86ea548177a24868796
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-03
+
+    Remove a little bit more of our HAL dep, and use the lid-is-present
+    DK-p property
+
+M	libhal-glib/hal-manager.c
+M	libhal-glib/hal-manager.h
+M	src/gpm-backlight.c
+M	src/gpm-common.h
+
+commit 3df6f874039b24708d615a20b2aef878628f52fd
+Author: Runa Bhattacharjee <runab@redhat.com>
+Date:	2009-07-02
+
+    Updated Bengali India Translations
+
+M	po/bn_IN.po
+
+commit dff009617d69ded017d3fa38f376f4caeee8f6e1
+Author: Runa Bhattacharjee <runab@redhat.com>
+Date:	2009-07-02
+
+    Merged Bengali India Translations
+
+M	po/bn_IN.po
+
+commit c0eb29cbf83c708a8e85cfd1edcd866eb4bd3be8
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-02
+
+    Only print the DeviceKit device if we are using --verbose
+
+M	src/gpm-engine.c
+
+commit 7e1f20000206f2795ae0bb6943d1bdfe3b1a6c54
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-01
+
+    Enable pretty compiler output with new automake versions
+
+M	configure.ac
+
+commit 4da7290dd5543840a12d3ff6b5742ab813665471
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-07-01
+
+    Don't show the whole object path in the GUI, just show the ID
+
+M	src/gpm-statistics.c
+
+commit 615ff20160c78c8f5c60b31c7fe6a8fd1511ba90
+Author: Runa Bhattacharjee <runab@redhat.com>
+Date:	2009-07-01
+
+    Merged Bengali India Translations
+
+M	po/bn_IN.po
+
+commit 2929172abe446a5f94cf02469245807c95f2ee8d
+Author: Jorge Gonzalez <jorgegonz@svn.gnome.org>
+Date:	2009-06-28
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 9e3216509d80109d72bf0dbd9934261860771968
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-28
+
+    Add some state debugging to help diagnose AC confusion
+
+M	src/gpm-engine.c
+
+commit 31e9d11c36d4c2b845d60757b58565800a2589d2
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-22
+
+    Add manager policy to change the disk spindown based on timeouts
+    set in GConf
+
+M	src/Makefile.am
+A	src/gpm-disks.c
+A	src/gpm-disks.h
+M	src/gpm-manager.c
+
+commit 53943af2c28152cdea2485f2b2586fe11eabdea8
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-22
+
+    Add preferences checkboxes for the disk spindown functionality
+
+M	data/gpm-prefs.ui
+M	src/gpm-prefs-core.c
+
+commit f51c6bc80bbc3e90a206d0d3c228672ce2b1fa27
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-22
+
+    Add GConf keys for the disk spindown functionality
+
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-common.h
+
+commit b5d390210e47da1dbe1308f313883b80ba93b57d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-22
+
+    Remove three unused GConf keys
+
+M	data/gnome-power-manager.schemas.in
+M	data/gpm-prefs.ui
+M	src/gpm-common.h
+M	src/gpm-prefs-core.c
+
+commit da7ae03355f28c0779347db40e220f57128b3fd4
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-06-26
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit e244f932f59bee11f2d2d6a5b91873437e532e1a
+Author: Mattias Põldaru <mahfiaz gmail com>
+Date:	2009-06-25
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit dee30e652357a77bdbecef42a28a2c770d2f10a4
+Author: Jaap A. Haitsma <jaap@haitsma.org>
+Date:	2009-06-21
+
+    Remove -Wunitialized because it does not compile on Ubuntu Jaunty
+
+M	configure.ac
+
+commit e8ac3a921ce4acffb3212c088a43870d7e40da5a
+Author: Jaap A. Haitsma <jaap@haitsma.org>
+Date:	2009-06-21
+
+    use gtk_show_uri i.s.o. gnome-open
+
+M	src/gpm-common.c
+M	src/gpm-notify.c
+
+commit 5a4220ea326e0961b6112cb71f8ce4a49b6e2220
+Author: Jorge Gonzalez <jorgegonz@svn.gnome.org>
+Date:	2009-06-21
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit dd082bdd857074440f44b8f9c628d2948d775a55
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-19
+
+    Remove some UI elements after UI review
+
+M	data/gpm-prefs.ui
+M	src/gpm-prefs-core.c
+
+commit 9e464956f12c280dff0769aeed95741c25ea788a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-19
+
+    Remove some UI elements after UI review
+
+M	data/gpm-prefs.ui
+M	src/gpm-prefs-core.c
+
+commit f4442f85c022862c14579510780d948ab0bc295a
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-06-17
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit dc625659c8d3172889696124d240c426b88c49df
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Be more paranoid about setting idle in a race
+
+M	src/egg-idletime.c
+
+commit c7fd0e0a3bfcb8eb9248bf64b2a2147b325af014
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Be more paranoid about setting idle in a race
+
+M	src/egg-idletime.c
+
+commit 272b400a5431b31b208b576fcca8ad8095ac7607
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Fix up the id translation (again)
+
+M	po/mai.po
+
+commit 140ef326da6de1e1653eb5096a9844ec25014ac6
+Merge: 4de2718 1870f2c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Merge branch 'master' into polkit1
+
+commit 1870f2c774dfcfd26d3ade810f069921d55e521c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Fix up the id translation (again)
+
+M	po/id.po
+M	po/mai.po
+
+commit 4de271844bfd50143ca5236985722ebf7aca6a1a
+Merge: 4e10183 33a405e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Merge branch 'master' into polkit1
+
+commit 33a405e310009aa869aea23ec1eec5a98ffa7227
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Fix up the id translation (again)
+
+M	po/id.po
+
+commit 4e101835fb1fd45609b3a7af46b9d416ef762939
+Merge: 87f359f 163867f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Merge branch 'master' into polkit1
+
+commit 163867f9a6c993d5a8eef8b4a363981074a85054
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Fix up the id translation so I can push
+
+M	po/id.po
+
+commit 87f359ff8ebf918ff04648fe859a210bfb2e19d4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Remove more remnants of PolicyKit-gnome
+
+M	src/Makefile.am
+
+commit 99c885ae6fc98d17c4820ebd69657e2d0fc4f56b
+Merge: 7917e35 7d0d294
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Merge branch 'master' into polkit1
+
+commit 7d0d2940205efe0860f68fd661a7936e1628f3ce
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Correctly pluralize multiple batteries
+
+M	src/gpm-manager.c
+M	src/gpm-notify.c
+M	src/gpm-notify.h
+
+commit c63ba178f1c8795675f8ff578cc0c0606c66efd1
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Setup the reset event before we do the idle action, to finally fix
+    blanking. Hopefully.
+
+M	src/egg-idletime.c
+
+commit 7eeb615e019af8783f037dd94e34dfee3dd36ce5
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-16
+
+    Use the composite device for getting the global system warning icon
+
+M	src/gpm-engine.c
+
+commit 59077fadc6e849160a28ee36ba9d3bd3379fd62e
+Author: Priit Laes <plaes@plaes.org>
+Date:	2009-06-15
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 137f9087d9be35464465b0717553550c3107497f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-15
+
+    Add statistics devices in visually pleasing order
+
+M	src/gpm-statistics.c
+
+commit c7d4f6e673eb778783bfa560416df0856c2bff3f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-15
+
+    We depend on DeviceKit-power 008 now
+
+M	src/gpm-statistics.c
+
+commit 04c65d343cf48df7df3d554c2584ba586c9777eb
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-15
+
+    Show a label to the user when there is no graph data
+
+M	data/gpm-statistics.ui
+M	src/gpm-statistics.c
+
+commit 651cd63cfd5e1d47bd9c625a904d57e744284292
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-15
+
+    Never return NULL from gpm_devicekit_get_object_icon()
+
+M	src/gpm-devicekit.c
+
+commit 4db4575254b64b4ba87fe3b86fdc86f2ae68f2bf
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-14
+
+    Disable self checks on make distcheck
+
+M	Makefile.am
+
+commit 4639ffc2cc5e00853682f81aadd57870acd6005e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-14
+
+    Use composite battery mode by default
+
+M	src/gpm-engine.c
+
+commit 982c23785f14709bb0002e3ef375d9ac60f3219f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-14
+
+    Add a gpm-battery-empty icon
+
+M	data/icons/16x16/status/Makefile.am
+A	data/icons/16x16/status/gpm-battery-empty.png
+M	data/icons/22x22/status/Makefile.am
+A	data/icons/22x22/status/gpm-battery-empty.png
+M	data/icons/24x24/status/Makefile.am
+A	data/icons/24x24/status/gpm-battery-empty.png
+M	data/icons/32x32/status/Makefile.am
+A	data/icons/32x32/status/gpm-battery-empty.png
+M	data/icons/48x48/status/Makefile.am
+A	data/icons/48x48/status/gpm-battery-empty.png
+M	data/icons/scalable/status/Makefile.am
+A	data/icons/scalable/status/gpm-battery-empty.svg
+M	src/gpm-devicekit.c
+
+commit 6db1a476c058fa5d38a8ad33d2f0ddfaf3785334
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-14
+
+    Ignore capacity readings of less than 1%
+
+M	src/gpm-engine.c
+
+commit ef26b1b6964ea7b47477d5744ae1c4135b7c7a76
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-14
+
+    Take the battery capacity into account when using multiple batteries
+
+M	src/gpm-engine.c
+
+commit 53ec75b07469be0d1209a0221c5de0493d78c324
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-14
+
+    Show a discharging icon when the battery is in the empty state
+
+M	src/gpm-devicekit.c
+
+commit c14715f08621b42e0e2338a3c385e7cc861dc044
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-09
+
+    If we caught our idletime alarm, then remove from the filter
+
+M	src/egg-idletime.c
+
+commit 6d5025a4018a29289f74a7d39c4af77cdd6ff4db
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-09
+
+    Increase the usefullness of debugging
+
+M	src/gpm-idle.c
+
+commit 5b561a7bdbb562a0d1e94117fb490190720042ed
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2009-06-10
+
+    Updated Norwegian bokmål translation.
+
+M	po/nb.po
+
+commit 3e09eaa24f70504c2c32fddc00dc213a25a0ec49
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-04
+
+    Add the header for the new public function
+
+M	src/egg-idletime.h
+
+commit 024d8fa032cfc448c1da1126e4277cf623774ee8
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-04
+
+    Provide a function to get the raw value for the X IDLETIME
+
+M	src/egg-idletime.c
+
+commit 2d83068040cbeef48665d0630394b914e315eb41
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-04
+
+    Don't show the feedback widget when the brightness changes, only on
+    key press and when interactive
+
+M	src/gpm-backlight.c
+
+commit b9cfc133eab4e8f38e7ce806305281994b951f07
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-03
+
+    Make minimum size of th statistics graphs smaller. Fixes rh#491426
+
+M	src/gpm-statistics.c
+
+commit 8a1b7db5f128e687e6c7302e7812e6e299462963
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-03
+
+    Fix the category in the gnome-power-statistic desktop file. Fixes
+    rh#489041
+
+M	data/gnome-power-statistics.desktop.in.in
+
+commit 38a356f29a31ca9a139f7af5d9ee1b9a5abd26a2
+Author: Claude Paroz <claude@2xlibre.net>
+Date:	2009-06-02
+
+    Prefix GTKBuilder files with gettext/glade
+
+M	po/POTFILES.in
+
+commit 3a6b90747694116edb56921391e3b916034414c5
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-06-01
+
+    Post release version bump
+
+M	NEWS
+M	RELEASE
+M	configure.ac
+
+commit 2a7c57f163d827068ad747b7e72f0c4f65cb7ef6
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-29
+
+    Don't always show a single graph dot in gnome-power-statistics
+
+M	src/gpm-graph-widget.c
+
+commit 91c13ea4b2a5bd2ecdd1c7a051865b6b74c6dc41
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-29
+
+    Add a composite device to GpmEngine so we can DTRT for multiple
+    primary batteries
+
+M	src/gpm-engine.c
+
+commit d5d78515f7d59da54056124d835223f1b625abc4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-29
+
+    Go back to the original IDLETIME code to fix backlight bugs
+
+    The new IDLETIME code from gnome-session is very buggy, and the
+    old code
+    was much easier to understand. This should fix random DPMS off
+    blanking
+    and the fade-up-down-up on session resume.
+
+M	src/egg-idletime.c
+M	src/egg-idletime.h
+M	src/gpm-idle.c
+M	src/gpm-idle.h
+M	src/gpm-self-test.c
+
+commit 9928b1cda0ae17338341048bd0f2060398ed535d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-29
+
+    Don't try to keep closing the feedback widget
+
+M	src/gpm-feedback-widget.c
+
+commit 7a7aec3715015f33bc75dd18ba87642ae891e222
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-29
+
+    Update two trivial comments
+
+M	src/gpm-engine.c
+
+commit 956fa17287349a6136026dcb66893dc1102eac6e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-29
+
+    Correct the logic for the fully charged and discharging popups
+
+M	src/gpm-engine.c
+M	src/gpm-manager.c
+
+commit ce6319a4200002e09e6a2f0dc46d49bb34e9f094
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-29
+
+    Correct the polarity of the on-ac battery check when inhibiting
+    the screensaver
+
+M	src/gpm-manager.c
+
+commit cc93f64fc49ce6da21cbe6a8b8950068ddae428c
+Author: Nathan-J. Hirschauer <nathanhirschauer@verfriemelt.org>
+Date:	2009-05-26
+
+    Updated German translation.
+
+M	po/de.po
+
+commit edc14c30474b1dbbff42e7544ff306049a50797f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-26
+
+    Expose graph details as properties on the object, and constrain time
+    to user value. Fixes #581910
+
+M	src/gpm-graph-widget.c
+M	src/gpm-graph-widget.h
+M	src/gpm-statistics.c
+
+commit 54fcef266752ee2141079c89b1a1de9a4c8319c7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-26
+
+    Handle return to NORMAL idle when lid closed a bit better
+
+M	src/gpm-manager.c
+
+commit fe9ce0506a301c79163cf6f9e6feb8179803b5d0
+Author: Pramod Dematagoda <pmd.lotr.gandalf@gmail.com>
+Date:	2009-05-16
+
+    Attach the libnotify popups to the notification icon only after 10
+    seconds of startup to avoid pointing at an incomplete icon
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-tray-icon.c
+
+commit 89fdad9b8459e9be490aad05b011ede6f116c18e
+Author: A S Alam <aalam@users.sf.net>
+Date:	2009-05-25
+
+    Updating Punjabi (Gurmukhi) Translation
+
+M	po/pa.po
+
+commit 97a0c76bcf76560ec3cfb9bd9d509961b6aa8b94
+Author: drtvasudevan <agnihot3@gmail.com>
+Date:	2009-05-21
+
+    Updated Tamil translation
+
+M	po/ta.po
+
+commit 3416df14e6668a898662be2b6bae8c2e4d1f1587
+Author: Aron Xu <aronxu@gnome.org>
+Date:	2009-05-15
+
+    Updated Simplified Chinese translation by Gavin Huang
+    <chainet@gmail.com> and Deng Xiyue <manphiz@gmail.com>.
+
+M	po/zh_CN.po
+
+commit ecb0119d0d7f02a9be3d7cbb0e1238571f96679a
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-11
+
+    Use DeviceKit-power to get the can-suspend and can-hibernate
+    properties
+
+M	src/Makefile.am
+M	src/gpm-prefs-core.c
+
+commit 7917e35d40e039bff518018f19ad58380bf213aa
+Author: Matthias Clasen <mclasen@redhat.com>
+Date:	2009-05-11
+
+    Remove PolkitGnome code completely as PolicyKit 1.0 doesn't need
+    this at all
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	configure.ac
+M	data/gpm-prefs.ui
+M	src/gpm-control.c
+M	src/gpm-prefs-core.c
+
+commit 4c54d0583dd1f80d3a4447c06276069a772eef80
+Author: Priit Laes <plaes@plaes.org>
+Date:	2009-05-10
+
+    Check whether xrandr-1.3 features are really supported by xorg-server.
+    Fixes #582142.
+
+M	src/gpm-brightness-xrandr.c
+
+commit c731c750d1809b691f215e088db4e8b834676da8
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-11
+
+    Tidy up the git ignore files and remove the svn instructions
+
+M	.gitignore
+D	README.svn
+A	data/icons/generate_32x32_icons.sh
+M	po/.gitignore
+
+commit 986ec1457ff7498ab613e88da25d32e9aa05610b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-11
+
+    Remove some unused self test code
+
+M	Makefile.am
+M	configure.ac
+M	data/Makefile.am
+D	data/gpm-inhibit-test.ui
+M	po/POTFILES.in
+D	test/.gitignore
+D	test/Makefile.am
+D	test/gpm-inhibit-test.c
+D	test/gpm-st-hal-device.c
+D	test/gpm-st-hal-devicestore.c
+D	test/gpm-st-hal-manager.c
+D	test/gpm-st-proxy.c
+
+commit faf7ae1ba8656ce6c1bd362a9eb16ef329c24ba9
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-11
+
+    Convert from libglade to GtkBuilder
+
+M	configure.ac
+M	data/Makefile.am
+D	data/gpm-feedback-widget.glade
+A	data/gpm-feedback-widget.ui
+R069	data/gpm-inhibit-test.glade	data/gpm-inhibit-test.ui
+R073	data/gpm-prefs.glade	data/gpm-prefs.ui
+R067	data/gpm-statistics.glade	data/gpm-statistics.ui
+M	docs/dbus-interface.html
+M	po/POTFILES.in
+M	src/gpm-feedback-widget.c
+M	src/gpm-main.c
+M	src/gpm-prefs-core.c
+M	src/gpm-statistics.c
+
+commit 4a9a40670c80f5f15599c97d6f691214bd5368f4
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-07
+
+    Remove more unused code
+
+M	src/gpm-backlight.c
+M	src/gpm-backlight.h
+M	src/gpm-manager.c
+
+commit 0f3d267a0007573f66e2bcfd7eed1b3c8126a8f7
+Author: Kyle McMartin <kmcmartin@redhat.com>
+Date:	2009-05-06
+
+    Only setup the blanking timeout when a timeout is set. Fixes rh#498041
+
+    Signed-off-by: Richard Hughes <richard@hughsie.com>
+
+M	src/gpm-idle.c
+
+commit 52a8304359d35f9614663bd5be1e8f269d1cf98e
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-06
+
+    Remove the inhibit interface, and rely on gnome-session
+
+M	po/POTFILES.in
+M	src/Makefile.am
+D	src/gpm-inhibit.c
+D	src/gpm-inhibit.h
+M	src/gpm-manager.c
+M	src/gpm-self-test.c
+D	src/org.freedesktop.PowerManagement.Inhibit.xml
+
+commit 1057d975f4d6b8b18f8d2d0c1efeb5eafb917cfa
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-06
+
+    Remove some methods on the DBus interface that have moved to
+    DeviceKit-power
+
+M	src/gpm-manager.c
+M	src/gpm-manager.h
+M	src/org.freedesktop.PowerManagement.xml
+
+commit 5b108b8352c878322933700789669efd86a0bb08
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-06
+
+    Remove the single use abstract GpmRefcount and use a local timer
+
+M	src/Makefile.am
+M	src/gpm-feedback-widget.c
+D	src/gpm-refcount.c
+D	src/gpm-refcount.h
+
+commit b241d8e555943fdb93d6eaffaaca4131d0292bdf
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-06
+
+    Remove the unused abstraction GpmAdapter, and use DkpClient directly
+
+M	src/Makefile.am
+D	src/gpm-ac-adapter.c
+D	src/gpm-ac-adapter.h
+M	src/gpm-backlight.c
+M	src/gpm-manager.c
+M	src/gpm-notify.c
+
+commit 014e3f89b2cb6ef15f3cf5fc0a5163f23421c2d7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-06
+
+    Ensure we are on battery power before we take any of the low power
+    battery actions
+
+M	src/gpm-manager.c
+
+commit 98d08a3087ffc4fe3f42014c336e8ac3f00d8761
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-06
+
+    Remove some unused code
+
+M	libhal-glib/Makefile.am
+D	libhal-glib/hal-device-power.c
+D	libhal-glib/hal-device-power.h
+M	libhal-glib/hal-device.c
+M	libhal-glib/hal-device.h
+M	libhal-glib/hal-manager.c
+M	libhal-glib/hal-manager.h
+M	src/gpm-brightness-hal.c
+M	src/gpm-brightness-kbd.c
+M	src/gpm-button.c
+M	src/gpm-light-sensor.c
+M	src/gpm-self-test.c
+M	test/gpm-st-hal-manager.c
+D	test/gpm-st-hal-power.c
+
+commit 81df746129e0a4a0ae2a639482d88de83169df15
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-05
+
+    Don't segfault if org.gnome.Session is not present on the bus. Fixes
+    #581425
+
+M	src/gpm-session.c
+
+commit 1c2e16f06ab4f0ab299d1ff9849aa690ff90641b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-05
+
+    Don't break when generating ChangeLog for a tarball
+
+M	configure.ac
+
+commit 90000eb88dbc4ef404f6be0940a0b64572c588ff
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-05
+
+    Add support for the DeviceKit-power property lid-is-closed so we
+    can now run without --enable-legacy-buttons
+
+M	src/gpm-button.c
+
+commit aebba5d37fefeb7b84da5ab9768b9c5043a4766d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-05-05
+
+    Remove two more ChangeLogs
+
+D	help/ChangeLog
+D	po/ChangeLog
+
+commit 451b6fdb66f86f02f4dff457f19b5afa057f25bc
+Author: Petr Kovar <pknbe@volny.cz>
+Date:	2009-04-28
+
+    Fixed Czech translation (bug #580327)
+
+M	po/ChangeLog
+M	po/cs.po
+
+commit fafc01433f5046a0d237f62f0a0fa75139b47b40
+Author: Ivar Smolin <okul@linux.ee>
+Date:	2009-04-27
+
+    Updating Estonian translation
+
+M	po/et.po
+
+commit 0a3801db4b9bbd4b3e59dcfc25c5f9f1231ce4fb
+Author: Maxim V. Dziumanenko <dziumanenko@gmail.com>
+Date:	2009-04-27
+
+    Updated Ukrainian translation
+
+M	po/uk.po
+
+commit af646715bf3180176274edba7f4f341bc1bed2d7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-26
+
+    Trivially rename a GConf key
+
+M	src/gpm-common.h
+M	src/gpm-manager.c
+M	src/gpm-prefs-core.c
+
+commit 9cb5ad0965da0537ef833c1cba59af8c5090e22f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-26
+
+    Add a foaf:mbox attribute to the DOAP file
+
+M	gnome-power-manager.doap
+
+commit 04cdebd1301e81eabf8afeba174e17b0b78c02ed
+Author: Jordi Mas i Hernandez <jmas@softcatala.org>
+Date:	2009-04-26
+
+    Minor fixes to Catalan translation
+
+M	po/ca.po
+
+commit cb8ab12ef3ccc61ba5be781ec6f7a0742439e185
+Author: Jorge Gonzalez <jorgegonz@svn.gnome.org>
+Date:	2009-04-24
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 659def26c4e3417e0e4ce5d843285a42e9956517
+Author: Olav Vitters <olav@bkor.dhs.org>
+Date:	2009-04-23
+
+    doap: Add desktop category
+
+M	gnome-power-manager.doap
+
+commit 2afc1080ed12aba7cee0d6bf75b5a25363449c1d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-23
+
+    Do the lid policy action on active-change. Fixes rh#497262
+
+M	src/gpm-manager.c
+
+commit 32f2a204b15468574d975175826206c4c8226316
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-22
+
+    Show the processor device if we have capability, not if we have events
+
+    This fixes the bug where we didn't get wakeup data the first time we
+    opened gnome-power-statistics. DeviceKit-power only populates the
+    data on the second request, and thus g-p-s wasn't showing the info
+    in the majority of cases
+
+M	src/gpm-statistics.c
+
+commit 9bf9eae28ba3200a2de86da419244897f95672a2
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-22
+
+    Prefer a signed tag for gnome.org
+
+M	RELEASE
+
+commit c35758611f1190703d5a25c8ee578cb70747176e
+Author: Matej Urban <matej.urban@gmail.com>
+Date:	2009-04-22
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit 3399ac5d1f5d2a18ade826eb839b584349f21a4d
+Author: Behdad Esfahbod <behdad@behdad.org>
+Date:	2009-04-21
+
+    Bug 578545 – preload gconf tree /apps/gnome-power-manager
+    recursively
+
+M	src/gpm-backlight.c
+M	src/gpm-manager.c
+M	src/gpm-prefs-core.c
+M	src/gpm-tray-icon.c
+
+commit 42fd8417ab7c9ddb238cac9a4dcac11fa3d4b6ab
+Merge: 9c2a0a1 6087b51
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-21
+
+    Merge branch 'master' into devkit-gobject
+
+commit 6087b51f2c7c28142725828d3832bb68de808975
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-21
+
+    Create an empty .gitignore file in m4 to ensure the directory is
+    created on fresh checkout
+
+A	m4/.gitignore
+
+commit a61e74548a1524dad313ad27d95f8c3003d53d1a
+Author: Matthias Clasen <mclasen@redhat.com>
+Date:	2009-04-21
+
+    Trivial build fix
+
+M	configure.ac
+
+commit ae0e154b695da69e26e80a2133c9d5665daa7af3
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-20
+
+    Use G_GINT64_FORMAT to fix compile on 64 bit computers
+
+M	src/egg-idletime.c
+
+commit 270425ee99c31247fa11dc175158433259033f55
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-20
+
+    Change the default lid close on AC policy to be suspend, not blank
+
+M	data/gnome-power-manager.schemas.in
+
+commit 8c56ff7be6ed6c9fc12a94137266329db31a8919
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-20
+
+    Connect to gnome-session and exit on logout
+
+    Register with the session and handle EndSession to fix RH#495904
+
+M	src/gpm-main.c
+M	src/gpm-session.c
+M	src/gpm-session.h
+
+commit 8f5c6515b6f2f9db35ed7a184cc4b10581231d7f
+Author: Jorge Gonzalez <jorgegonz@svn.gnome.org>
+Date:	2009-04-19
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 5cdec4702c7cbfe0bd0d007df6b3138f0d99359d
+Author: Jorge Gonzalez <jorgegonz@svn.gnome.org>
+Date:	2009-04-19
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit cf0d75df0987699ab6d4ef269e03d213c1634571
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-18
+
+    Add some trivial changes to RELEASE
+
+M	RELEASE
+
+commit 784cf74a06e1dc678590928006368d05eb66099c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-18
+
+    Update .gitignore
+
+M	.gitignore
+
+commit 6311e4bee64b769e30409fafb8e024077912b703
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-18
+
+    Convert a floating reference to prevent a GTK warning
+
+M	src/gpm-tray-icon.c
+
+commit 9c2a0a161405715be19276904154aedf1b7208b7
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-18
+
+    Convert a floating reference to prevent a GTK warning
+
+M	src/gpm-tray-icon.c
+
+commit 65d9d7af432330e990c85ec03ef1a1d6e41ba008
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-18
+
+    Remove our local copy of libdevkit-power
+
+    DeviceKit-power 007 ships a shared library which we can use instead of
+    copying and old version of the library. The new one has proper GObject
+    setters and getters and so convert the engine to use this new model.
+
+M	Makefile.am
+M	configure.ac
+D	libdevkit-power/.gitignore
+D	libdevkit-power/Makefile.am
+D	libdevkit-power/dkp-client.c
+D	libdevkit-power/dkp-client.h
+D	libdevkit-power/dkp-device.c
+D	libdevkit-power/dkp-device.h
+D	libdevkit-power/dkp-enum.c
+D	libdevkit-power/dkp-enum.h
+D	libdevkit-power/dkp-history-obj.c
+D	libdevkit-power/dkp-history-obj.h
+D	libdevkit-power/dkp-object.c
+D	libdevkit-power/dkp-object.h
+D	libdevkit-power/dkp-stats-obj.c
+D	libdevkit-power/dkp-stats-obj.h
+D	libdevkit-power/dkp-wakeups-obj.c
+D	libdevkit-power/dkp-wakeups-obj.h
+D	libdevkit-power/dkp-wakeups.c
+D	libdevkit-power/dkp-wakeups.h
+D	libdevkit-power/egg-debug.c
+D	libdevkit-power/egg-debug.h
+D	libdevkit-power/egg-obj-list.c
+D	libdevkit-power/egg-obj-list.h
+D	libdevkit-power/egg-string.c
+D	libdevkit-power/egg-string.h
+M	src/Makefile.am
+M	src/gpm-ac-adapter.c
+M	src/gpm-control.c
+M	src/gpm-devicekit.c
+M	src/gpm-devicekit.h
+M	src/gpm-engine.c
+M	src/gpm-engine.h
+M	src/gpm-graph-widget.c
+M	src/gpm-graph-widget.h
+M	src/gpm-manager.c
+M	src/gpm-marshal.list
+M	src/gpm-point-obj.c
+M	src/gpm-point-obj.h
+M	src/gpm-statistics.c
+M	src/gpm-tray-icon.c
+
+commit b499906adc7c3e1973d8885afbe729ae2647c2ef
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-18
+
+    Update the IDLETIME code to similar to gnome-session
+
+    Our homebrewed IDLETIME code is starting to show bugs, so we should
+    use the
+    same (better) code in gnome-session written by William Jon McCann.
+
+M	src/egg-idletime.c
+M	src/egg-idletime.h
+M	src/gpm-idle.c
+
+commit cf36e005a7ac43e7ff4ca9615de474d656fe2834
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-17
+
+    Add a commits file taken from Nautilus, and autogenerate the ChangeLog
+
+D	ChangeLog
+M	Makefile.am
+A	README.commits
+
+commit 785a8c7da6a55c641bdade8764122c21ec83323f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-17
+
+    Add DOAP file
+
+A	gnome-power-manager.doap
+
+commit 2e62038569d7f8b353f34411575fd42bc5eb963c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-17
+
+    Add some .gitignore files
+
+A	.gitignore
+A	applets/brightness/.gitignore
+A	applets/inhibit/.gitignore
+A	data/.gitignore
+A	help/.gitignore
+A	help/C/.gitignore
+A	help/ca/.gitignore
+A	help/de/.gitignore
+A	help/el/.gitignore
+A	help/en_GB/.gitignore
+A	help/es/.gitignore
+A	help/eu/.gitignore
+A	help/fi/.gitignore
+A	help/fr/.gitignore
+A	help/hu/.gitignore
+A	help/it/.gitignore
+A	help/oc/.gitignore
+A	help/pa/.gitignore
+A	help/ru/.gitignore
+A	help/sv/.gitignore
+A	libdevkit-power/.gitignore
+A	libhal-glib/.gitignore
+A	man/.gitignore
+A	po/.gitignore
+A	test/.gitignore
+A	tools/.gitignore
+
+commit 201ac002aec1599f458dc2b3cc471249e79c976c
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-13
+
+    Ensure we clear the default DPMS timeout of 1200s. Should fix #576169
+
+    2009-04-13	Richard Hughes	<richard@hughsie.com>
+
+    * src/gpm-dpms.c: (gpm_dpms_clear_timeouts), (gpm_dpms_init):
+    Ensure we clear the default DPMS timeout of 1200s. Should fix #576169
+
+    svn path=/trunk/; revision=3398
+
+M	ChangeLog
+M	src/gpm-dpms.c
+
+commit abd01b1900f14f4250efa02f513d9c42e3fd1d42
+Author: Simos Xenitellis <simos@src.gnome.org>
+Date:	2009-04-10
+
+    Updated Greek translation (Michael Kotsarinis)
+
+    svn path=/trunk/; revision=3396
+
+M	help/ChangeLog
+M	help/Makefile.am
+A	help/el/el.po
+
+commit ace25df883d485ba1cb50e87c8a028af29926cb3
+Author: Simos Xenitellis <simos@src.gnome.org>
+Date:	2009-04-10
+
+    Updated Greek translation
+
+    svn path=/trunk/; revision=3395
+
+M	po/el.po
+
+commit b4e5102306a94765f5fe8a6d05b86966a7e95b8d
+Author: Goran Rakic <grakic@src.gnome.org>
+Date:	2009-04-10
+
+    Updated Serbian translation (by Miloš Popović)
+
+    svn path=/trunk/; revision=3391
+
+M	po/ChangeLog
+M	po/sr.po
+M	po/sr@latin.po
+
+commit d6d17268974332332f95f76780523f106b525f27
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-06
+
+    Verify that all GError's are initialised to NULL before they are used.
+
+    2009-04-06	Richard Hughes	<richard@hughsie.com>
+
+    * src/gpm-backlight.c: (gpm_backlight_button_pressed_cb),
+    (idle_changed_cb), (control_resume_cb):
+    * src/gpm-button.c: (coldplug_buttons):
+    * src/gpm-manager.c: (gpm_manager_unblank_screen):
+    * src/gpm-notify.c: (notify_general_clicked_cb):
+    * src/gpm-prefs-core.c: (gpm_dbus_method_bool),
+    (gpm_dbus_method_int), (pk_prefs_set_defaults_cb):
+    Verify that all GError's are initialised to NULL before they are
+    used. Should fix #576169
+
+    svn path=/trunk/; revision=3387
+
+M	ChangeLog
+M	src/gpm-backlight.c
+M	src/gpm-button.c
+M	src/gpm-manager.c
+M	src/gpm-notify.c
+M	src/gpm-prefs-core.c
+
+commit de03caee4f9d63a77b3411c1aa9022f2958af370
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-04-06
+
+    Unref the popup window when it's cleared. Fixes #577901
+
+    2009-04-06	Richard Hughes	<richard@hughsie.com>
+
+    * src/gpm-tray-icon.c: (gpm_tray_icon_popup_cleared_cd):
+    Unref the popup window when it's cleared.
+    Fixes #577901
+
+    svn path=/trunk/; revision=3386
+
+M	ChangeLog
+M	src/gpm-tray-icon.c
+
+commit 6ff0c1068b637319008239213608dfee2651ee0f
+Author: Petr Kovar <pknbe@volny.cz>
+Date:	2009-03-31
+
+    Updated Czech translation by Lucas Lommer.
+
+    2009-03-31	Petr Kovar  <pknbe@volny.cz>
+
+	* cs.po: Updated Czech translation by Lucas Lommer.
+
+    svn path=/trunk/; revision=3384
+
+M	po/ChangeLog
+M	po/cs.po
+
+commit 1c6a7665bba9ce0bee66dfb02ddbdc3085c18c89
+Author: Shankar Prasad <sprasad@src.gnome.org>
+Date:	2009-03-30
+
+    updated kn.po
+
+    svn path=/trunk/; revision=3382
+
+M	po/ChangeLog
+M	po/kn.po
+
+commit c744d09e053885a1620d55e0ca0b546a315dd13b
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-03-26
+
+    Monitor the backlight blank time GConf value change, and set the blank
+
+    2009-03-26	Richard Hughes	<richard@hughsie.com>
+
+    * src/gpm-manager.c: (gpm_conf_gconf_key_changed_cb):
+    Monitor the backlight blank time GConf value change, and set the
+    blank idle time when this changes.
+
+    svn path=/trunk/; revision=3379
+
+M	ChangeLog
+M	src/gpm-manager.c
+
+commit 03f8ec03778d2bf583ab3ffb9bf9092d4b64bce7
+Author: Gil Forcada Codinachs <gforcada@src.gnome.org>
+Date:	2009-03-24
+
+    Updated Catalan translation by David Planella
+
+    svn path=/trunk/; revision=3378
+
+M	po/ChangeLog
+M	po/ca.po
+
+commit b3b8da8f482801671aac1a44b06bdc3b5f4d3240
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-03-24
+
+    Bump for new trunk version.
+
+    2009-03-24	Richard Hughes	<richard@hughsie.com>
+
+    * configure.ac:
+    Bump for new trunk version.
+
+    * data/gnome-power-manager.schemas.in:
+    Reduce initial dim threshold to 10 seconds.
+
+    * src/gpm-brightness-xrandr.c: (gpm_brightness_xrandr_init):
+    * src/gpm-brightness.c: (gpm_brightness_set), (gpm_brightness_get),
+    (gpm_brightness_up), (gpm_brightness_down), (gpm_brightness_init):
+    Add some debugging to try to work out why XRANDR craps out on us
+    sometimes.
+
+    svn path=/trunk/; revision=3376
+
+M	ChangeLog
+M	configure.ac
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-brightness-xrandr.c
+M	src/gpm-brightness.c
+
+commit fb12bbbfc4b55f63f119511b9dcc0b78b286011d
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-03-23
+
+    Remove some warning calls that slipped in to the DPMS rewrite.
+
+    2009-03-23	Richard Hughes	<richard@hughsie.com>
+
+    * src/gpm-idle.c: (gpm_idle_set_mode),
+    (gpm_idle_idletime_alarm_expired_cb), (gpm_idle_idletime_reset_cb):
+    Remove some warning calls that slipped in to the DPMS rewrite.
+
+    svn path=/trunk/; revision=3374
+
+M	ChangeLog
+M	src/gpm-idle.c
+
+commit 9e0e28691c128cdf65f73e2de6e45f5337cbc605
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-03-23
+
+    Use ngettext for a 2.26.x era string. Fixes #576128
+
+    2009-03-23	Richard Hughes	<richard@hughsie.com>
+
+    * src/gpm-statistics.c: (gpm_stats_update_info_page_details):
+    Use ngettext for a 2.26.x era string.
+    Fixes #576128
+
+    svn path=/trunk/; revision=3373
+
+M	ChangeLog
+M	src/gpm-statistics.c
+
+commit 28a28fc95078d919618752b42da7ed09597f235f
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-03-23
+
+    Remove unused GConf keys.
+
+    2009-03-23	Richard Hughes	<richard@hughsie.com>
+
+    * data/gnome-power-manager.schemas.in:
+    * src/gpm-common.h:
+    Remove unused GConf keys.
+
+    svn path=/trunk/; revision=3372
+
+M	ChangeLog
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-common.h
+
+commit 59a9ef96edd9d576f07bc3cf18d47d00029b8dde
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-03-23
+
+    Rewrite the DPMS class to have 1% of the complexity. Don't try
+    and sync
+
+    2009-03-23	Richard Hughes	<richard@hughsie.com>
+
+    * src/gpm-dpms.h:
+    * src/gpm-dpms.c: (gpm_dpms_error_quark), (gpm_dpms_x11_get_mode),
+    (gpm_dpms_x11_set_mode), (gpm_dpms_mode_from_string),
+    (gpm_dpms_mode_to_string), (gpm_dpms_set_mode),
+    (gpm_dpms_get_mode), (gpm_dpms_poll_mode_cb),
+    (gpm_dpms_class_init), (gpm_dpms_init), (gpm_dpms_finalize),
+    (gpm_dpms_test):
+    Rewrite the DPMS class to have 1% of the complexity. Don't try
+    and sync
+    with the XServer, as each distro seems to default to doing different
+    things, and if XOrg is managing DPMS then we disagree when the idle
+    point happens. We can't rely of the XServer to tell us a changed
+    signal
+    for policy, as it's only polled once every 10 seconds.
+    In this new model we just tell the server to turn on and off when
+    required.
+    Should fix #576169.
+
+    * data/gnome-power-manager.schemas.in:
+    Change the default DPMS off mode to off.
+
+    * src/gpm-backlight.c: (gpm_backlight_set_mode),
+    (gpm_backlight_get_mode), (gpm_conf_gconf_key_changed_cb),
+    (gpm_backlight_button_pressed_cb), (idle_changed_cb),
+    (control_resume_cb), (gpm_backlight_finalize),
+    (gpm_backlight_init):
+    * src/gpm-idle.c: (gpm_idle_set_mode), (gpm_idle_evaluate),
+    (gpm_idle_idletime_alarm_expired_cb), (gpm_idle_idletime_reset_cb),
+    (gpm_idle_finalize), (gpm_idle_init):
+    Make sure the backlight mode is scheduled, as a typo prevented it from
+    activating in 2.26.x code, and IDLETIME was reset with the DPMS
+    request
+    which made the server come straight back to life.
+    Basically, it was terminally broken, and it's now fixed.
+
+    * src/gpm-manager.c: (gpm_manager_blank_screen),
+    (gpm_manager_unblank_screen), (idle_changed_cb),
+    (update_dpms_throttle), (screensaver_auth_request_cb):
+    Trivial method renames.
+
+    * src/gpm-prefs-core.c: (gpm_prefs_sleep_slider_changed_cb),
+    (gpm_prefs_setup_sleep_slider),
+    (gpm_prefs_brightness_slider_changed_cb), (prefs_setup_ac),
+    (prefs_setup_battery), (prefs_setup_ups):
+    We don't base our DPMS off on the session idle anymore, so don't add
+    the session idle timeout to DPMS sliders.
+
+    * src/gpm-self-test.c: (main):
+    Add some unit tests for the DPMS code.
+
+    svn path=/trunk/; revision=3371
+
+M	ChangeLog
+M	data/gnome-power-manager.schemas.in
+M	src/gpm-backlight.c
+M	src/gpm-dpms.c
+M	src/gpm-dpms.h
+M	src/gpm-idle.c
+M	src/gpm-manager.c
+M	src/gpm-prefs-core.c
+M	src/gpm-self-test.c
+
+commit 874516ec49cb37ad8adb55d4f1b9df4b5f79bed2
+Author: Nickolay V. Shmyrev <nshmyrev@src.gnome.org>
+Date:	2009-03-20
+
+    Changed mode accidentally
+
+
+    svn path=/trunk/; revision=3369
+
+M	po/ru.po
+
+commit 87bbc9ed32adbd202695f99ffeb8fbf15a83e255
+Author: Nickolay V. Shmyrev <nshmyrev@yandex.ru>
+Date:	2009-03-20
+
+    Updated Russian translation.
+
+    2009-03-20	Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
+
+	* ru.po: Updated Russian translation.
+
+
+    svn path=/trunk/; revision=3368
+
+M	po/ChangeLog
+M	po/ru.po
+
+commit 2cd840933530b9eb5a3cc5f56da3e72e048fd24e
+Author: Ignacio Casal Quinteiro <icq@src.gnome.org>
+Date:	2009-03-18
+
+    Updated Galician Translation.
+
+    svn path=/trunk/; revision=3367
+
+M	po/gl.po
+
+commit 23ee9fcb555d9eb2e115142899eb95a923af0cf5
+Author: Ignacio Casal Quinteiro <icq@src.gnome.org>
+Date:	2009-03-18
+
+    Updated Galician translation by Suso Baleato.
+
+    svn path=/trunk/; revision=3364
+
+M	po/ChangeLog
+M	po/gl.po
+
+commit 10d0b32d910059fc5b50362c4057aeaebd62a630
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-03-16
+
+    Fix the low capacity warning to fix rh#489832
+
+    2009-03-16	Richard Hughes	<richard@hughsie.com>
+
+    * src/gpm-engine.c: (gpm_engine_device_check_capacity):
+    Fix the low capacity warning to fix rh#489832
+
+    svn path=/trunk/; revision=3361
+
+M	ChangeLog
+M	src/gpm-engine.c
+
+commit f7d44b93dbb6397797354b2416f34cb8e344f12b
+Author: Ignacio Casal Quinteiro <icq@src.gnome.org>
+Date:	2009-03-16
+
+    Updated Galician translation by Suso Baleato.
+
+    svn path=/trunk/; revision=3360
+
+M	po/ChangeLog
+M	po/gl.po
+
+commit b1f4cf4f33a603ac88a62e9d33e205b9272a46cc
+Author: Richard Hughes <richard@hughsie.com>
+Date:	2009-03-16
+
+    Post-release bump.
+
+    2009-03-16	Richard Hughes	<richard@hughsie.com>
+
+    * RELEASE:
+    * configure.ac:
+    Post-release bump.
+
+    svn path=/trunk/; revision=3359
+
+M	ChangeLog
+M	RELEASE
+M	configure.ac
